@@ -42,6 +42,15 @@ __PACKAGE__->config(
     'Plugin::ConfigLoader' => { file => 'flashcards.conf' },
     root => dir('.', 'root')->absolute,
     home => dir('.', )->absolute,
+    default_view        => 'TT',
+    pageSize            => 25,
+    difficultCardsLimit => 15,
+    ttTimer             => 0,
+    authen_cookie       => { mac_secret => '123456789' },
+    recaptcha           => {
+        publicKey  => '6Le31rwSAAAAAP_YNUSySH8-joJ7D8qfvYhyxvib',
+        privateKey => '123',
+    },
 );
 
 # Start the application
