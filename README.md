@@ -16,4 +16,4 @@ I would love to receive code contributions.
 LICENSE
 =======
 
-I'm releasing this code under the same terms a Perl.
+I'm releasing this code under the same license as Perl.
