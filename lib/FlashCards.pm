@@ -10,7 +10,6 @@ use Path::Class qw/dir/;
 #   ConfigLoader: load configuration
 # Compress::Gzip: gzip files if browser requests it
 # Static::Simple: serve static files from the application's root directory
-#     StackTrace: does what?
 use Catalyst qw/
     Cache::HTTP
     ConfigLoader
@@ -20,7 +19,6 @@ use Catalyst qw/
 /;
 
 extends 'Catalyst';
-
 with 'CatalystX::AuthenCookie';        # cookie authentication
 with 'CatalystX::FlashCards::User';    # authenticate users with AuthenCookie
 with 'CatalystX::Slug';                # create slugs for urls
