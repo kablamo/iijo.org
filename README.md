@@ -13,6 +13,13 @@ that it is.  I feel this UI is simpler and easier to use.
 
 I would love to receive code contributions.
 
+iijo.org/dictionary
+===================
+
+[iijo.org](http://iijo.org/dictionary) is almost a separate website.  Its a
+searchable Chinese/English dictionary.  The goal is to provide a dictionary
+that allows you to quickly add a new flashcard to your list of cards to learn.
+
 LICENSE
 =======
 
