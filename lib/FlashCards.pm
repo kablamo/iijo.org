@@ -4,6 +4,7 @@ use namespace::autoclean;
 
 use Catalyst::Runtime 5.80;
 use Sys::Hostname qw/hostname/;
+use Path::Class qw/dir/;
 
 #    Cache::HTTP: etags and last-modified header
 #   ConfigLoader: load configuration
