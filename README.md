@@ -5,9 +5,9 @@ iijo.org
 review Chinese flashcards.  The 2 stand out features of this site are the fact
 it uses [spaced repetition](http://en.wikipedia.org/wiki/Spaced_repetition) and
 the ability to create flashcards from a dictionary of words.  I'm not sure if these
-are still rare features but when I started on this project they were.
+are still rare features but when I started on this project in 2008 they were.
 
-People often tell me its not using spaced repititon because the UI is not what
+People sometimes tell me its not using spaced repititon because the UI is not what
 they are used to from Anki, but it if you check the source code you will see
 that it is.  I feel this UI is simpler and easier to use.
 
