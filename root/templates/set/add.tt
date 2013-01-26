@@ -1,0 +1,55 @@
+[% PROCESS header.tt %]
+
+[% IF query %]
+  [% i = query %]
+[% ELSE %]
+  [% i = "" %]
+[% END %]
+[% IF language %]
+  [% l = language %]
+[% ELSE %]
+  [% l = "english" %]
+[% END %]
+
+    <div id="secondHeader">
+      <div class="grid_14 prefix_1 postfix_1">
+        <h1>add words to <a class="whiteLink" href="/set/[% setId %]/[% setSlug %]">[% setName %]</a></h1>
+      </div>
+      <div style="height: 0em" class="clear"></div>
+    </div>
+
+    <form id="dictionarySearch" action="/set/[% setId %]/add">
+      <div class="grid_10 prefix_1 postfix_1">
+        <input class="searchBox" name="query" type="text" value="[% i %]"/>
+        <button type="submit">search</button><br>
+        search using 
+        <input class="english"    type="radio" name="language" value="english"    [% IF l == 'english'    %]checked[% END %]/>English
+        <input class="pinyin"     type="radio" name="language" value="pinyin"     [% IF l == 'pinyin'     %]checked[% END %]/>Pinyin &nbsp;or 
+        <input class="simplified" type="radio" name="language" value="simplified" [% IF l == 'simplified' %]checked[% END %]/>Simplified characters
+      </div>
+    </form>
+      <div style="height:3em" class="clear"></div>
+
+[% IF best.size > 0 %]
+    <div id="specialHeader">
+      <div style="height:3em" class="clear"></div>
+  [% PROCESS rows.tt definitions = best selectEverything = 1 add = 1 %]
+      <div style="height:0em" class="clear"></div>
+    </div>
+[% END %]
+
+[% IF exact.size > 0 %]
+      <div style="height:3em" class="clear"></div>
+  [% PROCESS thinRows.tt definitions = exact selectEverything = 1 add = 1 %]
+      <div style="height:0em" class="clear"></div>
+[% END %]
+
+[% IF (best.size == 0 && exact.size == 0) %]
+      <div style="height:4em" class="clear"></div>
+      <div class="grid_10 prefix_1 post_fix_3">
+        no matches found
+      </div>
+      <div style="height:2em" class="clear"></div>
+[% END %]
+
+[% PROCESS footer.tt %]

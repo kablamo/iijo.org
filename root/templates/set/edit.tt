@@ -1,0 +1,26 @@
+[% PROCESS header.tt %]
+
+      <div id="secondHeader">
+        <div class="grid_14 prefix_1">
+          <h1>edit <a class="whiteLink" href="/set/[% setId %]/[% setSlug %]">[% setName %]</a></h1>
+        </div>
+        <div class="clear"></div>
+      </div>
+ 
+      <div class="grid_7 prefix_1">
+        <form id="createSetForm" action="/set/[% setId %]/editSubmit">
+          set name
+          <h4>
+            <input class="textInputFullWidth sround" name="name" type="text" value="[% setName %]">
+          </h4>
+          <br>
+          set description
+          <h4>
+            <textarea rows=4 name="description">[% description %]</textarea>
+          </h4>
+          <br>
+          <button type="submit"><h5>save changes</h5></button>
+        </form>
+      </div>
+ 
+[% PROCESS footer.tt %]

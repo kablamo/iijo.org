@@ -1,0 +1,59 @@
+[% PROCESS header.tt %]
+
+    <div id="secondHeaderFat">
+      <div class="grid_14 prefix_1">
+        <h1>[% profile.username %]</h1>
+      </div>
+      <div class="clear"></div>
+    </div>
+
+      <div class="clear"></div>
+      <div class="grid_7 prefix_1">
+   <!-- <div class="left box">[% profile.description %]<br>&nbsp;</div> -->
+        <h4>user score: [% profile.score %]<br>&nbsp;</h4>
+        <h6>flashcards: [% totalCards %]</h6>
+        <h6>completed: [% pctComplete %]</h6>
+        <h4><br>&nbsp;</h4>
+      </div>
+      <div class="grid_7">
+        <ul class="right bullets">
+          <li><a href="/user/password">change password</a></li>
+          <li><a href="/user/username">change username</a></li>
+        </ul>
+        <div class="right userFlattery">[% profile.username %]</div>
+      </div>
+
+      <div style="height:0em" class="clear"></div>
+      <div class="grid_14 prefix_1">
+        <h3>learning report</h3>
+        <div id="plotWithFlot" style="width:600px;height:300px;"></div>
+<script id="source" language="javascript" type="text/javascript">
+$(function () {
+
+    // generate a dataset
+    var d1 = [];
+    for (var i = 0; i < 20; ++i)
+        d1.push([i, Math.sin(i)]);
+    
+    // plot it
+    var data    = [{ data: d1, label: "Pressure", color: "#333" }];
+    var element = $("#plotWithFlot");
+    var options = {
+        bars:  { show: true, barWidth: 0.5, fill: 1.0 },
+        xaxis: { ticks: [], autoscaleMargin: 0.02 },
+        yaxis: { min: -2, max: 2 },
+        grid:  { markings: [
+                              { color: '#f6f6f6', yaxis: { from: 1 } },
+                              { color: '#f6f6f6', yaxis: { to: -1 } },
+                           ]
+        },
+        selection: { mode: "x" }
+    };
+    var plot = $.plot(element, data, options);
+});
+</script>
+      </div>
+
+      <div style="height:10em" class="clear"></div>
+
+[% PROCESS footer.tt %]

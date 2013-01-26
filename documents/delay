@@ -1,0 +1,75 @@
+Delay is the time until the next card is shown.
+
+According to science, delay should progress exponentially to optimize
+brian/memory learning.  
+
+An exponential curve has the equation x^n.  Assume x=2 and n = delay_exponent.
+delay_exponent = 1     aka      00002m  (00d 00h 02m)
+delay_exponent = 2     aka      00004m  (00d 00h 04m)
+delay_exponent = 3     aka      00016m  (00d 00h 16m)
+delay_exponent = 4     aka      00032m  (00d 00h 32m)
+delay_exponent = 5     aka      00064m  (00d 01h 04m)
+delay_exponent = 6     aka      00128m  (00d 02h 08m)
+delay_exponent = 7     aka      00256m  (00d 04h 16m)
+delay_exponent = 8     aka      00512m  (00d 08h 32m)
+delay_exponent = 9     aka      01024m  (00d 17h 04m)
+delay_exponent = 10    aka      02048m  (01d 10h 08m)
+delay_exponent = 11    aka      04096m  (02d 20h 16m)
+delay_exponent = 12    aka      08192m  (05d 16h 32m)
+delay_exponent = 13    aka      16384m  (11d 09h 04m)
+
+
+Store the delay_exponent in minutes as a column in the cards table.
+
+
+________________
+approach 1
+
+each time you get a card right, delay_exponent++
+each time you get a card wrong, delay_exponent--
+
+
+________________
+approach 2
+
+offer the user 5 choices next to each other on the curve:
+delay_exponent = 1
+delay_exponent = 2
+delay_exponent = 3
+delay_exponent = 4
+delay_exponent = 5
+
+update the delay_exponent to the user's selected choice.
+
+
+
+________________
+approach 3
+
+offer the user 5 choices not next to each other on the curve:
+delay_exponent = 1
+delay_exponent = 4
+delay_exponent = 7
+delay_exponent = 10
+delay_exponent = 13
+
+update the delay_exponent to the user's selected choice.
+
+
+________________
+approach 4
+
+offer the user 5 choices not next to each other on the curve:
+00002m  (00d 00h 02m)
+delay_exponent = int(delay_exponent - 1 / 3) * 1
+delay_exponent = int(delay_exponent - 1 / 3) * 2 
+delay_exponent = delay_exponent - 1 spot on the exponent curve
+delay_exponent = delay_exponent + 1 spot on the exponent curve
+
+________________
+summary
+
+approaches 1 and 2 sound best.
+approache 4 might make a user feel more in control though
+
+

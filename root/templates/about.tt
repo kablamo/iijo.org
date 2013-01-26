@@ -1,0 +1,21 @@
+[% INCLUDE header.tt %]
+
+      <div id="secondHeader">
+        <div class="grid_9 prefix_1">
+          <h1>about <a href="http://iijo.org">IIJO</a></h1>
+        </div>
+        <div style="height:0px" class="clear"></div>
+      </div>
+
+      <div class="grid_14 prefix_1">
+        <a href="/faq">read</a> the FAQ.<br>
+        <a href="http://twitter.com/iijo">follow</a> IIJO on Twitter for support and updates.<br>
+        <a href="http://blog.iijo.org">read</a> the blog, a diary of one guy's mission to learn Chinese.<br>
+        <br>
+        created by <a href="http://ericjohnson.posterous.com" class="me">eric johnson</a>. © 2010.<br>
+        user contributions are <a class="me" href="http://creativecommons.org/licenses/by-sa/3.0/">cc-wiki</a><br>
+      </div>
+
+[% INCLUDE footer.tt %]
+
+

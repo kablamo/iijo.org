@@ -1,0 +1,11 @@
+[% INCLUDE header.tt %]
+
+       <div id="secondHeader">
+           <h1>Something not cool happened</h1>
+       </div>
+
+     [% FOREACH error IN errors %]
+       <div id="errorMessage"><code>[% error %]</code></div>
+     [% END %]
+
+[% INCLUDE footer.tt %]

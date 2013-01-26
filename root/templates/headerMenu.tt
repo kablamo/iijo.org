@@ -1,0 +1,29 @@
+      <!-- ================================= start header ================================= -->
+      <div style="height:0em" class="clear"></div>
+      <div id="header">
+        <!--[if IE 6]><div style="height:.1em" class="clear"></div><![endif]-->
+        <div class="grid_14 prefix_1">
+          <ul class="nav site">
+            <li class="secondary right">
+[% IF !user.username or user.guest == "y" %]
+              <a class="firstMenu" href="/user/login"   >login</a>
+              <a class="firstMenu" href="/user/register">create account</a>
+[% ELSE %]
+              <a class="firstMenu" href="/user/[% user.userId %]/[% user.slug %]">[% user.username %]</a>
+              <a class="firstMenu" href="/user/logout">logout</a>
+              <a class="firstMenu" href="/about">(iijo)</a>
+[% END %]
+            </li>
+            <li class="secondary left">
+[% IF practiceMode %]
+              <a class="secondMenu" href="/set/[% setId %]/[% setSlug %]">[% setName %]</a>
+[% END %]
+              <a class="firstMenu"  href="/mysets">my sets</a>
+              <a class="firstMenu"  href="/sharedsets">shared sets</a>
+              <a class="firstMenu"  href="/set/create">create a set</a>
+            </li>
+          </ul>
+        </div>
+        <div style="height:0px" class="clear"></div>
+      </div>
+      <!-- ================================= end header ================================= -->

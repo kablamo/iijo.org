@@ -1,0 +1,54 @@
+[% IF definitions && definitions.size > 0 %]
+      <div class="clear"></div>
+      <div class="grid_14 prefix_1">
+  [% FOREACH d IN definitions %]
+    [% IF selectEverything || d.SetDefinition.selected == 1 %]
+      [% s = "" %]
+    [% ELSE %]
+      [% s = "deselected" %]
+    [% END %]
+        <ul class="row [% s %]">
+          <a class="notBold [% s %]" href="/definition/[% d.Definition.definitionId %]/[% d.Definition.simplified %]/[% setId %]">
+            <li class="simplified">[% d.Definition.simplified %]</li>
+            <li class="pinyin">[ [% d.Definition.pinyin %] ]</li>
+          </a>
+        </ul>
+        <ul class="row [% s %]">
+    [% IF add %]
+          <li class="button">
+              <form action="/set/[% setId %]/definition/[% d.Definition.definitionId %]/add">
+                <button class="" type="submit">add word</button>
+              </form>
+          </li>
+    [% END %]
+    [% IF ignore %]
+      [% IF d.SetDefinition.selected == 1 %]
+        [% ignoreButton = "&nbsp;&nbsp;ignore&nbsp;&nbsp;" %]
+        [% ignoreAction = "/set/$setId/definition/$d.Definition.definitionId/deselect/view" %]
+        [% ignoreTitle  = "don't show this word when practicing this flashcard set" %]
+      [% ELSE %]
+        [% ignoreButton = "unignore" %]
+        [% ignoreAction = "/set/$setId/definition/$d.Definition.definitionId/select" %]
+        [% ignoreTitle  = "show this word when practicing this flashcard set" %]
+      [% END %]
+          <li class="button">
+            <form action="[% ignoreAction %]">
+              <button class="" type="submit" title="[% ignoreTitle %]">[% ignoreButton %]</button>
+            </form>
+          </li>
+    [% END %]
+    [% IF delete %]
+          <li class="button">
+            <form action="/set/[% setId %]/definition/[% d.Definition.definitionId %]/remove">
+              <button class="[% s %]" [% s %]="" type="submit" title="remove from this word from this flashcard set">delete</button>
+            </form>
+          </li>
+    [% END %]
+        </ul>
+        <ul class="row [% s %]">
+          <li class="english">[% d.Definition.english    %]</li>
+        </ul>
+  [% END %]
+      </div>
+  [% #PROCESS more.tt hrefBase = "/set/$setId/$setSlug" topHeight = 1 bottomHeight = 2 %]
+[% END %]

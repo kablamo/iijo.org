@@ -1,0 +1,56 @@
+[% PROCESS header.tt noHeader = 1 %]
+
+    <div id="specialHeader">
+      <div style="height:2em" class="clear"></div>
+      <div class="grid_14 prefix_1">
+        simplified
+      </div>
+      <div style="height:0em" class="clear"></div>
+      <div class="grid_14 prefix_1">
+        <form id="right" action="[% baseURL %][% cardId %]/difficulty/1">
+          <ul class="card">
+            <li class="simplified">[% simplified %]</li>
+            <li class="button">
+              <button class="huge" type="submit"><nobr>I was <u>r</u>ight</nobr></button>
+            </li>
+          </ul>
+        </form>
+      </div>
+
+      <div style="height:2em" class="clear"></div>
+      <div class="grid_14 prefix_1">
+        pinyin
+      </div>
+      <div style="height:0em" class="clear"></div>
+      <div class="grid_14 prefix_1">
+        <form id="wrong" action="[% baseURL %][% cardId %]/difficulty/0">
+          <ul class="card">
+            <li class="simplified">[% pinyin %]</li>
+            <li class="button">
+              <button class="huge" type="submit"><nobr>I was <u>w</u>rong</nobr></button>
+            </li>
+          </ul>
+        </form>
+      </div>
+
+      <div style="height:2em" class="clear"></div>
+      <div class="grid_14 prefix_1">
+        english
+      </div>
+      <div style="height:0em" class="clear"></div>
+      <div class="grid_14 prefix_1">
+        <ul class="card">
+          <li class="simplified">[% english %]</li>
+          <li class="stats">
+<!--        <div id="cardsLeft"  >[% cardsLeft %]/[% totalCards %] left</div> -->
+            <div id="pctComplete">[% pctComplete %] complete</div>
+            <div id="difficulty" >difficulty: [% difficulty %]</div>
+          </li>
+        </ul>
+      </div>
+      <div style="height:3em" class="clear"></div>
+    </div>
+
+
+[% PROCESS headerMenu.tt %]
+[% PROCESS footer.tt %]

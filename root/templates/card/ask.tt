@@ -1,0 +1,70 @@
+[% PROCESS header.tt noHeader = 1 %]
+
+    <div id="specialHeader">
+      <div style="height:2em" class="clear"></div>
+      <div class="grid_14 prefix_1">
+        simplified
+      </div>
+      <div style="height:0em" class="clear"></div>
+      <div class="grid_14 prefix_1">
+          <ul class="card">
+            <li class="simplified">[% simplified %]</li>
+            <li class="button">
+              <form id="show" action="[% baseURL %][% cardId %]/answer">
+                <input id="hBaseURL"          type="hidden" value="[% baseURL       %]">
+                <input id="hCardsLeft"        type="hidden" value="[% cardsLeft     %]">
+                <input id="hTotalCards"       type="hidden" value="[% totalCards    %]">
+                <input id="hCardId"           type="hidden" value="[% cardId        %]">
+                <input id="hDefinitionId"     type="hidden" value="[% definitionId  %]">
+                <input id="hDifficulty"       type="hidden" value="[% difficulty    %]">
+                <input id="hEnglish"          type="hidden" value="[% english    | html %]">
+                <input id="hPinyin"           type="hidden" value="[% pinyin     | html %]">
+                <input id="hSimplified"       type="hidden" value="[% simplified | html %]">
+                <input id="hEnglishAnswer"    type="hidden" value="[% englishAnswer    | html %]">
+                <input id="hPinyinAnswer"     type="hidden" value="[% pinyinAnswer     | html %]">
+                <input id="hSimplifiedAnswer" type="hidden" value="[% simplifiedAnswer | html %]">
+                <button class="huge ask" type="submit"><u>s</u>how answers</button>
+              </form>
+              <form id="right" action="[% baseURL %][% cardId %]/difficulty/1">
+                <button class="huge answer" type="submit"><nobr>I was <u>r</u>ight</nobr></button>
+              </form>
+            </li>
+          </ul>
+      </div>
+
+      <div style="height:2em" class="clear"></div>
+      <div class="grid_14 prefix_1">
+        pinyin
+      </div>
+      <div style="height:0em" class="clear"></div>
+      <div class="grid_14 prefix_1">
+        <ul class="card">
+          <li class="pinyin">[% pinyin %]</li>
+            <li class="button">
+              <form id="wrong" action="[% baseURL %][% cardId %]/difficulty/0">
+                <button class="huge answer" type="submit"><nobr>I was <u>w</u>rong</nobr></button>
+              </form>
+            </li>
+        </ul>
+      </div>
+
+      <div style="height:2em" class="clear"></div>
+      <div class="grid_14 prefix_1">
+        english
+      </div>
+      <div style="height:0em" class="clear"></div>
+      <div class="grid_14 prefix_1">
+        <ul class="card">
+          <li class="english">[% english %]</li>
+          <li class="stats">
+<!--        <div id="cardsLeft"  >[% cardsLeft %] out of [% totalCards %] flashcards</div> -->
+            <div id="pctComplete">[% pctComplete %] complete</div> 
+            <div id="difficulty" >this card has difficulty [% difficulty %]</div>
+          </li>
+        </ul>
+      </div>
+      <div style="height:3em" class="clear"></div>
+    </div>
+
+[% PROCESS headerMenu.tt %]
+[% PROCESS footer.tt %]

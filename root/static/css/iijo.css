@@ -1,0 +1,600 @@
+/* === mini reset ======================================================== */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, input, textarea, table, caption, tbody, tfoot, thead, tr, th, td 
+{
+ margin: 0;
+ padding: 0;
+ border: 0;
+ outline: 0;
+ vertical-align: baseline;
+ background: transparent;
+}
+body {line-height: 1}
+ol, ul {list-style: disc inside none;}
+html, body, div, form, fieldset, legend, label {margin: 0; padding: 0}
+table {border-collapse: collapse; border-spacing: 0}
+th, td {text-align: left; vertical-align: top}
+h1, h2, h3, h4, h5, h6, th, td, caption {font-weight:normal}
+img {border: 0}
+input:hover  {outline: 0}
+input:active {outline: 0}
+/* === 960 flexible grid ================================================= */
+/* containers */
+.container_16 {width: 92%; margin-left: 4%; margin-right: 4%}
+/* grid >> global */
+.grid_1, .grid_2, .grid_3, .grid_4, .grid_5, .grid_6, .grid_7, .grid_8, .grid_9, .grid_10, .grid_11, .grid_12, .grid_13, .grid_14, .grid_15, .grid_16 
+{display: inline; float: left; margin-left: 1%; margin-right: 1%}
+.container_16 .grid_4  {width: 23%}
+.container_16 .grid_8  {width: 48%}
+.container_16 .grid_12 {width: 73%}
+.container_16 .grid_16 {width: 98%}
+/* grid >> children (alpha ~ first, omega ~ last) */
+.alpha {margin-left:  0}
+.omega {margin-right: 0}
+/* grid >> 16 columns */
+.container_16 .grid_1  {width:  4.25%}
+.container_16 .grid_2  {width: 10.50%}
+.container_16 .grid_3  {width: 16.75%}
+.container_16 .grid_5  {width: 29.25%}
+.container_16 .grid_6  {width: 35.50%}
+.container_16 .grid_7  {width: 41.75%}
+.container_16 .grid_9  {width: 54.25%}
+.container_16 .grid_10 {width: 60.50%}
+.container_16 .grid_11 {width: 66.75%}
+.container_16 .grid_13 {width: 79.25%}
+.container_16 .grid_14 {width: 85.50%}
+.container_16 .grid_15 {width: 91.75%}
+/* prefix extra space >> global */
+.container_16 .prefix_4  {padding-left: 25%}
+.container_16 .prefix_8  {padding-left: 50%}
+.container_16 .prefix_12 {padding-left: 75%}
+/* prefix extra space >> 16 columns */
+.container_16 .prefix_1  {padding-left:  6.25%}
+.container_16 .prefix_2  {padding-left: 12.50%}
+.container_16 .prefix_3  {padding-left: 18.75%} 
+.container_16 .prefix_5  {padding-left: 31.25%} 
+.container_16 .prefix_6  {padding-left: 37.50%} 
+.container_16 .prefix_7  {padding-left: 43.75%} 
+.container_16 .prefix_9  {padding-left: 56.25%} 
+.container_16 .prefix_10 {padding-left: 62.50%} 
+.container_16 .prefix_11 {padding-left: 68.75%} 
+.container_16 .prefix_13 {padding-left: 81.25%} 
+.container_16 .prefix_14 {padding-left: 87.50%} 
+.container_16 .prefix_15 {padding-left: 93.75%}
+/* suffix extra space >> global */
+.container_16 .suffix_4  {padding-right: 25%;}
+.container_16 .suffix_8  {padding-right: 50%;} 
+.container_16 .suffix_12 {padding-right: 75%;}
+/* suffix extra space >> 16 columns */
+.container_16 .suffix_1  {padding-right:  6.25%;} 
+.container_16 .suffix_2  {padding-right: 16.50%;} 
+.container_16 .suffix_3  {padding-right: 18.75%;} 
+.container_16 .suffix_5  {padding-right: 31.25%;} 
+.container_16 .suffix_6  {padding-right: 37.50%;} 
+.container_16 .suffix_7  {padding-right: 43.75%;} 
+.container_16 .suffix_9  {padding-right: 56.25%;} 
+.container_16 .suffix_10 {padding-right: 62.50%;} 
+.container_16 .suffix_11 {padding-right: 68.75%;} 
+.container_16 .suffix_13 {padding-right: 81.25%;} 
+.container_16 .suffix_14 {padding-right: 87.50%;} 
+.container_16 .suffix_15 {padding-right: 93.75%;}
+/* clear floated elements */
+/* http://sonspring.com/journal/clearing-floats */
+html body * span.clear,
+html body * div.clear,
+html body * li.clear,
+html body * dd.clear
+{
+ background: none;
+ border: 0;
+ clear: both;
+ display: block;
+ float: none;
+ font-size: 12px;
+ list-style: none;
+ margin: 0;
+ padding: 0;
+ overflow: hidden;
+ visibility: hidden;
+ width: 0;
+ height: 0;
+}
+/* http://www.positioniseverything.net/easyclearing.html */
+.clearfix:after  {clear: both; content: '.'; display: block; visibility: hidden; height: 0;}
+.clearfix        {display: inline-block;}
+* html .clearfix {height: 1%;}
+.clearfix        {display: block;}
+/* === layout ============================================================ */
+/* basic html */
+body {background: #fff; color: #333; padding: 0 0 40px}
+/* headings */
+h1 {font-size: 2.0em}
+h2 {font-size: 1.8em}
+h3 {font-size: 1.6em}
+h4 {font-size: 1.4em}
+h5 {font-size: 1.2em}
+h6 {font-size: 1.0em}
+/* boxes */
+.box {
+ background:#444;
+ margin-bottom:20px;
+ padding:10px 10px 1px 10px;
+}
+/* menus */
+ul.menu      {list-style:none; padding: .5em; border-top:1px solid #555; width: 10em; background: #444}
+ul.menu li   {margin:0; padding-left: 1em; padding-right: 1em}
+ul.menu li   {margin:0; padding-left: 1em; padding-right: 1em}
+ul.menu li a {display:block; padding: .5em; border-bottom:1px solid #555}
+ul.menu li a:active {background:#555}
+/* submenus */
+ul.menu ul      {list-style:none; margin:0}
+ul.menu ul li a {padding-left:30px}
+/* === navigation ======================================================== */
+/* horizontal navigation */
+ul.nav, ul.nav * {margin:0; padding:0}
+ul.nav {position:relative; background:#666; max-width:100%; height:2.5em}
+ul.nav li {
+ cursor:pointer;
+ float:left;
+ text-align:center;
+ list-style-type:none;
+ font-weight:normal;
+}
+ul.nav li ul {
+ cursor:default;
+ width:100%;
+ max-width:100%;
+ position:absolute;
+ height:auto;
+ top:2.5em;
+ background-position:0 0 !important;
+ left:-9000px;
+}
+ul.nav li ul li {padding:0; border:none; width:auto; max-width:none}
+ul.nav li a {
+ color:#fff;
+ background:#666;
+ font-weight:bold;
+ text-decoration:none;
+ display:block;
+ float:left;
+ padding:0 1em;
+ height:2.5em;
+ line-height:2.5em;
+}
+ul.nav li ul li a {
+ position:relative !important; /* ie Mac */
+ cursor:pointer !important;
+ white-space:nowrap;
+ line-height:2em;
+ height:2em;
+ font-weight:normal;
+ color:#666;
+ background-position:0 50% !important;
+}
+/* nav */
+ul.nav li:hover a,
+ul.nav li a:hover,
+ul.nav li a:focus {color:#000; background:#ccc;}
+ul.nav li a:active {color:#666; background:#fff;}
+ul.nav li:hover ul {left:0;z-index:10}
+ul.nav li ul,
+ul.nav li {background:#ccc !important}
+ul.nav li:hover ul li a {color:#444;}
+ul.nav li:hover ul li a:hover {color:#000; background:#fff;}
+ul.nav li:hover ul li a:active {color:#666; background:#fff;}
+/* secondary list */
+ul.nav li.secondary {float:left; color:#cde; background:transparent !important}
+ul.nav li.secondary span.status {float:left; padding:0 1em; line-height:2.77em; height:2.77em; font-size:0.9em}
+ul.nav li.secondary span.status a {float:none; display:inline; padding:0; height:auto; color:#cde; background:transparent}
+ul.nav li.secondary span.status a:hover {color:#fff; background:transparent}
+ul.nav li.secondary span.status span    {text-transform:capitalize}
+ul.nav li.secondary:hover a             {color:#fff; background:#666}
+ul.nav li.secondary:hover a:hover       {background:#555}
+ul.nav li.secondary:hover a:active      {background:#444}
+ul.nav li.right {float: right}
+ul.nav li.left  {float: left}
+/* ======================================================================= 
+   === iijo ==============================================================
+   ======================================================================= */
+/* basic */
+.container_16 {background:#fff; width: 100%; margin-left: 0%; margin-right: 0%}
+body {font: 12px "Droid Sans", FreeSans, sans-serif}
+/* links */
+a                    {color: #333; font-weight: bold; text-decoration: none}
+a:hover              {text-decoration: underline}
+a.whiteLink          {color: #fff}
+a.whiteLink:hover    {color: #fff}
+.disabled:hover      {color: #aaa; text-decoration: none}
+a#selfFlattery:hover {color: #333}
+a.notBold            {font-weight: normal}
+a.notBold:hover      {text-decoration: none}
+a.spaced             {margin-right: .5em; margin-left: .5em}
+/* headings */
+a:hover h1       {text-decoration: underline}
+h1#dictionary    {font-size: 3.3em; line-height: 1em}
+h1#bigDictionary {font-size: 6em; line-height: 1em}
+h5.message a     {background: #555}
+h5.message       {font-weight: normal}
+/* forms */
+form {margin: 0; padding: 0}
+input, select, textarea, label, button {font: 12px "Droid Sans", FreeSans, sans-serif}
+input.padding {padding: 2em}
+select.padding {padding: .4em; font-size: 1em; 100%}
+form#search input,
+textarea {
+ font-size: 1.0em;
+ width: 100%;
+ padding: .5em;
+ border-top:    solid 1px #888;
+ border-left:   solid 1px #888;
+ border-bottom: solid 1px #aaa;
+ border-right:  solid 1px #aaa;
+}
+input.textInputFullWidth {
+ font-size: 1.0em;
+ width: 100%;
+ padding: .5em;
+ border-top:    solid 1px #888;
+ border-left:   solid 1px #888;
+ border-bottom: solid 1px #aaa;
+ border-right:  solid 1px #aaa;
+}
+input.textInput {
+ width: 90%;
+ font-size: 1.0em;
+ padding: .5em;
+ border-top:    solid 1px #888;
+ border-left:   solid 1px #888;
+ border-bottom: solid 1px #aaa;
+ border-right:  solid 1px #aaa;
+}
+form#dictionarySearch input.searchBox {
+ width: 30em;
+ font-size: 1.2em;
+ padding: .5em;
+ margin: 0em;
+ margin-bottom: .5em;
+ background: #fff;
+ border-top:    solid 1px #888;
+ border-left:   solid 1px #888;
+ border-bottom: solid 1px #aaa;
+ border-right:  solid 1px #aaa;
+}
+form#dictionarySearch .pinyin,
+form#dictionarySearch .simplified,
+form#dictionarySearch .english {
+ margin: 0em;
+ margin-top: .0em;
+ margin-right: .3em;
+ margin-left: .3em;
+ height: 1.2em;
+ line-height: .8em;
+ background: #fff;
+}
+form#dictionarySearch button {
+ font-size: 1.2em;
+ padding: .5em;
+ margin: 0em;
+ margin-bottom: .5em;
+}
+/* buttons */
+button {
+ margin: 0;
+ padding: .3em;
+ color: #333;
+ background: #eee;
+ background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #eee), color-stop(.75, #fff));
+ background: -moz-linear-gradient(center bottom, rgb(221,221,221), rgb(221,221,221));
+ background: -moz-linear-gradient(center bottom, #eee, #fff);
+ text-shadow: 0 0 1px #ddd;
+ border-top:    1px solid #bbb;
+ border-left:   1px solid #bbb;
+ border-bottom: 1px solid #777;
+ border-right:  1px solid #777;
+}
+button:hover {
+ -webkit-box-shadow:  0px 0px 1px #333;
+ border: 1px solid #666;
+}
+button:active {
+ -webkit-box-shadow:  0px 0px 1px #333;
+ background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #eee), color-stop(.75, #ddd));
+ background: -moz-linear-gradient(center bottom, #ddd, #eee);
+ border: 1px solid #666;
+}
+button.huge {
+ font-size: 1.6em;
+ font-weight: bold;
+ margin: 0em;
+ padding: .7em;
+ width: 10em;
+}
+button.huge:active { color: #fff}
+button.medium {font-size: 1.2em}
+button.small  {font-size: .8em; padding: 0em; padding-left: 1em; padding-right: 1em}
+/* set menu */
+ul.set 
+{
+ background: #222;
+ margin: 0;
+ padding: 0;
+ padding-top: 0em;
+ margin-top: 0;
+ margin-right: 2em;
+ height: 2.4em;
+ line-height: 2.4em;
+}
+ul.set li.secondary a 
+{
+ background: #222;
+ float: left;
+ vertical-align: top;
+ margin: 0;
+ margin-right: .5em;
+ padding: 0em;
+ padding-right: 1em;
+ padding-left: 1em;
+ font-size: 1.0em;
+ font-weight: bold;
+ height: 2.4em;
+ line-height: 2.4em;
+}
+ul.set li.secondary:hover a            {background: #222; color: #fff}
+ul.set li.secondary:hover a:hover      {background: #222; text-decoration: underline}
+ul.set li.secondary a.firstMenu        {background: #222; color: #fff;}
+ul.set li.secondary a.firstMenu:hover  {background: #222}
+ul.set li.secondary a.secondMenu       {background: #222; color: #fff;}
+ul.set li.secondary a.secondMenu:hover {background: #222}
+ul.set li.secondary a.thirdMenu        {background: #444; color: #fff;}
+ul.set li.secondary a.thirdMenu:hover  {background: #444}
+.rightBorder {border-right: solid 8px #444}
+/* site menu */
+ul.site                                  {background: #444; padding: 0; margin: 0}
+ul.site li.secondary a                   {background: #444; color: #fff; font-size: 1.0em; font-weight: bold}
+ul.site li.secondary:hover a             {background: #444; color: #fff}
+ul.site li.secondary:hover a:hover       {background: #444; text-decoration: underline}
+ul.site li.secondary a.zerothMenu        {background: #444; color: #fff}
+ul.site li.secondary a.zerothMenu:hover  {background: #444}
+ul.site li.secondary a.firstMenu         {background: #444; color: #fff}
+ul.site li.secondary a.firstMenu:hover   {background: #444}
+ul.site li.secondary a.secondMenu        {background: #333; color: #fff}
+ul.site li.secondary a.secondMenu:hover  {background: #333}
+/* lists */
+ul.thinRow               {float: left; list-style: none; margin: 0; padding: 0; width: 100%; border-bottom: solid 1px #eee}
+ul.thinRow li            {float: left; margin: 0; padding: .5em; padding-top: 0; padding-left: 0; border-left: solid 1px #eee}
+ul.thinRow li.simplified {width: 10%; font-size: 1.5em}
+ul.thinRow li.pinyin     {width: 10%}
+ul.thinRow li.english    {width: 45%}
+ul.thinRow li.author     {width: 10%}
+ul.thinRow li.button     {}
+ul.row               {float: left; list-style: none; margin: 0; padding: 0em; width: 100%}
+ul.row li            {float: left; margin: 0; padding: .5em; padding-left: 0}
+ul.row li.simplified {font-size: 3em; padding: 0em; padding-right: .5em; font-weight: bold}
+ul.row li.pinyin     {font-size: 1.5em; padding: 0em; padding-right: .5em}
+ul.row li.english    {width: 35%; padding: 0em; padding-bottom: 3em}
+ul.row li.author     {font-size: .8em}
+ul.row li.button     {padding-top: 1.2em}
+ul.search             {list-style: none; margin: 0; padding: 0; width: 100%}
+ul.search li          {float: left; margin: 0; padding: 0}
+ul.search li.dropDown {width: 22%; margin-right: 0em;}
+ul.search li.submit   {width: 16%;}
+ul.search li.input    {width: 62%; margin-right: 0em;}
+ul.dictionarySearch             {list-style: none; margin: 0; padding: 0; width: 100%}
+ul.dictionarySearch li          {float: left; margin: 0; padding: 0}
+ul.dictionarySearch li.submit   {}
+ul.dictionarySearch li.input    {width: 20em; margin-right: 1em;}
+ul.card               {list-style: none; margin: 0; padding: 0; width: 100%}
+ul.card li            {float: left; margin: 0; padding: 0; margin-right: .4em}
+ul.card li.pinyin,    
+ul.card li.english,   
+ul.card li.simplified {font-weight: bold; width: 70%; font-size: 3.0em; background: #ddd; padding: .2em; border: solid 1px #bbb}
+ul.card li.stats,
+ul.card li.button     {width: 20%}
+ul.horizontal                  {float:left; width: 100%; list-style: none; padding: 0; margin: 0; margin-top: 0em; line-height: 2.5em}
+ul.horizontal li               {float:left; padding: 0; margin: 0; margin-right: 1em; height: 1.0em line-height: 1.0em}
+ul.horizontal li.title a       {}
+ul.horizontal li.description a {}
+/* tables */
+table.formTable {border: 0}
+table.formTable th 
+{
+ padding: 1.8em;
+ vertical-align: top;
+ text-align: right;
+ border: 0;
+ background: #fff;
+ width: 32%;
+ height: 2em;
+}
+table.formTable td 
+{
+ padding: 1em;
+ border: 0;
+ background: #fff;
+ width: 68%;
+ height: 2em;
+}
+table.card {width: 100%}
+table.card tbody tr th 
+{
+ padding: 1em;
+ padding-bottom: 0em;
+ border: solid 0em #fff;
+ background-color: #333;
+ background-color: #fff;
+ color: #fff;
+ color: #999;
+ vertical-align: top;
+ text-align: right;
+ text-align: left;
+ margin-bottom: 0em;
+}
+table.card tr td 
+{
+ padding: .3em;
+ border-top: solid 0em #fff;
+ border-bottom: solid 0em #fff;
+ background: #eee;
+ font-size: 2.6em;
+ font-weight: bold;
+ margin-bottom: .1em;
+ margin-top: 0em;
+}
+/* headers */
+div#thinHeader 
+{
+ padding: 1em;
+ margin-top: 0em;
+ margin-bottom: 0em;
+ vertical-align: middle;
+ background: #333;
+ color: #fff;
+}
+div#rowContainer
+{
+ float: left;
+ margin: 2em;
+ margin-left: 7.3em;
+ margin-right: 7.3em;
+}
+div#firstTime
+{
+ clear: both;
+ display: block;
+ text-align: center;
+ padding: 1em;
+ padding-bottom: 2em;
+ margin: 0;
+ background: #333;
+ color: #fff;
+ border-bottom: solid 1px #333;
+ border-top: solid 1px #333;
+}
+div#firstTime h1 {
+ font-size: 4.0em;
+ font-weight: bold;
+}
+div#message 
+{
+ padding: 1em;
+ padding-left: 7.3em;
+ margin: 0;
+ background: white;
+ color: #333;
+ border-bottom: solid 1px white;
+ border-top: solid 1px white;
+}
+div#header 
+{
+ margin: 0;
+ margin-top: 0em;
+ margin-bottom: 0em;
+ padding: 0;
+ background: #444;
+ color: #fff;
+ border-bottom: solid 1px #444;
+}
+div#darkHeader {background: #333; height: .5em}
+div#duskHeader {background: #999; height: .5em; margin-bottom: 2em}
+div#dimHeader  {background: #333; height: 1px}
+div#secondHeader 
+{
+ margin: 0em;
+ margin-bottom: 2em;
+ padding: 1em;
+ padding-left: 7.3em;
+ padding-right: 7.3em;
+ background: #333;
+ color: #fff;
+}
+div#specialHeader
+{
+ margin-top: 0em;
+ margin-bottom: 0em;
+ padding: 1em;
+ background: #eee;
+ color: #333;
+ border-top: solid 1px #ccc;
+ border-bottom: solid 1px #ccc;
+}
+div#thirdHeader
+{
+ margin-top: 0em;
+ margin-bottom: 2em;
+ padding: 0em;
+ background: #222;
+ color: #fff;
+ border-top: solid 1px #222;
+}
+div#menuHeaderA
+{
+ margin-top: 0em;
+ margin-bottom: 0em;
+ padding: 0em;
+ background: #444;
+ color: #333;
+ border-bottom: solid 1em #444;
+}
+div#menuHeaderB
+{
+ margin-top: 0em;
+ margin-bottom: 0em;
+ padding: 0em;
+ background: #555;
+ color: #333;
+ border-bottom: solid 1em #444;
+}
+div#bigHead
+{
+ margin:  2em;
+ margin-left: 4em;
+ margin-right: 4em;
+ padding: 0em;
+ padding-left: 4em;
+ padding-right: 4em;
+}
+div#controlPanel
+{
+ margin:  0em;
+ margin-left: 4em;
+ margin-right: 4em;
+ padding: 0em;
+ padding-left: 4em;
+ padding-right: 4em;
+}
+#errorMessage 
+{
+ margin-left: 7.3em;
+ margin-right: 7.3em;
+ color: #000;
+ background: #fff;
+ border-top: solid 1px #fff;
+ border-bottom: solid 1px #fff;
+}
+#username, #password, #email {margin-right: 4em}
+/* alignment */
+.center {text-align: center}
+.right  {text-align: right}
+.floatLeft  {float: left}
+.floatRight {float: right}
+.top {vertical-align: top}
+/* text size */
+.bigText {font-size: 4em}
+.notSmallText {font-size: 3em}
+.announceText {font-size: 2.2em}
+.mediumText {font-size: 2em}
+.tinyText {font-size: 1em; margin-bottom: 1em; color: #999}
+/* misc */
+#remember {margin-top: 1em}
+button.answer {display: none}
+#branding {background: transparent; font-weight: bold}
+div.stats {color: #333; font-size: 1.0em; padding-right: 1em; margin-top: 0em}
+div.userFlattery {font-size: 10em; color: #ccc}
+.debug {border: solid 1px #2222cc}
+.debugR {border: solid 1px red}
+.debugO {border: solid 1px orange}
+.debugG {border: solid 1px green}
+.debugGY {border: solid 1px greenyellow}
+.deselected{color: #999}
+.title {font-weight: bold; font-size: 1.2em}
+.radioText {line-height: 2.0em; height: 2.0em}

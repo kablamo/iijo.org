@@ -1,0 +1,12 @@
+
+        <div class="grid_14 prefix_1">
+          <a href="/set/[% setId %]/[% setSlug %]"><h1>[% setName %]</h1></a>
+          [% description %]
+          <br>
+          author: [% author %], users: [% users %]
+[% IF totalCards && totalCards > 0 %]
+          , total words: [% totalCards / 3 %]
+          percent complete: [% pctComplete %]
+[% END %]
+        </div>
+        <div style="height: 1em" class="clear"></div>

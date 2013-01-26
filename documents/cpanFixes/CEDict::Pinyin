@@ -1,0 +1,12 @@
+do something diacritic().
+
+change 'reverse $part' to 'reverse($part)'
+
+test cases:
+- shou3 -> sho3u
+- guo2  -> guo2
+- wei2  -> we2i
+- jiu3  -> jiu3
+- dui4  -> dui4
+- zai4  -> za4i
+- huo3  -> huo3

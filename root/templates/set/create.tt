@@ -1,0 +1,32 @@
+[% PROCESS header.tt %]
+
+    <div id="secondHeader">
+      <div class="grid_9 prefix_1">
+        <h1>create a flashcard set</h1>
+      </div>
+      <div class="clear"></div>
+    </div>
+ 
+      <div class="grid_7 prefix_1">
+        <script type="text/javascript">
+          var RecaptchaOptions = {
+             theme : 'clean'
+          };
+        </script>
+        <form id="createSetForm" action="/set/createSubmit">
+          set name
+          <h4>
+            <input class="textInputFullWidth sround" name="name" type="text">
+          </h4>
+          <br>
+          set description
+          <h4>
+            <textarea rows=4 name="description"></textarea>
+          </h4>
+          <br>
+          [% recaptcha %]
+          <button type="submit"><h5>create set</h5></button>
+        </form>
+      </div>
+ 
+[% PROCESS footer.tt %]

@@ -1,0 +1,129 @@
+package FlashCards::Controller::mysets::card;
+
+use strict;
+use warnings;
+use base 'Catalyst::Controller';
+
+use FlashCards::Model::Card;
+use FlashCards::Model::Definition;
+use FlashCards::Model::SetOfCards;
+use Fey::DBIManager;
+use DateTime;
+use Data::TreeDumper;
+
+=head1 NAME
+
+FlashCards::Controller::mysets::card - Catalyst Controller
+
+=head1 DESCRIPTION
+
+Catalyst Controller.
+
+=head1 METHODS
+
+=cut
+
+# no validation.  don't care about security here.  no updates being made.
+sub card : Chained('/mysets/') CaptureArgs(1) {
+   my ($self, $c, $cardId) = @_; 
+   $c->stash->{cardId} = $cardId;
+}
+
+# no validation.  don't care about security here.  no updates being made.
+sub statbar : Private {
+   my ($self, $c) = @_; 
+   my $u = $c->user;
+   $c->stash->{cardsLeft}      = $u->cardsLeft;
+   $c->stash->{completedCards} = $u->completedCards;
+   $c->stash->{totalCards}     = $u->totalCards;
+   $c->stash->{pctComplete}    = $u->pctComplete;
+   $c->stash->{practiceMode}   = 1;
+   $c->stash->{allCards}       = 1;
+}
+
+# no validation.  don't care about security here.  no updates being made.
+sub ask : Chained('card') Args {
+   my ($self, $c) = @_; 
+   my $prevDefinitionId = 0;
+   $prevDefinitionId = $c->stash->{cardId}
+      if defined $c->stash->{cardId};
+
+   my $card = FlashCards::Model::Card->next(
+      userId       => $c->user->userId,
+      definitionId => $prevDefinitionId,
+   );
+   if (!defined $card) {
+      $c->response->redirect("/card/done/");
+      $c->detach;
+   }
+
+   $c->stash->{practiceMode}  = 1;
+   $c->stash->{card}          = $card;
+   $c->stash->{definition}    = $card->definition;
+   $c->stash->{delayExponent} = $card->delayExponent;
+
+   $c->forward("/card/statbar");
+}
+
+# no validation.  don't care about security here.  no updates being made.
+sub answer : Chained('card') Args {
+   my ($self, $c) = @_; 
+
+   my $card = FlashCards::Model::Card->new(cardId => $c->stash->{cardId});
+
+   $c->stash->{cardId}         = $card->cardId;
+   $c->stash->{definition}     = $card->definition;
+   $c->stash->{delayExponent}  = $card->delayExponent;
+
+   $c->forward('/card/statbar');
+}
+
+sub difficulty : Chained('card') Args {
+   my ($self, $c, $correct) = @_; 
+
+   # validate
+   my $card = FlashCards::Model::Card->new(
+      userId => $c->user->userId,
+      cardId => $c->stash->{cardId},
+   );
+
+   my $delayExponent = $card->delayExponent;
+   $delayExponent += 1 if $correct;
+   $delayExponent -= 1 if (!$correct && $delayExponent > 1);
+
+   if ($delayExponent > 1) {
+      my $minutes  = 4 ** $delayExponent;
+      my $nextDate = Fey::Literal::Function->new('datetime', 'now', "+$minutes minutes");
+      my $lastDate = Fey::Literal::Function->new('datetime', 'now');
+
+      $card->update(
+         delayExponent => $delayExponent,
+         nextDate      => $nextDate,
+         lastDate      => $lastDate,
+      );
+   }
+
+   $c->res->redirect("/card/" . $card->definitionId . "/ask");
+}
+
+# no validation.  don't care about security here.  no updates being made.
+sub done : Chained('card') Args {
+   my ($self, $c) = @_; 
+   $c->forward('/card/statbar');
+}
+
+
+
+
+=head1 AUTHOR
+
+eric,,,
+
+=head1 LICENSE
+
+This library is free software, you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
+=cut
+
+1;

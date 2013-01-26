@@ -1,0 +1,31 @@
+[% PROCESS header.tt %]
+
+<div style="height: 2em"></div>
+<div id="bigHead">
+  <div class="bigText">LOGIN</div>
+</div>
+
+<form method="post" action="/user/loginSubmit" id="loginForm">
+  <div id="controlPanel">
+    <div class="floatLeft">
+      <h6>username</h6>
+      <input class="textInput" id="username" name="username" type="text">
+    </div>
+    <div class="floatLeft">
+      <h6>password</h6>
+      <input class="textInput" id="password" name="password" type="text">
+    </div>
+    <div class="floatLeft">
+      <h6>&nbsp;</h6>
+      <button class="medium" type="submit">login</button>
+    </div>
+    <div class="clear"></div>
+      <h6>
+        <input id="remember" name="remember" type="checkbox">
+        remember me on this computer
+      </h6>
+    </div>
+  </div>
+</form>
+
+[% PROCESS footer.tt %]

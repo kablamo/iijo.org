@@ -1,0 +1,69 @@
+[% PROCESS header.tt noHeader = 1 %]
+
+[% IF query %]
+  [% i = query %]
+[% ELSE %]
+  [% i = "" %]
+[% END %]
+[% IF language %]
+  [% l = language %]
+[% ELSE %]
+  [% l = "english" %]
+[% END %]
+
+      <div style="height:3em" class="clear"></div>
+
+    <form id="dictionarySearch" action="/dictionary">
+      <div class="grid_11 prefix_1">
+        <input class="searchBox" name="query" type="text" value="[% i %]"/>
+        <button type="submit">search</button>
+      </div>
+      <div class="grid_3 right">
+        <a href="/about"><h1 id="dictionary" style="text-align: top">IIJO</h1></a>
+      </div>
+      <div style="height:0em" class="clear"></div>
+
+      <div class="grid_11 prefix_1">
+        <div class="radioText">
+          search using 
+          <input class="english"    type="radio" name="language" value="english"    [% IF l == 'english'    %]checked[% END %]/>English
+          <input class="pinyin"     type="radio" name="language" value="pinyin"     [% IF l == 'pinyin'     %]checked[% END %]/>Pinyin &nbsp;or 
+          <input class="simplified" type="radio" name="language" value="simplified" [% IF l == 'simplified' %]checked[% END %]/>Simplified characters
+        </div>
+      </div>
+      <div class="grid_3 right">
+        Chinese dictionary
+      </div>
+    </form>
+
+      <div style="height:3em" class="clear"></div>
+
+[% IF best.size > 0 %]
+    <div id="specialHeader">
+      <div style="height:3em"></div>
+  [% PROCESS rows.tt definitions = best selectEverything = 1 %]
+      <div style="height:0em" class="clear"></div>
+    </div>
+[% END %]
+
+[% IF exact.size > 0 %]
+      <div style="height:3em" class="clear"></div>
+  [% PROCESS thinRows.tt definitions = exact selectEverything = 1 %]
+      <div style="height:0em" class="clear"></div>
+[% END %]
+<!--
+      <div style="height:3em" class="clear"></div>
+      <div class="grid_11 prefix_1">
+        <a href="">even more matches</a>
+      </div>
+-->
+
+[% IF (best.size == 0 && exact.size == 0) %]
+      <div class="grid_10 prefix_1 post_fix_3">
+        no matches found
+      </div>
+      <div style="height:2em" class="clear"></div>
+[% END %]
+
+
+[% PROCESS footer.tt %]

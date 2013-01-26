@@ -1,0 +1,29 @@
+[% PROCESS header.tt %]
+
+<div style="height: 2em"></div>
+<div id="bigHead">
+  <div class="bigText">CREATE ACCOUNT</div>
+</div>
+
+<form method="post" action="/user/create" id="registerForm">
+  <div id="controlPanel">
+    <div class="floatLeft">
+      <h5>username</h5>
+      <input class="textInput sround" id="username" name="username" type="text">
+    </div>
+    <div class="floatLeft">
+      <h5>password</h5>
+      <input class="textInput sround" id="password" name="password" type="text">
+    </div>
+    <div class="floatLeft">
+      <h5>email</h5>
+      <input class="textInput sround" id="email" name="email" type="text">
+    </div>
+    <div class="floatLeft">
+      <h5>&nbsp;<br></h5>
+      <button class="medium" type="submit">create account</button>
+    </div>
+  </div>
+</form>
+
+[% PROCESS footer.tt %]

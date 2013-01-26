@@ -1,0 +1,36 @@
+[% PROCESS header.tt noHeader = 1 %]
+
+[% IF query %]
+  [% i = query %]
+[% ELSE %]
+  [% i = "" %]
+[% END %]
+[% IF language %]
+  [% l = language %]
+[% ELSE %]
+  [% l = "english" %]
+[% END %]
+
+      <div style="height:2em" class="clear"></div>
+
+      <div class="grid_14 prefix_1 post_fix_1">
+        <center>
+          <h1 id="bigDictionary">IIJO</h1>
+          <h2>Chinese dictionary</h2>
+        </center>
+      </div>
+      <div style="height:2em" class="clear"></div>
+
+    <form id="dictionarySearch" action="/dictionary">
+      <center>
+        <input class="searchBox" name="query" type="text" value="[% i %]"/>
+        <button type="submit">search</button><br>
+        search using 
+        <input class="english"    type="radio" name="language" value="english"    [% IF l == 'english'    %]checked[% END %]/>English
+        <input class="pinyin"     type="radio" name="language" value="pinyin"     [% IF l == 'pinyin'     %]checked[% END %]/>Pinyin &nbsp;or 
+        <input class="simplified" type="radio" name="language" value="simplified" [% IF l == 'simplified' %]checked[% END %]/>Simplified characters
+      </center>
+    </form>
+      <div style="height:0em" class="clear"></div>
+
+[% PROCESS footer.tt %]

@@ -1,0 +1,58 @@
+[% PROCESS header.tt %]
+
+    <div id="thinHeader">
+      <div class="grid_6 prefix_1">
+        <h1>my sets</h1>
+        you know [% pctComplete %] of your [% totalCards %] flashcards
+      </div>
+      <div class="clear"></div>
+    </div>
+
+    <div id="dimHeader">
+      &nbsp;
+    </div>
+
+    <div id="thirdHeader">
+      <div class="grid_14 prefix_1">
+        <ul class="nav set">
+          <li class="secondary top left">
+            <a class="firstMenu" id="practice" title="flashcards from all your sets" href="/mysets/card/0/ask">all f<u>l</u>ashcards</a>
+          </li>
+        </ul>
+      </div>
+      <div class="clear"></div>
+    </div>
+
+[% IF userSets && userSets.size && userSets.size > 0 %]
+      <div class="clear"></div>
+      <div class="grid_14 prefix_1">
+  [% FOREACH us IN userSets %]
+        <ul class="horizontal">
+          <li class="title">
+            <a href="/set/[% us.set.setId %]/card/0/ask">
+              [% us.set.name | html_entity %]
+            </a>
+          </li>
+          <li class="tinyText">
+            <a href="/set/[% us.set.setId %]/[% us.set.slug %]">view</a> |
+            <a href="/mysets/delete/[% us.set.setId %]">delete</a>
+          </li>
+          <li class="tinyText">
+            [% us.totalCards %] flashcards, [% us.pctComplete %] complete
+          </li>
+        </ul>
+  [% END %]
+      </div>
+
+  [% PROCESS more.tt hrefBase = "/mysets" topHeight = 1 bottomHeight = 2 %]
+[% ELSE %]
+      <div style="height: 2em" class="grid_8 prefix_4">
+        <h4>Hey you have no flashcard sets.
+        To get started, find a <a href="/sharedsets">shared set</a></h4>
+        or <a href="/set/create">create your own set of flashcards</a>
+      </div>
+[% END %]
+
+      <div style="height:3em" class="clear"></div>
+
+[% PROCESS footer.tt %]

@@ -1,0 +1,20 @@
+[% PROCESS header.tt %]
+
+    <div id="secondHeader">
+      <div class="grid_14 prefix_1">
+        <h1>Done!  No more cards to learn right now.</h1>
+      </div>
+      <div style="height:0em" class="clear"></div>
+    </div>
+
+      <div class="grid_14 prefix_1">You could
+        <ul>
+          <li><a href="/set/[% setId %]/search">Add</a> more flashcards to this set.</li>
+          <li>Practice one of <a href="/mysets">your other flashcard sets</a>.</li>
+          <li>Find a new set of <a href="/sharedsets">shared flashcards</a> to practice.</li>
+          <li>Go eat a sandwhich and come back later.</li>
+        </ul>
+      </div>
+      <div style="height:20em" class="clear"></div>
+
+[% PROCESS footer.tt %]

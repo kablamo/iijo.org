@@ -1,0 +1,30 @@
+______________________________________________________________________________
+
+HOW TO ORDER RESULTS
+______________________________________________________________________________
+
+search for each chinese word on google and count the number of results.
+
+definition->search should return (best, more);
+ - select first best
+ - select best
+ - select first
+ - select exact
+ - select not exact
+
+best = best or first or exact
+more = whatever is left
+
+
+
+______________________________________________________________________________
+
+SEARCH FUNCTION BY PAGE
+______________________________________________________________________________
+
+fancy dictionary search described above
+  /set/$/add
+  /set/$/search    different?
+  /dictionary
+
+

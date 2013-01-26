@@ -1,0 +1,45 @@
+[% PROCESS header.tt %]
+
+[% IF query %]
+  [% i = query %]
+[% ELSE %]
+  [% i = "" %]
+[% END %]
+[% IF language %]
+  [% l = language %]
+[% ELSE %]
+  [% l = "english" %]
+[% END %]
+
+    <div id="secondHeader">
+      <div class="grid_14 prefix_1 postfix_1">
+        <h1>search for words in <a class="whiteLink" href="/set/[% setId %]/[% setSlug %]">[% setName %]</a></h1>
+      </div>
+      <div style="height: 0em" class="clear"></div>
+    </div>
+
+   <form id="dictionarySearch" action="/set/[% setId %]/search">
+      <div class="grid_10 prefix_1">
+        <input id="" class="searchBox" name="search" type="text" value="[% i %]"/>
+        <button type="submit">search</button><br>
+        <div class="radioText">
+          search using 
+          <input class="english"    type="radio" name="language" value="english"    [% IF l == 'english'    %]checked[% END %]/>English
+          <input class="pinyin"     type="radio" name="language" value="pinyin"     [% IF l == 'pinyin'     %]checked[% END %]/>Pinyin &nbsp;or 
+          <input class="simplified" type="radio" name="language" value="simplified" [% IF l == 'simplified' %]checked[% END %]/>Simplified characters
+        </div>
+      </div>
+    </form>
+      <div style="height:2em" class="clear"></div>
+
+[% PROCESS rows.tt ignore = 1 delete = 1 selectEverything = 1 %]
+
+[% IF definitions.size == 0 %]
+      <div style="height:4em" class="clear"></div>
+      <div class="grid_10 prefix_1 post_fix_3">
+        no matches found
+      </div>
+      <div style="height:2em" class="clear"></div>
+[% END %]
+
+[% PROCESS footer.tt %]

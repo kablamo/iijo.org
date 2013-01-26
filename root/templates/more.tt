@@ -1,0 +1,10 @@
+      <div style="height:[% topHeight %]em" class="clear"></div>
+      <div class="grid_10 prefix_1">
+[% IF page != "" %]
+[% IF morePages %]
+        <a class="next" href="[% hrefBase %]/[% page + 1 %]">view more</a>
+[% END %]
+[% END %]
+      </div>
+      <div style="height:[% bottomHeight %]em" class="clear"></div>
+

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Chinese flashcards: [% subtitle %]</title>
+    <meta name="description" content="[% description %]" />
+    <meta name="google-site-verification" content="AoiiFmNyC52Or7A9HGec0QG1yxgMNr8r_piNKhRBH6c" />
+    <!--[if IE 6]><link rel="stylesheet" type="text/css" href="/static/css/ie6.css" media="screen" /><![endif]-->
+    <!--[if IE 7]><link rel="stylesheet" type="text/css" href="/static/css/ie.css" media="screen" /><![endif]-->
+    <style>
+[% INSERT iijo.css %]
+    </style>
+[% IF practiceMode %]
+  [% IF hostname == 'laptop' %]
+    <script type="text/javascript" src="/static/js/jquery-1.6.2.min.js"></script>
+  [% ELSE %]
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+  [% END %]
+    <script type="text/javascript">
+  [% INSERT iijo.js %]
+    </script>
+[% END %]
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-17375235-1']);
+      _gaq.push(['_trackPageview']);
+    
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+
+  </head>
+  <body>
+
+    <!-- ================================= start container ================================= -->
+    <div class="container_16">
+
+[% IF message %]
+      <div id="message">[% message %]</div>
+[% END %]
+
+[% UNLESS noHeader %]
+[% PROCESS headerMenu.tt %]
+[% END %]
+

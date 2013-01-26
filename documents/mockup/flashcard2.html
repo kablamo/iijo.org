@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>my chinese flashcards</title>
+	<style type="text/css">
+
+		/*** The Essential Code ***/
+
+		body {
+			min-width: 155px;         /* 2 x (LC fullwidth + CC padding) + RC fullwidth */
+		}
+
+		#container {
+			padding-left: 25px;      /* LC fullwidth */
+			padding-right: 65px;     /* RC fullwidth + CC padding */
+		}
+		
+		#container .column {
+			position: relative;
+			float: left;
+		}
+		
+		#center {
+			padding: 20px;            /* CC padding */
+			width: 100%;
+		}
+		
+		#left {
+			width: 25px;              /* LC width */
+			padding: 20px;            /* LC padding */
+			right: 65px;              /* LC fullwidth + CC padding */
+			margin-left: -100%;
+		}
+		
+		#right {
+			width: 25px;              /* RC width */
+			padding: 20px;            /* RC padding */
+			margin-right: -100%;
+		}
+		
+		#footer {
+			clear: both;
+		}
+		
+		/*** IE Fix ***/
+		* html #left {
+			left: 25px;              /* RC fullwidth */
+		}
+
+		/*** Equal-height Columns ***/
+
+		#container {
+			overflow: hidden;
+		}
+
+		#container .column {
+			padding-bottom: 1001em;     /* X + padding-bottom */
+			margin-bottom: -1000em;     /* X */
+		}
+
+		/*** Footer Fix ***/
+
+		* html body {
+			overflow: hidden;
+		}
+		
+		* html #footer-wrapper {
+			float: left;
+			position: relative;
+			width: 100%;
+			padding-bottom: 10010px;
+			margin-bottom: -10000px;
+			background: #FFF;         /*** Same as body background ***/
+		}
+
+		/*** Just for Looks ***/
+
+		body {
+			margin: 0;
+			padding: 0;
+			background: #FFF;
+		}
+
+		#header, #footer {
+			font-size: large;
+			text-align: center;
+			padding: 0.3em 0;
+			background: #999;
+		}
+
+		#left {
+			background: #66F;
+		}
+
+		#center {
+			background: #DDD;
+		}
+
+		#right {
+			background: #F66;
+		}
+
+		#container .column {
+			padding-top: 1em;
+			text-align: justify;
+		}
+
+	</style>
+</head>
+
+<body>
+
+	<div id="header">header</div>
+
+	<div id="container">
+		<div id="center" class="column">
+			&#25105;&#26159;&#36229;&#20154;
+		</div>
+
+        <div id="left" class="column">
+            <img src="images/001_08.png"/>
+		</div>
+
+		<div id="right" class="column">
+		</div>
+	</div>
+	<div id="container">
+        <div id="center" class="column">
+            w&#466; sh&#236; ch&#257;o r&#233;n
+		</div>
+
+		<div id="left" class="column">
+            <img src="images/001_08.png"/>
+		</div>
+
+		<div id="right" class="column">
+		</div>
+	</div>
+	<div id="container">
+        <div id="center" class="column">
+            i am superman
+		</div>
+
+		<div id="left" class="column">
+            <img src="images/001_08.png"/>
+		</div>
+
+		<div id="right" class="column">
+		</div>
+	</div>
+
+	<div id="footer-wrapper">
+		<div id="footer">footer</div>
+	</div>
+
+</body>
+
+</html>
+

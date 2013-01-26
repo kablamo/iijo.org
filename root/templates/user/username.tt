@@ -1,0 +1,18 @@
+[% PROCESS header.tt %]
+
+      <div style="height:5em" class="clear"></div>
+      <div class="grid_12 prefix_1">
+        <form id="usernameForm" action="/user/usernameSubmit/[% user.userId %]">
+          <table class="formTable">
+            <tr>
+              <th><h4><nobr>enter your new username</nobr></h4></th>
+              <td><h4><input class="textInput sround" id="username" name="username" type="text"></h4></td>
+              <th><button type="submit"><h4><nobr>do it to it</nobr></h4></button></th>
+            </tr>
+          </table>
+        </form>
+      </div>
+
+      <div style="height:10em" class="clear"></div>
+
+[% PROCESS footer.tt %]

@@ -1,0 +1,6 @@
+Fey puts parenthesis around EXCEPT and UNION clauses.  this is required by
+mysql.  doesn't work with sqlite.  i filed a bug in RT.
+
+so far i have removed the parens from my system.  
+
+need to fork this on github

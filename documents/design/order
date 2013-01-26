@@ -1,0 +1,10 @@
+order by next_dt
+
+
+order by date closest to current date
+
+where next_dt <= datetime('now')
+order by date closest to current date 
+==
+where next_dt <= datetime('now')
+order by ($c->column('next_dt') - datetime('now'))

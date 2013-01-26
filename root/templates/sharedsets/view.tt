@@ -1,0 +1,27 @@
+[% PROCESS header.tt %]
+
+    <div id="secondHeader">
+      <div class="grid_5 prefix_1">
+        <h1>shared sets</h1>
+      </div>
+      <div class="clear"></div>
+    </div>
+
+    <div class="grid_14 prefix_1">
+    [% FOREACH s IN sets %]
+       <ul class="horizontal">
+         <li class="title">
+           <a href="/set/[% s.setId %]/[% s.slug %]">
+             [% s.name | html_entity %]
+           </a>
+         </li>
+         <li class="tinyText">
+           [% s.totalCards %] flashcards, [% s.users %] users,  created by [% s.author.username %]
+         </li>
+       </ul>
+    [% END %]
+    </div>
+
+[% PROCESS more.tt hrefBase = "/sharedsets" topHeight = 1 bottomHeight = 2 %]
+
+[% PROCESS footer.tt %]

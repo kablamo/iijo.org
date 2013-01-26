@@ -1,0 +1,29 @@
+[% INCLUDE header.tt %]
+
+      <div id="firstTime">
+        <h1>CHINESE FLASHCARDS</h1>
+        <h4>
+          To get started choose one of the flashcard sets below&nbsp;&nbsp;
+          <img style="vertical-align: middle;" src="../../static/images/icojoy4/001_22.png">
+        </h4>
+        (or <a class="whiteLink" href="/set/create">create your own</a>)
+      </div>
+
+	  <div id="rowContainer">
+      [% FOREACH s IN sets %]
+        <ul class="horizontal">
+          <li class="title">
+            <a href="/set/[% s.setId %]/[% s.slug %]">
+              [% s.name | html_entity %]
+            </a>
+          </li>
+          <li class="tinyText">
+            [% s.totalCards %] flashcards, [% s.users %] users,  created by [% s.author.username %]
+          </li>
+        </ul>
+      [% END %]
+
+[% PROCESS more.tt hrefBase = "/sharedsets" topHeight = 1 bottomHeight = 2 %]
+      </div>
+
+[% INCLUDE footer.tt %]

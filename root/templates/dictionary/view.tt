@@ -1,0 +1,36 @@
+[% PROCESS header.tt %]
+[% IF allCards %]
+  [% baseURL = "/mysets/card/" %]
+[% ELSE %]
+  [% baseURL = "/set/$setId/card/" %]
+[% END %]
+
+      <div style="height:3em" class="clear"></div>
+      <div class="grid_14 prefix_1">
+        <table class="card">
+          <tbody>
+          <tr>
+            <th>simplified</th>
+          </tr>
+          <tr>
+            <td>[% definition.simplified %]</td>
+          </tr>
+          <tr>
+            <th>pinyin</th>
+          </tr>
+          <tr>
+            <td>[% definition.pinyin %]</td>
+          </tr>
+          <tr>
+            <th>english</th>
+          </tr>
+          <tr>
+            <td>[% definition.english %]</td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div style="height:10em" class="clear"></div>
+
+[% PROCESS footer.tt %]

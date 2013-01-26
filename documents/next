@@ -1,0 +1,23 @@
+- improve set creation to discourage duplicate sets
+- help pages
+- defend against spammers
+   x prevent sql injection attacks
+   - recaptcha for creating accounts
+- add some new good lists of stuff.  seed the site!
+- test cases
+
+- seo
+
+- add option to only quiz you based on characters
+- add option to use traditional characters instead of simplified
+
+- oauth shengci
+- add data from shengci
+- incorporate
+
+....
+
+- allow users to use phrases and not just single words
+- offline sync using html5 and ajax rest interface
+- user score
+- user reports in profile

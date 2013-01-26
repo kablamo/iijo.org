@@ -1,0 +1,51 @@
+  /header
+  /footer
++ /faq
++ /about
++ /tools
+
+  /user/login
+  /user/logout
++ /user/search
+  /user/create
++ /user/delete
+  /user/profile
+  /user/password
+  /user/username
+
+  /mysets
++ /mysets/search
+  /mysets/delete
+  /mysets/create
+  /mysets/card/*/ask
+  /mysets/card/*/answer
+  /mysets/card/*/difficulty/*
+  /mysets/card/done
+
+  /sharedsets
++ /sharedsets/search
+
+  /set/*/*/*
+  /set/*/search
+  /set/*/edit
+  /set/*/add
+  /set/*/selectAll
+  /set/*/resetSelection
+  /set/*/definition/*/add
+  /set/*/definition/*/remove
+  /set/*/definition/*/select
+  /set/*/definition/*/deselect/*
+  /set/*/card/*/ask
+  /set/*/card/*/answer
+  /set/*/card/*/difficulty/*
+  /set/*/card/done
++ /set/*/test/*/ask
++ /set/*/test/*/answer
++ /set/*/test/done
+
+- /dictionary/search
+  /dictionary/*/*
++ /dictionary/*/edit
++ /dictionary/create
++ /dictionary/delete
++ /dictionary
