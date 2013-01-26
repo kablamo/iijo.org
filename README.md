@@ -1,4 +1,5 @@
-= iijo.org =
+iijo.org
+=======
 
 [iijo.org](http://iijo.org) is a little site I built to easily create and
 review Chinese flashcards.  The 2 stand out features of this site are the fact
@@ -12,6 +13,7 @@ that it is.  I feel this UI is simpler and easier to use.
 
 I would love to receive code contributions.
 
-= LICENSE =
+LICENSE
+=======
 
 I'm releasing this code under the same terms a Perl.
