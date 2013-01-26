@@ -19,6 +19,7 @@ use Catalyst qw/
 /;
 
 extends 'Catalyst';
+
 with 'CatalystX::AuthenCookie';        # cookie authentication
 with 'CatalystX::FlashCards::User';    # authenticate users with AuthenCookie
 with 'CatalystX::Slug';                # create slugs for urls
@@ -31,11 +32,15 @@ our $VERSION = '0.01';
 # with an external configuration file acting as an override for
 # local deployment.
 $ENV{CATALYST_DEBUG} = 1 if hostname eq 'laptop';
+
 __PACKAGE__->config(
     name => 'FlashCards',
     # Disable deprecated behavior needed by old applications
     disable_component_resolution_regex_fallback => 1,
     enable_catalyst_header => 1, # Send X-Catalyst header
+    'Plugin::ConfigLoader' => { file => 'flashcards.conf' },
+    root => dir('.', 'root')->absolute,
+    home => dir('.', )->absolute,
 );
 
 # Start the application
