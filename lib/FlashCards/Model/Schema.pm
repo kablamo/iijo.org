@@ -7,8 +7,7 @@ use Moose;
 use MooseX::ClassAttribute;
 use Sys::Hostname;
 
-
-my $dbname = 'flashcards.db';
+my $dbname = -r "flashcards.db" ? "flashcards.db" : "flashcards.dev.db";
 my $dsn    = "dbi:SQLite:dbname=" . $dbname;
 my $source = Fey::DBIManager::Source->new(dsn => $dsn);
 my $schema = Fey::Loader->new(dbh => $source->dbh)->make_schema();
