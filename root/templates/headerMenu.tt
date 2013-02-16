@@ -11,8 +11,9 @@
 [% ELSE %]
               <a class="firstMenu" href="/user/[% user.userId %]/[% user.slug %]">[% user.username %]</a>
               <a class="firstMenu" href="/user/logout">logout</a>
-              <a class="firstMenu" href="/about">IIJO</a>
 [% END %]
+              <a class="firstMenu" href="https://github.com/kablamo/iijo.org/issues">feedback</a>
+              <a class="firstMenu" href="/about">IIJO</a>
             </li>
             <li class="secondary left">
 [% IF practiceMode %]

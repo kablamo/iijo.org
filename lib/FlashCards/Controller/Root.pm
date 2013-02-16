@@ -168,8 +168,7 @@ sub end : ActionClass('RenderView') {
 
     $c->response->content_type('text/html; charset=utf-8')
        unless $c->response->content_type;
-    $c->response->header('Cache-Control' => 'no-cache')
-       unless $c->_static_file;
+    $c->response->header('Cache-Control' => 'no-cache');
 }
 
 =head1 AUTHOR

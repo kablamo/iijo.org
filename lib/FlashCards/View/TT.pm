@@ -12,7 +12,8 @@ __PACKAGE__->config(
    ],
    TIMER              => FlashCards->config->{'ttTimer'},
    POST_CHOMP         => 1,
-   render_die         => 1
+   render_die         => 1,
+   ENCODING           => 'utf-8',
 );
 
 =head1 NAME
