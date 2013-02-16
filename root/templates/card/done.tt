@@ -1,9 +1,7 @@
 [% PROCESS header.tt %]
 
     <div id="secondHeader">
-      <div class="grid_14 prefix_1">
-        <h1>Done!  No more cards to learn right now.</h1>
-      </div>
+      <h1>Done!  No more cards to learn right now.</h1>
       <div style="height:0em" class="clear"></div>
     </div>
 

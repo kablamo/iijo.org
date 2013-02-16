@@ -13,7 +13,7 @@
 
 [% IF userSets && userSets.size && userSets.size > 0 %]
       <div class="clear"></div>
-      <div class="grid_14 prefix_1">
+      <div class="margin">
   [% FOREACH us IN userSets %]
         <ul class="horizontal">
           <li class="title">

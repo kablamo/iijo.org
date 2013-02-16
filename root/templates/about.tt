@@ -1,9 +1,7 @@
 [% INCLUDE header.tt %]
 
       <div id="secondHeader">
-        <div class="grid_9 prefix_1">
-          <h1>about <a href="http://iijo.org">IIJO</a></h1>
-        </div>
+        <h1>about <a href="http://iijo.org">IIJO</a></h1>
         <div style="height:0px" class="clear"></div>
       </div>
 

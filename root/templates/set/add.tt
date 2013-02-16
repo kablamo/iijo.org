@@ -12,14 +12,12 @@
 [% END %]
 
     <div id="secondHeader">
-      <div class="grid_14 prefix_1 postfix_1">
-        <h1>add words to <a href="/set/[% setId %]/[% setSlug %]">[% setName %]</a></h1>
-      </div>
+      <h1>add words to <a href="/set/[% setId %]/[% setSlug %]">[% setName %]</a></h1>
       <div style="height: 0em" class="clear"></div>
     </div>
 
     <form id="dictionarySearch" action="/set/[% setId %]/add">
-      <div class="grid_10 prefix_1 postfix_1">
+      <div class="margin">
         <input class="searchBox" name="query" type="text" value="[% i %]"/>
         <button type="submit">search</button><br>
         search using 
@@ -46,7 +44,7 @@
 
 [% IF (best.size == 0 && exact.size == 0) %]
       <div style="height:4em" class="clear"></div>
-      <div class="grid_10 prefix_1 post_fix_3">
+      <div class="margin">
         no matches found
       </div>
       <div style="height:2em" class="clear"></div>

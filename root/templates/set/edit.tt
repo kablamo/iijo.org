@@ -1,9 +1,7 @@
 [% PROCESS header.tt %]
 
       <div id="secondHeader">
-        <div class="grid_14 prefix_1">
-          <h1>Edit <a href="/set/[% setId %]/[% setSlug %]">[% setName %]</a></h1>
-        </div>
+        <h1>Edit <a href="/set/[% setId %]/[% setSlug %]">[% setName %]</a></h1>
         <div class="clear"></div>
       </div>
  

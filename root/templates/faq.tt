@@ -1,9 +1,7 @@
 [% INCLUDE header.tt %]
 
       <div id="secondHeader">
-        <div class="grid_9 prefix_1">
-           <h1>Frequently Asked Questions</h1>
-        </div>
+        <h1>Frequently Asked Questions</h1>
         <div style="height:0px" class="clear"></div>
       </div>
 

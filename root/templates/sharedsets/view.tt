@@ -1,9 +1,7 @@
 [% PROCESS header.tt %]
 
     <div id="secondHeader">
-      <div class="grid_5 prefix_1">
-        <h1>Shared sets</h1>
-      </div>
+      <h1>Shared sets</h1>
       <div class="clear"></div>
     </div>
 

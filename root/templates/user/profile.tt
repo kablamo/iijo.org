@@ -1,9 +1,7 @@
 [% PROCESS header.tt %]
 
-    <div id="secondHeaderFat">
-      <div class="grid_14 prefix_1">
-        <h1>[% profile.username %]</h1>
-      </div>
+    <div id="secondHeader">
+      <h1>[% profile.username %]</h1>
       <div class="clear"></div>
     </div>
 

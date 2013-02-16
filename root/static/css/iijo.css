@@ -439,7 +439,7 @@ table.card tr td
  margin-top: 0em;
 }
 /* headers */
-div#thinHeader 
+#thinHeader 
 {
  padding: 1em;
  margin-top: 1em;
@@ -447,6 +447,17 @@ div#thinHeader
  vertical-align: middle;
  background: #fff;
  color: #333;
+}
+.margin
+{
+ padding: 1em;
+ margin-top: 1em;
+ margin-bottom: 1em;
+ vertical-align: middle;
+ background: #fff;
+ color: #333;
+ margin-left: 8em;
+ margin-right: 8em;
 }
 div#rowContainer
 {
@@ -499,6 +510,8 @@ div#secondHeader
 {
  margin: 0em;
  margin-bottom: 2em;
+ margin-left: 8em;
+ margin-right: 8em;
  padding: 1em;
  background: #fff;
  color: #333;
