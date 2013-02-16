@@ -6,21 +6,21 @@
           <ul class="nav site">
             <li class="secondary right">
 [% IF !user.username or user.guest == "y" %]
-              <a class="firstMenu" href="/user/login"   >login</a>
-              <a class="firstMenu" href="/user/register">create account</a>
+              <a class="firstMenu" href="/user/login"   >Login</a>
+              <a class="firstMenu" href="/user/register">Create account</a>
 [% ELSE %]
               <a class="firstMenu" href="/user/[% user.userId %]/[% user.slug %]">[% user.username %]</a>
-              <a class="firstMenu" href="/user/logout">logout</a>
-              <a class="firstMenu" href="/about">(iijo)</a>
+              <a class="firstMenu" href="/user/logout">Logout</a>
+              <a class="firstMenu" href="/about">IIJO</a>
 [% END %]
             </li>
             <li class="secondary left">
 [% IF practiceMode %]
               <a class="secondMenu" href="/set/[% setId %]/[% setSlug %]">[% setName %]</a>
 [% END %]
-              <a class="firstMenu"  href="/mysets">my sets</a>
-              <a class="firstMenu"  href="/sharedsets">shared sets</a>
-              <a class="firstMenu"  href="/set/create">create a set</a>
+              <a class="firstMenu"  href="/mysets">My sets</a>
+              <a class="firstMenu"  href="/sharedsets">Shared sets</a>
+              <a class="firstMenu"  href="/set/create">Create a set</a>
             </li>
           </ul>
         </div>
