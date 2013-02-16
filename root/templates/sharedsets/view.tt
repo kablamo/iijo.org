@@ -5,7 +5,7 @@
       <div class="clear"></div>
     </div>
 
-    <div class="grid_14 prefix_1">
+    <div class="margin">
     [% FOREACH s IN sets %]
        <ul class="horizontal">
          <li class="title">

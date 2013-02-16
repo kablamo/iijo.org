@@ -459,6 +459,8 @@ table.card tr td
  margin-left: 8em;
  margin-right: 8em;
 }
+.leftHalf {width: 50%}
+.rightHalf {width: 50%}
 div#rowContainer
 {
  float: left;

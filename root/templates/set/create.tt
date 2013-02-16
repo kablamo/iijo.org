@@ -5,7 +5,8 @@
       <div class="clear"></div>
     </div>
  
-      <div class="grid_7 prefix_1">
+    <div class="margin">
+      <div class="leftHalf">
         <script type="text/javascript">
           var RecaptchaOptions = {
              theme : 'clean'
@@ -26,5 +27,6 @@
           <button type="submit"><h5>create set</h5></button>
         </form>
       </div>
+    </div>
  
 [% PROCESS footer.tt %]
