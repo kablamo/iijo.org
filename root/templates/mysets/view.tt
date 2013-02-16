@@ -2,14 +2,10 @@
 
     <div id="thinHeader">
       <div class="grid_6 prefix_1">
-        <h1>my sets</h1>
+        <h1>My sets</h1>
         you know [% pctComplete %] of your [% totalCards %] flashcards
       </div>
       <div class="clear"></div>
-    </div>
-
-    <div id="dimHeader">
-      &nbsp;
     </div>
 
     <div id="thirdHeader">
