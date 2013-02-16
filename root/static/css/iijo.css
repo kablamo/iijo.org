@@ -490,7 +490,7 @@ div#header
  padding: 0;
  background: #444;
  color: #fff;
- border-bottom: solid 1px #444;
+ border-top: solid 2px #444;
 }
 div#darkHeader {background: #333; height: .5em}
 div#duskHeader {background: #999; height: .5em; margin-bottom: 2em}
