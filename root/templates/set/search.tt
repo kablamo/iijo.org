@@ -32,7 +32,7 @@
     </form>
       <div style="height:2em" class="clear"></div>
 
-[% PROCESS rows.tt ignore = 1 delete = 1 selectEverything = 1 %]
+[% PROCESS rows.tt ignore = 0 delete = 1 selectEverything = 1 %]
 
 [% IF definitions.size == 0 %]
       <div style="height:4em" class="clear"></div>
