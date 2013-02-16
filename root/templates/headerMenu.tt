@@ -6,11 +6,11 @@
           <ul class="nav site">
             <li class="secondary right">
 [% IF !user.username or user.guest == "y" %]
-              <a class="firstMenu" href="/user/login"   >Login</a>
-              <a class="firstMenu" href="/user/register">Create account</a>
+              <a class="firstMenu" href="/user/login"   >login</a>
+              <a class="firstMenu" href="/user/register">create account</a>
 [% ELSE %]
               <a class="firstMenu" href="/user/[% user.userId %]/[% user.slug %]">[% user.username %]</a>
-              <a class="firstMenu" href="/user/logout">Logout</a>
+              <a class="firstMenu" href="/user/logout">logout</a>
               <a class="firstMenu" href="/about">IIJO</a>
 [% END %]
             </li>

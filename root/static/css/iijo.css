@@ -385,7 +385,7 @@ ul.card               {list-style: none; margin: 0; padding: 0; width: 100%}
 ul.card li            {float: left; margin: 0; padding: 0; margin-right: .4em}
 ul.card li.pinyin,    
 ul.card li.english,   
-ul.card li.simplified {font-weight: bold; width: 70%; font-size: 3.0em; background: #ddd; padding: .2em; border: solid 1px #bbb}
+ul.card li.simplified {font-weight: bold; width: 70%; font-size: 3.0em; background: #eee; padding: .2em; border: solid 1px #ccc}
 ul.card li.stats,
 ul.card li.button     {width: 20%}
 ul.horizontal                  {float:left; width: 100%; list-style: none; padding: 0; margin: 0; margin-top: 0em; line-height: 2.5em}
@@ -509,9 +509,10 @@ div#specialHeader
  margin-bottom: 0em;
  padding: 1em;
  background: #eee;
+ background: #fff;
  color: #333;
- border-top: solid 1px #ccc;
- border-bottom: solid 1px #ccc;
+ border-top: solid 1px transparent;
+ border-bottom: solid 1px transparent;
 }
 div#thirdHeader
 {

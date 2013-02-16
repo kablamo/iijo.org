@@ -20,9 +20,9 @@
             <form action="/set/[% setId %]/card/0/ask">
               <button class="practice" href="/set/[% setId %]/card/0/ask"><nobr>practice flashcards</nobr></button><br><br>
             </form>
-            <a href="/set/[% setId %]/add"    ><nobr>Add words</nobr></a>&nbsp;&nbsp;&nbsp;
-            <a href="/set/[% setId %]/edit"   ><nobr>Edit description</nobr></a>&nbsp;&nbsp;&nbsp;
-            <a href="/set/[% setId %]/search" ><nobr>Search this set</nobr></a>
+            <a href="/set/[% setId %]/add"    ><nobr>add words</nobr></a>&nbsp;&nbsp;&nbsp;
+            <a href="/set/[% setId %]/edit"   ><nobr>edit description</nobr></a>&nbsp;&nbsp;&nbsp;
+            <a href="/set/[% setId %]/search" ><nobr>search this set</nobr></a>
         </div>
         <div class="clear"></div>
       </div>
