@@ -13,6 +13,9 @@
 [% END %]
         </div>
         <div class="grid_4">
+            <br>
+            <br>
+            <a class="practice" href="/set/[% setId %]/card/0/ask"    ><nobr>practice f<u>l</u>ashcards</nobr></a>
         </div>
         <div class="clear"></div>
       </div>
@@ -22,7 +25,6 @@
           <!--[if IE 6]><div style="height:.1em" class="clear"></div><![endif]-->
           <ul class="set nav">
             <li class="secondary left">
-              <a class="secondMenu" id ="practice" href="/set/[% setId %]/card/0/ask"    ><nobr>f<u>l</u>ashcards</nobr></a>
               <a class="secondMenu" id ="add"      href="/set/[% setId %]/add"           ><nobr><u>a</u>dd words</nobr></a>
               <a class="secondMenu" id ="edit"     href="/set/[% setId %]/edit"          ><nobr>ed<u>i</u>t</nobr></a>
               <a class="secondMenu" id ="search"   href="/set/[% setId %]/search"        ><nobr><u>s</u>earch</nobr></a>

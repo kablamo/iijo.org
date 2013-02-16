@@ -209,6 +209,7 @@ a#selfFlattery:hover {color: #333}
 a.notBold            {font-weight: normal}
 a.notBold:hover      {text-decoration: none}
 a.spaced             {margin-right: .5em; margin-left: .5em}
+a.practice           {color: #fff; font-size: 2em}
 /* headings */
 a:hover h1       {text-decoration: underline}
 h1#dictionary    {font-size: 3.3em; line-height: 1em}
