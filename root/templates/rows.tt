@@ -21,22 +21,6 @@
               </form>
           </li>
     [% END %]
-    [% IF ignore %]
-      [% IF d.SetDefinition.selected == 1 %]
-        [% ignoreButton = "&nbsp;&nbsp;ignore&nbsp;&nbsp;" %]
-        [% ignoreAction = "/set/$setId/definition/$d.Definition.definitionId/deselect/view" %]
-        [% ignoreTitle  = "don't show this word when practicing this flashcard set" %]
-      [% ELSE %]
-        [% ignoreButton = "unignore" %]
-        [% ignoreAction = "/set/$setId/definition/$d.Definition.definitionId/select" %]
-        [% ignoreTitle  = "show this word when practicing this flashcard set" %]
-      [% END %]
-          <li class="button">
-            <form action="[% ignoreAction %]">
-              <button class="" type="submit" title="[% ignoreTitle %]">[% ignoreButton %]</button>
-            </form>
-          </li>
-    [% END %]
     [% IF delete %]
           <li class="button">
             <form action="/set/[% setId %]/definition/[% d.Definition.definitionId %]/remove">
