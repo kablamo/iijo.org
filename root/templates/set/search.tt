@@ -13,7 +13,7 @@
 
     <div id="secondHeader">
       <div class="grid_14 prefix_1 postfix_1">
-        <h1>search for words in <a class="whiteLink" href="/set/[% setId %]/[% setSlug %]">[% setName %]</a></h1>
+        <h1>Search for words in <a href="/set/[% setId %]/[% setSlug %]">[% setName %]</a></h1>
       </div>
       <div style="height: 0em" class="clear"></div>
     </div>

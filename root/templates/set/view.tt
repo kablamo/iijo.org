@@ -3,38 +3,31 @@
       <div id="thinHeader">
         <div class="grid_10 prefix_1">
           <!--[if IE 6]><div style="height:.1em" class="clear"></div><![endif]-->
-          <a class="whiteLink" href="/set/[% setId %]/[% setSlug %]"><h1>[% setName %]</h1></a>
+          <a class="" href="/set/[% setId %]/[% setSlug %]"><h1>[% setName %]</h1></a>
           [% description %]
           <br>
-          author: [% author %]<br> users: [% users %]
+          <br>
+          <span class="setDetails">
+          Author: [% author %]<br> Users: [% users %]
 [% IF totalCards && totalCards > 0 %]
-          <br>total words: [% totalCards / 3 %]<br>
-          percent complete: [% pctComplete %]
+          <br>Total words: [% totalCards / 3 %]<br>
+          Percent complete: [% pctComplete %]
+          </span>
 [% END %]
         </div>
         <div class="grid_4">
             <br>
-            <br>
-            <a class="practice" href="/set/[% setId %]/card/0/ask"    ><nobr>practice f<u>l</u>ashcards</nobr></a>
+            <form action="/set/[% setId %]/card/0/ask">
+              <button class="practice" href="/set/[% setId %]/card/0/ask"><nobr>practice flashcards</nobr></button><br><br>
+            </form>
+            <a href="/set/[% setId %]/add"    ><nobr>Add words</nobr></a>&nbsp;&nbsp;&nbsp;
+            <a href="/set/[% setId %]/edit"   ><nobr>Edit description</nobr></a>&nbsp;&nbsp;&nbsp;
+            <a href="/set/[% setId %]/search" ><nobr>Search this set</nobr></a>
         </div>
         <div class="clear"></div>
       </div>
 
-      <div id="thirdHeader">
-        <div class="grid_14 prefix_1">
-          <!--[if IE 6]><div style="height:.1em" class="clear"></div><![endif]-->
-          <ul class="set nav">
-            <li class="secondary left">
-              <a class="secondMenu" id ="add"      href="/set/[% setId %]/add"           ><nobr><u>a</u>dd words</nobr></a>
-              <a class="secondMenu" id ="edit"     href="/set/[% setId %]/edit"          ><nobr>ed<u>i</u>t</nobr></a>
-              <a class="secondMenu" id ="search"   href="/set/[% setId %]/search"        ><nobr><u>s</u>earch</nobr></a>
-            </li>
-          </ul>
-        </div>
-        <div style="height: 0em" class="clear"></div>
-      </div>
-
-      <div style="height: 1em" class="clear"></div>
+      <div style="height: 0" class="clear"></div>
 [% PROCESS thinRows.tt delete = 1 %]
 
 [% IF definitions.size == 0 %]

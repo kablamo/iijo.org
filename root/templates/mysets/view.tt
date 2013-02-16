@@ -5,17 +5,9 @@
         <h1>My sets</h1>
         you know [% pctComplete %] of your [% totalCards %] flashcards
       </div>
-      <div class="clear"></div>
-    </div>
-
-    <div id="thirdHeader">
-      <div class="grid_14 prefix_1">
-        <ul class="nav set">
-          <li class="secondary top left">
-            <a class="firstMenu" id="practice" title="flashcards from all your sets" href="/mysets/card/0/ask">all f<u>l</u>ashcards</a>
-          </li>
-        </ul>
-      </div>
+      <form action="/mysets/card/0/ask">
+        <button class="practice" title="flashcards from all your sets" href="/mysets/card/0/ask">practice all flashcards</button>
+      </form>
       <div class="clear"></div>
     </div>
 
