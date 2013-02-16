@@ -13,17 +13,6 @@
 [% END %]
         </div>
         <div class="grid_4">
-            <ul class="menu floatRight">
-[% IF cpath && cpath == 'ignored' %]
-              <li><a class="whiteLink" id =""         href="/set/[% setId %]/[% setSlug %]" ><nobr>back</nobr></a></li>
-[% ELSE %]
-              <li><a class="whiteLink" id =""         href="/set/[% setId %]/ignored"       ><nobr>ignored words</nobr></a></li>
-[% END %]
-[% IF userId != authorId %]
-              <li><a class="whiteLink" id ="defaults" href="/set/[% setId %]/resetSelection"><nobr>defaults</nobr></a></li>
-[% END %]
-              <li><a class="whiteLink" id =""         href="/set/[% setId %]/selectAll"     ><nobr>unignore all</nobr></a></li>
-            </ul>
         </div>
         <div class="clear"></div>
       </div>
@@ -44,7 +33,7 @@
       </div>
 
       <div style="height: 1em" class="clear"></div>
-[% PROCESS thinRows.tt ignore = 1 delete = 1 %]
+[% PROCESS thinRows.tt delete = 1 %]
 
 [% IF definitions.size == 0 %]
       <div style="height: 1em" class="clear"></div>
