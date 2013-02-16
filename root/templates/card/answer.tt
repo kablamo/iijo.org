@@ -1,4 +1,4 @@
-[% PROCESS header.tt noHeader = 1 %]
+[% PROCESS header.tt %]
 
     <div id="specialHeader">
       <div style="height:2em" class="clear"></div>
@@ -52,5 +52,4 @@
     </div>
 
 
-[% PROCESS headerMenu.tt %]
 [% PROCESS footer.tt %]

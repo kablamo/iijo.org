@@ -463,10 +463,10 @@ div#firstTime
  padding: 1em;
  padding-bottom: 2em;
  margin: 0;
- background: #333;
- color: #fff;
- border-bottom: solid 1px #333;
- border-top: solid 1px #333;
+ background: #fff;
+ color: #333;
+ border-bottom: solid 1px #fff;
+ border-top: solid 1px #fff;
 }
 div#firstTime h1 {
  font-size: 4.0em;
