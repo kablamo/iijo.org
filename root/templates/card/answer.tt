@@ -1,6 +1,6 @@
 [% PROCESS header.tt %]
 
-    <div id="specialHeader">
+    <div id="margin">
       <div style="height:2em" class="clear"></div>
       <div class="grid_14 prefix_1">
         simplified
