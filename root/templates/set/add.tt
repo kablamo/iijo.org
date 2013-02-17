@@ -26,13 +26,14 @@
         <input class="simplified" type="radio" name="language" value="simplified" [% IF l == 'simplified' %]checked[% END %]/>Simplified characters
       </div>
     </form>
-      <div style="height:3em" class="clear"></div>
+    <div style="height:0em" class="clear"></div>
 
 [% IF best.size > 0 %]
-    <div id="specialHeader">
-      <div style="height:3em" class="clear"></div>
+    <div class="coloredBox">
+      <div class="margin">
   [% PROCESS rows.tt definitions = best selectEverything = 1 add = 1 %]
-      <div style="height:0em" class="clear"></div>
+      <div style="height:0" class="clear"></div>
+      </div>
     </div>
 [% END %]
 

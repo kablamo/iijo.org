@@ -9,8 +9,7 @@
     [% END %]
         <ul class="thinRow [% s %]">
           <a class="notBold [% s %]" href="/definition/[% d.Definition.definitionId %]/[% d.Definition.simplified %]/[% setId %]">
-            <li class="simplified">[% d.Definition.simplified         %]</li>
-            <li class="pinyin"    >[% d.Definition.pinyin             %]</li>
+            <li class="simplified">[% d.Definition.simplified         %]<br><span class="pinyin">[% d.Definition.pinyin %]<span></li>
             <li class="english"   >[% d.Definition.english            %]</li>
           </a>
     [% IF add %]
