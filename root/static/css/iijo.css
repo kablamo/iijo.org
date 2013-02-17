@@ -113,6 +113,7 @@ h3 {font-size: 1.6em}
 h4 {font-size: 1.4em}
 h5 {font-size: 1.2em}
 h6 {font-size: 1.0em}
+h6.center
 /* boxes */
 .box {
  background:#444;
@@ -612,3 +613,4 @@ div.userFlattery {font-size: 10em; color: #ccc}
 .radioText {line-height: 2.0em; height: 2.0em}
 .setDetails {color: #666}
 .practice   {font-size: 1.5em; font-weight:bold; padding-left: 1em; padding-right: 1em}
+.noCards {text-align: center; width: 100%; padding: 1em; background: #eee}

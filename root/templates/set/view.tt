@@ -32,8 +32,8 @@
 
 [% IF definitions.size == 0 %]
       <div style="height: 1em" class="clear"></div>
-      <div class="grid_8 prefix_4">
-        <h6 class="center">this set has no flashcards</h6>
+      <div class="margin">
+        <div class="noCards">This set has no flashcards</div>
       </div>
       <div style="height:10em" class="clear"></div>
 [% END %]
