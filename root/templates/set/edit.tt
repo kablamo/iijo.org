@@ -6,19 +6,21 @@
       </div>
  
       <div class="margin">
-        <form id="createSetForm" action="/set/[% setId %]/editSubmit">
-          set name
-          <h4>
-            <input class="textInputFullWidth sround" name="name" type="text" value="[% setName %]">
-          </h4>
-          <br>
-          set description
-          <h4>
-            <textarea rows=4 name="description">[% description %]</textarea>
-          </h4>
-          <br>
-          <button type="submit"><h5>save changes</h5></button>
-        </form>
+        <div class="leftHalf">
+          <form id="createSetForm" action="/set/[% setId %]/editSubmit">
+            set name
+            <h4>
+              <input class="textInputFullWidth sround" name="name" type="text" value="[% setName %]">
+            </h4>
+            <br>
+            set description
+            <h4>
+              <textarea rows=4 name="description">[% description %]</textarea>
+            </h4>
+            <br>
+            <button type="submit"><h5>save changes</h5></button>
+          </form>
+        </div>
       </div>
  
 [% PROCESS footer.tt %]
