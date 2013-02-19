@@ -1,6 +1,6 @@
 [% PROCESS header.tt %]
 
-    <div id="secondHeader">
+    <div class="margin">
       <h1>Shared sets</h1>
       <div class="clear"></div>
     </div>

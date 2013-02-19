@@ -11,13 +11,13 @@
   [% l = "english" %]
 [% END %]
 
-    <div id="secondHeader">
-      <h1>Search for words in <a href="/set/[% setId %]/[% setSlug %]">[% setName %]</a></h1>
+    <div class="margin">
+      <h1>search for words in <a href="/set/[% setId %]/[% setSlug %]">[% setName %]</a></h1>
       <div style="height: 0em" class="clear"></div>
     </div>
 
-   <form id="dictionarySearch" action="/set/[% setId %]/search">
-      <div class="grid_10 prefix_1">
+    <div class="margin">
+      <form id="dictionarySearch" action="/set/[% setId %]/search">
         <input id="" class="searchBox" name="search" type="text" value="[% i %]"/>
         <button type="submit">search</button><br>
         <div class="radioText">
@@ -26,11 +26,13 @@
           <input class="pinyin"     type="radio" name="language" value="pinyin"     [% IF l == 'pinyin'     %]checked[% END %]/>Pinyin &nbsp;or 
           <input class="simplified" type="radio" name="language" value="simplified" [% IF l == 'simplified' %]checked[% END %]/>Simplified characters
         </div>
-      </div>
-    </form>
-      <div style="height:2em" class="clear"></div>
+      </form>
+    </div>
+    <div style="height:2em" class="clear"></div>
 
+    <div class="margin">
 [% PROCESS rows.tt ignore = 0 delete = 1 selectEverything = 1 %]
+    </div>
 
 [% IF definitions.size == 0 %]
       <div style="height:4em" class="clear"></div>
