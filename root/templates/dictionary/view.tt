@@ -6,7 +6,7 @@
 [% END %]
 
       <div style="height:3em" class="clear"></div>
-      <div class="grid_14 prefix_1">
+      <div class="margin">
         <table class="card">
           <tbody>
           <tr>

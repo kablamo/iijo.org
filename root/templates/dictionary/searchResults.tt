@@ -14,25 +14,29 @@
       <div style="height:3em" class="clear"></div>
 
     <form id="dictionarySearch" action="/dictionary">
-      <div class="grid_11 prefix_1">
-        <input class="searchBox" name="query" type="text" value="[% i %]"/>
-        <button type="submit">search</button>
-      </div>
-      <div class="grid_3 right">
-        <a href="/about"><h1 id="dictionary" style="text-align: top">IIJO</h1></a>
-      </div>
-      <div style="height:0em" class="clear"></div>
-
-      <div class="grid_11 prefix_1">
-        <div class="radioText">
-          search using 
-          <input class="english"    type="radio" name="language" value="english"    [% IF l == 'english'    %]checked[% END %]/>English
-          <input class="pinyin"     type="radio" name="language" value="pinyin"     [% IF l == 'pinyin'     %]checked[% END %]/>Pinyin &nbsp;or 
-          <input class="simplified" type="radio" name="language" value="simplified" [% IF l == 'simplified' %]checked[% END %]/>Simplified characters
+      <div class="thinMargin">
+        <div class="leftHalf">
+          <input class="searchBox" name="query" type="text" value="[% i %]"/>
+          <button type="submit">search</button>
         </div>
+        <div class="rightHalf right">
+          <a href="/about"><h1 id="dictionary" style="text-align: top">IIJO</h1></a>
+        </div>
+        <div style="height:0em" class="clear"></div>
       </div>
-      <div class="grid_3 right">
-        Chinese dictionary
+
+      <div class="thinMargin">
+        <div class="leftHalf">
+          <div class="radioText">
+            search using 
+            <input class="english"    type="radio" name="language" value="english"    [% IF l == 'english'    %]checked[% END %]/>English
+            <input class="pinyin"     type="radio" name="language" value="pinyin"     [% IF l == 'pinyin'     %]checked[% END %]/>Pinyin &nbsp;or 
+            <input class="simplified" type="radio" name="language" value="simplified" [% IF l == 'simplified' %]checked[% END %]/>Simplified characters
+          </div>
+        </div>
+        <div class="rightHalf right">
+          Chinese dictionary
+        </div>
       </div>
     </form>
 
@@ -54,13 +58,13 @@
 [% END %]
 <!--
       <div style="height:3em" class="clear"></div>
-      <div class="grid_11 prefix_1">
+      <div class="margin">
         <a href="">even more matches</a>
       </div>
 -->
 
 [% IF (best.size == 0 && exact.size == 0) %]
-      <div class="grid_10 prefix_1 post_fix_3">
+      <div class="margin">
         no matches found
       </div>
       <div style="height:2em" class="clear"></div>
