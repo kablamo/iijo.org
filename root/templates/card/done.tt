@@ -5,7 +5,7 @@
       <div style="height:0em" class="clear"></div>
     </div>
 
-      <div class="grid_14 prefix_1">You could
+      <div class="margin">You could
         <ul>
           <li><a href="/set/[% setId %]/search">Add</a> more flashcards to this set.</li>
           <li>Practice one of <a href="/mysets">your other flashcard sets</a>.</li>

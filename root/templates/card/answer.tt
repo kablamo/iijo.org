@@ -2,11 +2,11 @@
 
     <div id="margin">
       <div style="height:2em" class="clear"></div>
-      <div class="grid_14 prefix_1">
+      <div class="thinMargin">
         simplified
       </div>
       <div style="height:0em" class="clear"></div>
-      <div class="grid_14 prefix_1">
+      <div class="thinMargin">
         <form id="right" action="[% baseURL %][% cardId %]/difficulty/1">
           <ul class="card">
             <li class="simplified">[% simplified %]</li>
@@ -18,11 +18,11 @@
       </div>
 
       <div style="height:2em" class="clear"></div>
-      <div class="grid_14 prefix_1">
+      <div class="thinMargin">
         pinyin
       </div>
       <div style="height:0em" class="clear"></div>
-      <div class="grid_14 prefix_1">
+      <div class="thinMargin">
         <form id="wrong" action="[% baseURL %][% cardId %]/difficulty/0">
           <ul class="card">
             <li class="simplified">[% pinyin %]</li>
@@ -34,11 +34,11 @@
       </div>
 
       <div style="height:2em" class="clear"></div>
-      <div class="grid_14 prefix_1">
+      <div class="thinMargin">
         english
       </div>
       <div style="height:0em" class="clear"></div>
-      <div class="grid_14 prefix_1">
+      <div class="thinMargin">
         <ul class="card">
           <li class="simplified">[% english %]</li>
           <li class="stats">
