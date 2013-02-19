@@ -36,7 +36,7 @@
 
   [% PROCESS more.tt hrefBase = "/mysets" topHeight = 1 bottomHeight = 2 %]
 [% ELSE %]
-      <div style="height: 2em" class="grid_8 prefix_4">
+      <div style="height: 2em" class="margin">
         <h4>Hey you have no flashcard sets.
         To get started, find a <a href="/sharedsets">shared set</a></h4>
         or <a href="/set/create">create your own set of flashcards</a>

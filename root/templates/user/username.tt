@@ -1,7 +1,7 @@
 [% PROCESS header.tt %]
 
       <div style="height:5em" class="clear"></div>
-      <div class="grid_12 prefix_1">
+      <div class="margin">
         <form id="usernameForm" action="/user/usernameSubmit/[% user.userId %]">
           <table class="formTable">
             <tr>

@@ -11,21 +11,21 @@
   [% l = "english" %]
 [% END %]
 
-    <div id="secondHeader">
+    <div class="margin">
       <h1>add words to <a href="/set/[% setId %]/[% setSlug %]">[% setName %]</a></h1>
       <div style="height: 0em" class="clear"></div>
     </div>
 
-    <form id="dictionarySearch" action="/set/[% setId %]/add">
-      <div class="margin">
+    <div class="margin">
+      <form id="dictionarySearch" action="/set/[% setId %]/add">
         <input class="searchBox" name="query" type="text" value="[% i %]"/>
         <button type="submit">search</button><br>
         search using 
         <input class="english"    type="radio" name="language" value="english"    [% IF l == 'english'    %]checked[% END %]/>English
         <input class="pinyin"     type="radio" name="language" value="pinyin"     [% IF l == 'pinyin'     %]checked[% END %]/>Pinyin &nbsp;or 
         <input class="simplified" type="radio" name="language" value="simplified" [% IF l == 'simplified' %]checked[% END %]/>Simplified characters
-      </div>
-    </form>
+      </form>
+    </div>
     <div style="height:0em" class="clear"></div>
 
 [% IF best.size > 0 %]

@@ -9,7 +9,7 @@
         (or <a href="/set/create">create your own</a>)
       </div>
 
-	  <div id="rowContainer">
+	  <div class="margin">
       [% FOREACH s IN sets %]
         <ul class="horizontal">
           <li class="title">

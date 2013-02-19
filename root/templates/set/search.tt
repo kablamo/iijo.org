@@ -28,15 +28,14 @@
         </div>
       </form>
     </div>
-    <div style="height:2em" class="clear"></div>
+    <div style="height:0em" class="clear"></div>
 
     <div class="margin">
 [% PROCESS rows.tt ignore = 0 delete = 1 selectEverything = 1 %]
     </div>
 
 [% IF definitions.size == 0 %]
-      <div style="height:4em" class="clear"></div>
-      <div class="grid_10 prefix_1 post_fix_3">
+      <div class="margin">
         no matches found
       </div>
       <div style="height:2em" class="clear"></div>

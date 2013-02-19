@@ -2,11 +2,11 @@
 
        <!-- =================== begin first time visitor box =================== -->
        <div id="message">
-         <div class="grid_14 prefix_1 announceText">
+         <div class="margin announceText">
            <h1 id="branding" class="center">CHINESE FLASHCARDS</h1>
          </div>
          <div class="clear"></div>
-         <div class="grid_14 prefix_1">
+         <div class="margin">
            <div class="center">
              <h4>
                To get started choose one of the flashcard sets below&nbsp;&nbsp;
@@ -18,7 +18,7 @@
        </div>
        <!-- =================== end first time visitor box =================== -->
 
-		<div class="grid_14 prefix_1">
+		<div class="margin">
       [% FOREACH s IN sets %]
         <ul class="horizontal">
           <li class="title">
