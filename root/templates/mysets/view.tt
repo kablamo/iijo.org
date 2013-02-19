@@ -1,13 +1,15 @@
 [% PROCESS header.tt %]
 
-    <div id="thinHeader">
-      <div class="grid_6 prefix_1">
+    <div class="margin">
+      <div class="leftHalf">
         <h1>My sets</h1>
         you know [% pctComplete %] of your [% totalCards %] flashcards
       </div>
-      <form action="/mysets/card/0/ask">
-        <button class="practice" title="flashcards from all your sets" href="/mysets/card/0/ask">practice all flashcards</button>
-      </form>
+      <div class="rightHalf">
+        <form action="/mysets/card/0/ask">
+          <button class="practice" title="flashcards from all your sets" href="/mysets/card/0/ask">practice all flashcards</button>
+        </form>
+      </div>
       <div class="clear"></div>
     </div>
 
