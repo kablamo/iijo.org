@@ -2,7 +2,7 @@
       <div style="height:0em" class="clear"></div>
       <div id="header">
         <!--[if IE 6]><div style="height:.1em" class="clear"></div><![endif]-->
-        <div class="grid_14 prefix_1">
+        <div class="thinMargin">
           <ul class="nav site">
             <li class="secondary right">
 [% IF !user.username or user.guest == "y" %]

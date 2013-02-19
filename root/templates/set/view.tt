@@ -1,7 +1,7 @@
 [% PROCESS header.tt %]
 
-      <div id="thinHeader">
-        <div class="grid_10 prefix_1">
+      <div class="margin">
+        <div class="leftHalf">
           <!--[if IE 6]><div style="height:.1em" class="clear"></div><![endif]-->
           <a class="" href="/set/[% setId %]/[% setSlug %]"><h1>[% setName %]</h1></a>
           [% description %]
@@ -15,7 +15,7 @@
           </span>
 [% END %]
         </div>
-        <div class="grid_4">
+        <div class="rightHalf">
             <br>
             <form action="/set/[% setId %]/card/0/ask">
               <button class="practice" href="/set/[% setId %]/card/0/ask"><nobr>practice flashcards</nobr></button><br><br>
@@ -24,10 +24,9 @@
             <a href="/set/[% setId %]/edit"   ><nobr>edit description</nobr></a>&nbsp;&nbsp;&nbsp;
             <a href="/set/[% setId %]/search" ><nobr>search this set</nobr></a>
         </div>
-        <div class="clear"></div>
       </div>
 
-      <div style="height: 0" class="clear"></div>
+      <div style="height: 3em" class="clear"></div>
 [% PROCESS thinRows.tt delete = 1 %]
 
 [% IF definitions.size == 0 %]

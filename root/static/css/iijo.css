@@ -361,15 +361,15 @@ ul.site li.secondary a.secondMenu:hover  {background: #333}
 /* lists */
 ul.thinRow               {float: left; list-style: none; margin: 0; padding: 0; width: 100%; border-bottom: solid 1px #fff}
 ul.thinRow li            {float: left; margin: 0; padding: .5em; padding-top: 0; padding-left: 0; border-left: solid 1px #fff}
-ul.thinRow li.simplified {width: 20%; font-size: 3em; line-height: .8em; padding-right: 1em; font-weight: bold}
-ul.thinRow li.english    {width: 50%; padding: 0; padding-bottom: 3em; padding-right: 1em}
-ul.thinRow li.button     {}
-.pinyin {font-size: .5em; font-weight: normal}
+ul.thinRow li.simplified {width: 7em; font-size: 2em; line-height: .8em; padding-right: 1em; font-weight: bold}
+ul.thinRow li.english    {width: 30em; padding: 0; padding-bottom: 3em; padding-right: 1em}
+ul.thinRow li.button     {width: 6em}
+.pinyin {font-size: .7em; font-weight: normal}
 ul.row               {float: left; list-style: none; margin: 0; margin-bottom: 1em; margin-top: 1em; padding: 0em; width: 100%; background: transparent}
 ul.row li            {float: left; margin: 0; padding: 0em; padding-left: 0}
-ul.row li.simplified {width: 20%; font-size: 3em; line-height: .8em; padding-right: 1em; font-weight: bold}
-ul.row li.english    {width: 50%}
-ul.row li.button     {}
+ul.row li.simplified {width: 7em; font-size: 2em; line-height: .8em; padding-right: 1em; font-weight: bold}
+ul.row li.english    {width: 30em}
+ul.row li.button     {width: 6em}
 .floater {
  float: left;
  height: 50%;
@@ -450,6 +450,17 @@ table.card tr td
  background: #fff;
  color: #333;
 }
+.thinMargin {
+ margin: 0;
+ margin-left: 8em;
+ margin-right: 8em;
+ padding: 0em;
+ vertical-align: middle;
+ background: transparent;
+ color: #333;
+ border-top: solid 1px transparent;
+ border-bottom: solid 1px transparent;
+}
 .margin
 {
  margin-top: 1em;
@@ -468,8 +479,8 @@ table.card tr td
  width: 100%;
  background: #eee;
 }
-.leftHalf {width: 50%}
-.rightHalf {width: 50%}
+.leftHalf  {float: left; width: 50%}
+.rightHalf {float: left; width: 40%}
 div#rowContainer
 {
  float: left;
