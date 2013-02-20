@@ -83,55 +83,6 @@ sub remove : Chained('definition') Args(0) {
    $c->res->redirect("/set/$setId/" . uri_escape($userSet->set->name));
 }
 
-# do not check permission.  anyone can do this. even guest users.
-sub select : Chained('definition') Args(0) {
-   my ($self, $c) = @_; 
-   my $setId        = $c->stash->{setId};
-   my $definitionId = $c->stash->{definitionId};
-
-   my $userSet = FlashCards::Model::UserSet->newOrInsert(
-      userId => $c->user->userId,
-      setId  => $setId
-   );
-
-   FlashCards::Model::SelectedDefinition->add(
-      userSet      => $userSet,
-      definitionId => $definitionId,
-   );
-
-   $c->res->redirect("/set/$setId/" . uri_escape($userSet->set->name));
-}
-
-sub deselect : Chained('definition') Args(1) {
-   my ($self, $c, $page) = @_; 
-   my $setId        = $c->stash->{setId};
-   my $definitionId = $c->stash->{definitionId};
-
-   # validate
-   Catalyst::Exception->throw("this page is not permitted: $page")
-      unless ($page eq 'view' or $page eq 'ask');
-
-   my $userSet = FlashCards::Model::UserSet->newOrInsert(
-      userId => $c->user->userId,
-      setId  => $setId,
-   );
-
-  FlashCards::Model::SelectedDefinition->remove(
-      userSet      => $userSet,
-      definitionId => $definitionId,
-   );
-
-   if ($page eq 'view') {
-      $c->res->redirect("/set/$setId/" . uri_escape($userSet->set->name));
-   }
-   else {
-      $c->res->redirect("/set/$setId/card/$definitionId/ask");
-   }
-}
-
-
-
-
 =head1 AUTHOR
 
 eric,,,

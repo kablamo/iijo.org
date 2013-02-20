@@ -6,7 +6,6 @@ use base 'Catalyst::Controller';
 
 use FlashCards::Model::SetOfCards;
 use FlashCards::Model::Definition;
-use FlashCards::Model::SelectedDefinition;
 use Fey::DBIManager;
 use HTML::Scrubber;
 use URI::Escape;
@@ -181,44 +180,6 @@ sub editSubmit : Chained('set') Args(0) {
    );
 
    $c->res->redirect("/set/" . $set->setId . "/" . uri_escape($set->name));
-}
-
-sub selectAll : Chained('set') Args(0) {
-   my ($self, $c) = @_; 
-   my $setId = $c->stash->{setId};
-
-   my $userSet = FlashCards::Model::UserSet->newOrInsert(
-      userId => $c->user->userId,
-      setId  => $setId,
-   );
-
-   FlashCards::Model::SelectedDefinition->defaultToEveryWord(
-      userSet => $userSet,
-   );
-
-   $c->res->redirect("/set/$setId/" . uri_escape($userSet->set->name));
-}
-
-sub resetSelection : Chained('set') Args(0) {
-   my ($self, $c) = @_; 
-   my $setId = $c->stash->{setId};
-
-   my $userSet = FlashCards::Model::UserSet->newOrInsert(
-      userId => $c->user->userId,
-      setId  => $setId,
-   );
-
-   my $authorSet = FlashCards::Model::UserSet->new(
-      userId => $userSet->set->authorId,
-      setId  => $userSet->setId,
-   );
-
-   # only do this if author actually uses this set
-   FlashCards::Model::SelectedDefinition->defaultToAuthor(
-      userSet => $userSet,
-   ) if defined $authorSet;
-
-   $c->res->redirect("/set/$setId/" . uri_escape($userSet->set->name));
 }
 
 sub search : Chained('set') Args {
