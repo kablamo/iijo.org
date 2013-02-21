@@ -10,7 +10,6 @@ with 'FlashCards::Model';
 my $schema = FlashCards::Model::Schema->Schema;
 my $d      = $schema->table('Definition');
 my $sd     = $schema->table('SetDefinition');
-my $ld     = $schema->table('SelectedDefinition');
 my $s      = $schema->table('SetOfCards');
 my $us     = $schema->table('UserSet');
 my $u      = $schema->table('User');

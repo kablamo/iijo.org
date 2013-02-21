@@ -11,7 +11,6 @@ with 'FlashCards::Model';
 my $schema = FlashCards::Model::Schema->Schema;
 my $d      = $schema->table('Definition');
 my $sd     = $schema->table('SetDefinition');
-my $ld     = $schema->table('SelectedDefinition');
 my $c      = $schema->table('Card');
 my $s      = $schema->table('SetOfCards');
 my $us     = $schema->table('UserSet');
@@ -19,7 +18,6 @@ my $u      = $schema->table('User');
 
 has_table $schema->table('User');
 has_many 'userSets'            => (table => $schema->table('UserSet'));
-has_many 'selectedDefinitions' => (table => $schema->table('SelectedDefinition'));
 
 transform 'username'
    => inflate { 

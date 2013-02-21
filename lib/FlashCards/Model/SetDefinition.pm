@@ -4,7 +4,6 @@ use Fey::ORM::Table;
 use FlashCards::Model::Card;
 use FlashCards::Model::Schema;
 use FlashCards::Model::SetDefinition;
-use FlashCards::Model::SelectedDefinition;
 use MooseX::Params::Validate;
 with 'FlashCards::Model';
 
@@ -40,11 +39,6 @@ sub add {
       authorId     => $params{userSet}->userId,
    );
 
-   FlashCards::Model::SelectedDefinition->add(
-      userSet      => $params{userSet},
-      definitionId => $params{definitionId},
-   );
-
    FlashCards::Model::Card->add(
       userSet      => $params{userSet},
       definitionId => $params{definitionId},
@@ -64,13 +58,6 @@ sub remove {
       definitionId => $params{definitionId},
    );
    $setDefinition->delete;
-
-   my $selectedDefinition = FlashCards::Model::SelectedDefinition->new(
-      setId        => $params{userSet}->setId,
-      definitionId => $params{definitionId},
-      userId       => $params{userSet}->userId,
-   );
-   $selectedDefinition->delete if defined $selectedDefinition;
 
    # never delete from the Card table.  
 }

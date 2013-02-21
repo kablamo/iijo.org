@@ -13,7 +13,6 @@ with 'FlashCards::Model';
 my $schema = FlashCards::Model::Schema->Schema;
 my $d      = $schema->table('Definition');
 my $sd     = $schema->table('SetDefinition');
-my $ld     = $schema->table('SelectedDefinition');
 my $c      = $schema->table('Card');
 my $s      = $schema->table('SetOfCards');
 my $us     = $schema->table('UserSet');
@@ -145,8 +144,6 @@ sub newOrInsert {
       userId  => $params{userId},
       setId   => $params{setId},
    );
-
-   FlashCards::Model::SelectedDefinition->initialize(userSet => $userSet);
 
    FlashCards::Model::Card->initialize(userSet => $userSet);
 

@@ -51,15 +51,6 @@ $foreignKeys[6] = Fey::FK->new(
 $foreignKeys[7] = Fey::FK->new(
    source_columns => $schema->table('User'         )->column('userId'),
    target_columns => $schema->table('UserSet'      )->column('userId'));
-$foreignKeys[8] = Fey::FK->new(
-   source_columns => $schema->table('User'              )->column('userId'),
-   target_columns => $schema->table('SelectedDefinition')->column('userId'));
-$foreignKeys[9] = Fey::FK->new(
-   source_columns => $schema->table('SetOfCards'        )->column('setId'),
-   target_columns => $schema->table('SelectedDefinition')->column('setId'));
-$foreignKeys[10] = Fey::FK->new(
-   source_columns => $schema->table('Definition'        )->column('definitionId'),
-   target_columns => $schema->table('SelectedDefinition')->column('definitionId'));
 
 # add foreign keys
 foreach my $key (@foreignKeys) {
