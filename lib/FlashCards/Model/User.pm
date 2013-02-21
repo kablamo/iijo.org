@@ -40,11 +40,10 @@ my $totalCount     = Fey::Literal::Function->new('count', '*');
 my $totalCardCount = Fey::Literal::Term->new($totalCount, '* 3');
 my $totalCards     = FlashCards::Model::Schema->SQLFactoryClass()->new_select()
        ->select($totalCardCount)
-         ->from($ld)
+         ->from($sd)
          ->from($us)
-        ->where($us->column('userId'), '=', $ld->column('userId'))
-        ->where($us->column('setId'),  '=', $ld->column('setId'))
-        ->where($ld->column('userId'), '=', Fey::Placeholder->new());
+        ->where($us->column('setId'),  '=', $sd->column('setId'))
+        ->where($us->column('userId'), '=', Fey::Placeholder->new());
 
 has 'totalCards' => (
    metaclass   => 'FromSelect',
@@ -61,13 +60,13 @@ my $completedNow   = Fey::Literal::Function->new('datetime', 'now');
 my $completedCards = FlashCards::Model::Schema->SQLFactoryClass()->new_select()
        ->select($completedCount)
          ->from($c)
-         ->from($ld)
+         ->from($sd)
          ->from($us)
-        ->where($c->column('definitionId'), '=', $ld->column('definitionId'))
-        ->where($ld->column('userId'),      '=', $us->column('userId'))
-        ->where($ld->column('setId'),       '=', $us->column('setId'))
-        ->where($c->column('userId'),       '=', $ld->column('userId'))
-        ->where($us->column('userId'),       '=', Fey::Placeholder->new()) # have to use us.userId here or else sqlite is really really really slow for some reason
+        ->where($c->column('definitionId'), '=', $sd->column('definitionId'))
+        ->where($sd->column('setId'),       '=', $us->column('setId'))
+        ->where($c->column('userId'),       '=', $sd->column('userId'))
+        ->where($us->column('userId'),      '=', $sd->column('userId'))
+        ->where($us->column('userId'),      '=', Fey::Placeholder->new()) # have to use us.userId here or else sqlite is really really really slow for some reason
         ->where($c->column('nextDate'),     '>', $completedNow);
 
 has 'completedCards' => (
@@ -116,12 +115,12 @@ sub difficultCards {
    my $select   = FlashCards::Model::Schema->SQLFactoryClass()->new_select()
        ->select($c)
          ->from($c)
-         ->from($ld)
+         ->from($sd)
          ->from($us)
-        ->where($us->column('setId'),        '=', $ld->column('setId'))
-        ->where($us->column('userId'),       '=', $ld->column('userId'))
-        ->where($c->column('definitionId'),  '=', $ld->column('definitionId'))
-        ->where($c->column('userId'),        '=', $ld->column('userId'))
+        ->where($us->column('setId'),        '=', $sd->column('setId'))
+        ->where($us->column('userId'),       '=', $sd->column('userId'))
+        ->where($c->column('definitionId'),  '=', $sd->column('definitionId'))
+        ->where($c->column('userId'),        '=', $sd->column('userId'))
         ->where($us->column('userId'),       '=', Fey::Placeholder->new())
         ->where($c->column('definitionId'), '!=', Fey::Placeholder->new())
         ->where($c->column('nextDate'),     '<=', $now)
