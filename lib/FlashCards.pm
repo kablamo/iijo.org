@@ -33,7 +33,7 @@ our $VERSION = '0.01';
 # details given here can function as a default configuration,
 # with an external configuration file acting as an override for
 # local deployment.
-$ENV{CATALYST_DEBUG} = 1 if hostname eq 'eric';
+$ENV{CATALYST_DEBUG} = 1 if hostname eq 'laptop';
 
 __PACKAGE__->config(
     name                => 'FlashCards',
