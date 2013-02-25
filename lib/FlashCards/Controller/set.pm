@@ -113,36 +113,12 @@ sub view : Path('/set') Args {
    $page = 0 unless defined $page;
 
    my $set = FlashCards::Model::SetOfCards->new(setId => $setId);
-   my @definitions = $set->definitions(
-      userId  => $c->user->userId,
-      page    => $page,
-   );
+   my @definitions = $set->definitions(page => $page);
 
    $c->stash->{morePages} = 1
       if $c->config->{pageSize} == scalar(@definitions);
    $c->stash->{page}        = $page;
    $c->stash->{definitions} = \@definitions;
-
-   $c->forward("/set/statbar");
-}
-
-sub ignored : Chained('set') Args {
-   my ($self, $c, $page) = @_;
-   my $setId = $c->stash->{setId};
-   $page = 0 unless defined $page;
-
-   my $set = FlashCards::Model::SetOfCards->new(setId => $setId);
-   my @definitions = $set->ignoredDefinitions(
-      userId  => $c->user->userId,
-      page    => $page,
-   );
-
-   $c->stash->{morePages} = 1
-      if $c->config->{pageSize} == scalar(@definitions);
-   $c->stash->{page}        = $page;
-   $c->stash->{definitions} = \@definitions;
-   $c->stash->{template}    = 'set/view.tt';
-   $c->stash->{cpath}       = 'ignored';
 
    $c->forward("/set/statbar");
 }
