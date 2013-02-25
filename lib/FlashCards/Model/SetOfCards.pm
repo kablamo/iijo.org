@@ -58,6 +58,31 @@ has 'totalCards' => (
    bind_params => sub { $_[0]->setId },
 );
 
+
+# should put this in a policy
+sub selectAll {
+   my $class  = shift or die;
+   my %params = validated_hash(\@_,
+      page    => {isa => 'Int', optional => 1, default => 0},
+      orderBy => {              optional => 1, default => 'name'},
+   );
+   my $page     = $params{page};
+   my $pageSize = FlashCards->config->{pageSize};
+   my $orderBy  = $params{orderBy};
+
+   my $select = $class->SchemaClass()->SQLFactoryClass()->new_select()
+          ->select($s)
+            ->from($s)
+           ->limit($pageSize, $page * $pageSize)
+        ->order_by($s->column($orderBy));
+
+   return Fey::Object::Iterator::FromSelect->new ( 
+      classes     => [ $class->meta()->ClassForTable($s) ],
+      dbh         => $class->dbh,
+      select      => $select,
+   );
+}
+
 sub search {
    my $self   = shift or die;
    my %params = validated_hash(\@_,
