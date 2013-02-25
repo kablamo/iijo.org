@@ -32,11 +32,13 @@ has 'definitionId' => (
 
 my $count     = Fey::Literal::Function->new('count', '*');
 my $cardCount = Fey::Literal::Term->new($count, '* 3');
-my $totalCards = FlashCards::Model::Schema->SQLFactoryClass()->new_select()
+my $totalCards     = FlashCards::Model::Schema->SQLFactoryClass()->new_select()
        ->select($cardCount)
-         ->from($ld)
-        ->where($ld->column('setId'),  '=', Fey::Placeholder->new())
-        ->where($ld->column('userId'), '=', Fey::Placeholder->new());
+         ->from($sd)
+         ->from($us)
+        ->where($us->column('setId'),  '=', $sd->column('setId'))
+        ->where($us->column('setId'),  '=', Fey::Placeholder->new)
+        ->where($us->column('userId'), '=', Fey::Placeholder->new);
 
 has 'totalCards' => (
    metaclass   => 'FromSelect',
@@ -53,11 +55,11 @@ my $completedNow   = Fey::Literal::Function->new('datetime', 'now');
 my $completedCards = FlashCards::Model::Schema->SQLFactoryClass()->new_select()
        ->select($completedCount)
          ->from($c)
-         ->from($ld)
-        ->where($c->column('definitionId'), '=', $ld->column('definitionId'))
-        ->where($c->column('userId'),       '=', $ld->column('userId'))
+         ->from($sd)
+        ->where($c->column('definitionId'), '=', $sd->column('definitionId'))
+        ->where($c->column('userId'),       '=', $sd->column('userId'))
         ->where($c->column('userId'),       '=', Fey::Placeholder->new())
-        ->where($ld->column('setId'),       '=', Fey::Placeholder->new())
+        ->where($sd->column('setId'),       '=', Fey::Placeholder->new())
         ->where($c->column('nextDate'),     '>', $completedNow);
 
 has 'completedCards' => (
