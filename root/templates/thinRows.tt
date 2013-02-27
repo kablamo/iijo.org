@@ -1,5 +1,4 @@
 [% IF definitions && definitions.size > 0 %]
-      <div class="clear"></div>
       <div class="margin">
   [% FOREACH d IN definitions %]
         <ul class="thinRow">
