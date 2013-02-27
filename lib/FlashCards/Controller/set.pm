@@ -4,24 +4,15 @@ use strict;
 use warnings;
 use base 'Catalyst::Controller';
 
-use FlashCards::Model::SetOfCards;
-use FlashCards::Model::Definition;
 use Fey::DBIManager;
 use HTML::Scrubber;
 use URI::Escape;
-use Data::Dumper::Concise;
 
-=head1 NAME
-
-FlashCards::Controller::set - Catalyst Controller
-
-=head1 DESCRIPTION
-
-Catalyst Controller.
-
-=head1 METHODS
-
-=cut
+use aliased 'FlashCards::Model::Card';
+use aliased 'FlashCards::Model::Definition';
+use aliased 'FlashCards::Model::SetDefinition';
+use aliased 'FlashCards::Model::SetOfCards';
+use aliased 'FlashCards::Model::UserSet';
 
 sub create : Local Args {
    my ($self, $c, $error) = @_;
@@ -50,13 +41,13 @@ sub createSubmit : Local {
       unless (defined $c->req->params->{description} and 
               length($c->req->params->{description}) > 0);
 
-   my $set = FlashCards::Model::SetOfCards->insert(
+   my $set = SetOfCards->insert(
       name        => $c->req->params->{name},
       description => $c->req->params->{description},
       authorId    => $c->user->userId,
       slug        => $c->slugify($c->req->params->{name}),
    );
-   my $userSet = FlashCards::Model::UserSet->insert(
+   my $userSet = UserSet->insert(
       userId => $c->user->userId,
       setId  => $set->setId,
    );
@@ -69,14 +60,14 @@ sub statbar : Private {
 
    my $setId = $c->stash->{setId};
 
-   my $userSet = FlashCards::Model::UserSet->new(
+   my $userSet = UserSet->new(
       userId => $c->user->userId,
       setId  => $setId,
    );
 
    my $set;
    if (!defined $userSet) {
-      $set = FlashCards::Model::SetOfCards->new(setId => $setId);
+      $set = SetOfCards->new(setId => $setId);
       $c->stash->{cardsLeft}      = 0;
       $c->stash->{completedCards} = 0;
       $c->stash->{totalCards}     = 0;
@@ -112,7 +103,7 @@ sub view : Path('/set') Args {
    $c->stash->{setId} = $setId;
    $page = 0 unless defined $page;
 
-   my $set = FlashCards::Model::SetOfCards->new(setId => $setId);
+   my $set = SetOfCards->new(setId => $setId);
    my @definitions = $set->definitions(page => $page);
 
    $c->stash->{morePages} = 1
@@ -127,7 +118,7 @@ sub edit : Chained('set') Args(0) {
    my ($self, $c) = @_;
 
    # validate
-   my $set = FlashCards::Model::SetOfCards->new(setId => $c->stash->{setId});
+   my $set = SetOfCards->new(setId => $c->stash->{setId});
 
    $c->user->userId;
    $c->stash->{setId}       = $set->setId;
@@ -142,7 +133,7 @@ sub editSubmit : Chained('set') Args(0) {
 # need to worry about spammers and robots here.  recaptcha?
 
    # validate
-   my $set = FlashCards::Model::SetOfCards->new(setId => $c->stash->{setId});
+   my $set = SetOfCards->new(setId => $c->stash->{setId});
    # validate
    Catalyst::Exception->throw("only set authors can edit set details")
       unless $c->user->userId == $set->authorId;
@@ -164,7 +155,7 @@ sub search : Chained('set') Args {
    my $page       = 0;
 
    # no validation.  don't care about security here.  there are no updates.
-   my $set = FlashCards::Model::SetOfCards->new(setId  => $setId);
+   my $set = SetOfCards->new(setId  => $setId);
 
    if (defined $c->req->params->{search}) {
       my @definitions = $set->search(
@@ -196,7 +187,7 @@ sub add : Chained('set') Args(0) {
    # no validation.  not worried about security here.  there are no updates.
 
    if (defined $query && defined $language) {
-      my ($best, $exact) = FlashCards::Model::Definition->fancySearch(language => $language, query => $query);
+      my ($best, $exact) = Definition->fancySearch(language => $language, query => $query);
       $c->stash->{best}      = $best;
       $c->stash->{exact}     = $exact;
       $c->stash->{query}     = $query;
@@ -206,19 +197,57 @@ sub add : Chained('set') Args(0) {
    $c->forward('/set/statbar');
 }
 
+sub clone : Chained('set') Args(0) {
+    my ($self, $c) = @_;
+    my $now = DateTime->now;
 
+    my $oldSet= SetOfCards->new(setId => $c->stash->{setId});
+    die "unknown setId" unless defined $oldSet;
 
+    my $newSet = SetOfCards->insert(
+       name        => 'Clone of ' . $oldSet->name,
+       description => $oldSet->description,
+       authorId    => $c->user->userId,
+       slug        => $c->slugify('Clone of ' . $oldSet->name),
+    );
+    
+    my $oldSetDefinitions = $oldSet->setDefinitions;
 
+    while (my $row = $oldSetDefinitions->next) {
+        SetDefinition->insert(
+            setId        => $newSet->setId,
+            definitionId => $row->definitionId,
+            authorId     => $c->user->userId,
+        );
+    }
 
-=head1 AUTHOR
+    my $userSet = UserSet->insert(
+       userId  => $c->user->userId,
+       setId   => $newSet->setId,
+    );
 
-eric,,,
+    # Create any card records that don't yet exist
+    Card->initialize(userSet => $userSet);
 
-=head1 LICENSE
+    $c->res->redirect("/mysets");
+}
 
-This library is free software, you can redistribute it and/or modify
-it under the same terms as Perl itself.
+sub follow: Chained('set') Args(0) {
+    my ($self, $c) = @_;
+    my $now = DateTime->now;
 
-=cut
+    my $set= SetOfCards->new(setId => $c->stash->{setId});
+    die "unknown setId" unless defined $set;
+    
+    my $userSet = UserSet->insert(
+       userId  => $c->user->userId,
+       setId   => $set->setId,
+    );
+
+    # Create any card records that don't yet exist
+    Card->initialize(userSet => $userSet);
+
+    $c->res->redirect("/mysets");
+}
 
 1;
