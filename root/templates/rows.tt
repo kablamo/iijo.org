@@ -1,12 +1,7 @@
 [% IF definitions && definitions.size > 0 %]
   [% FOREACH d IN definitions %]
-    [% IF selectEverything || d.SetDefinition.selected == 1 %]
-      [% s = "" %]
-    [% ELSE %]
-      [% s = "deselected" %]
-    [% END %]
-        <ul class="row [% s %]">
-          <a class="notBold [% s %]" href="/definition/[% d.Definition.definitionId %]/[% d.Definition.simplified %]/[% setId %]">
+        <ul class="row">
+          <a class="notBold" href="/definition/[% d.Definition.definitionId %]/[% d.Definition.simplified %]/[% setId %]">
             <li class="simplified">[% d.Definition.simplified %]<br><span class="pinyin">[% d.Definition.pinyin %]</span></li>
             <li class="english">[% d.Definition.english    %]</li>
           </a>
