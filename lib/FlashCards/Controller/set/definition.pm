@@ -37,13 +37,13 @@ sub definition : Chained('../set') CaptureArgs(1) {
    $c->stash->{definitionId} = $definitionId;
 }
 
-# anyone can do this
+# only the set owner has permission to add definitions
 sub add : Chained('definition') Args(0) {
    my ($self, $c) = @_; 
    my $setId        = $c->stash->{setId};
    my $definitionId = $c->stash->{definitionId};
 
-   my $userSet = FlashCards::Model::UserSet->newOrInsert(
+   my $userSet = FlashCards::Model::UserSet->new(
       userId => $c->user->userId,
       setId  => $setId,
    );
@@ -56,13 +56,13 @@ sub add : Chained('definition') Args(0) {
    $c->res->redirect("/set/$setId/" . uri_escape($userSet->set->name));
 }
 
-# TODO: if you have > 1000 points, you  can remove any card from any list
+# only the set owner has permission to add definitions
 sub remove : Chained('definition') Args(0) {
    my ($self, $c) = @_; 
    my $setId        = $c->stash->{setId};
    my $definitionId = $c->stash->{definitionId};
 
-   my $userSet = FlashCards::Model::UserSet->newOrInsert(
+   my $userSet = FlashCards::Model::UserSet->new(
       userId => $c->user->userId,
       setId  => $setId,
    );
