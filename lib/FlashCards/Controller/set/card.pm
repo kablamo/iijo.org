@@ -38,7 +38,7 @@ sub ask : Chained('card') Args {
    # validate
    my $set = FlashCards::Model::SetOfCards->new(setId => $c->stash->{setId});
 
-   my $userSet = FlashCards::Model::UserSet->newOrInsert(
+   my $userSet = FlashCards::Model::UserSet->new(
       userId => $c->user->userId,
       setId  => $c->stash->{setId},
    );
