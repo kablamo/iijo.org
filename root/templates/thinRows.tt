@@ -2,13 +2,8 @@
       <div class="clear"></div>
       <div class="margin">
   [% FOREACH d IN definitions %]
-    [% IF selectEverything || d.SetDefinition.selected == 1 %]
-      [% s = "" %]
-    [% ELSE %]
-      [% s = "deselected" %]
-    [% END %]
-        <ul class="thinRow [% s %]">
-          <a class="notBold [% s %]" href="/definition/[% d.Definition.definitionId %]/[% d.Definition.simplified %]/[% setId %]">
+        <ul class="thinRow selected">
+          <a class="notBold selected" href="/definition/[% d.Definition.definitionId %]/[% d.Definition.simplified %]/[% setId %]">
             <li class="simplified">[% d.Definition.simplified         %]<br><span class="pinyin">[% d.Definition.pinyin %]<span></li>
             <li class="english"   >[% d.Definition.english            %]</li>
           </a>
@@ -20,14 +15,9 @@
           </li>
     [% END %]
     [% IF delete %]
-      [% IF d.SetDefinition.disabled == 1 %]
-      [% d = " " %]
-      [% ELSE %]
-      [% d = "deselected" %]
-      [% END %]
           <li class="button">
             <form action="/set/[% setId %]/definition/[% d.Definition.definitionId %]/remove">
-              <button class="small" [% d %]="" type="submit" title="remove from this word from this flashcard set">delete</button>
+              <button class="small" type="submit" title="remove from this word from this flashcard set">delete</button>
             </form>
           </li>
     [% END %]
