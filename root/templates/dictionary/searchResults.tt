@@ -44,10 +44,7 @@
 
 [% IF best.size > 0 %]
     <div class="coloredBox">
-      <div class="margin">
-  [% PROCESS rows.tt definitions = best selectEverything = 1 %]
-      <div style="height:0em" class="clear"></div>
-      </div>
+  [% PROCESS thinRows.tt definitions = best selectEverything = 1 %]
     </div>
 [% END %]
 

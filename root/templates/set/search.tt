@@ -30,9 +30,7 @@
     </div>
     <div style="height:0em" class="clear"></div>
 
-    <div class="margin">
-[% PROCESS rows.tt ignore = 0 delete = 1 selectEverything = 1 %]
-    </div>
+[% PROCESS thinRows.tt ignore = 0 delete = 1 selectEverything = 1 %]
 
 [% IF definitions.size == 0 %]
       <div class="margin">
