@@ -18,12 +18,9 @@
       <div class="margin">
   [% FOREACH us IN userSets %]
         <ul class="horizontal">
-          <li class="title">
-            <a href="/set/[% us.set.setId %]/card/0/ask">
-              [% us.set.name | html_entity %]
-            </a>
-          </li>
+          <li class="title">[% us.set.name | html_entity %]</li>
           <li class="tinyText">
+            <a href="/set/[% us.set.setId %]/card/0/ask">practice</a> | 
             <a href="/set/[% us.set.setId %]/[% us.set.slug %]">view</a> |
             <a href="/mysets/delete/[% us.set.setId %]">delete</a>
           </li>
