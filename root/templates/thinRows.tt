@@ -4,8 +4,8 @@
   [% FOREACH d IN definitions %]
         <ul class="thinRow">
           <a class="notBold" href="/definition/[% d.Definition.definitionId %]/[% d.Definition.simplified %]/[% setId %]">
-            <li class="simplified">[% d.Definition.simplified         %]<br><span class="pinyin">[% d.Definition.pinyin %]<span></li>
-            <li class="english"   >[% d.Definition.english            %]</li>
+            <li class="simplified">[% d.Definition.simplified %]<br><span class="pinyin">[% d.Definition.pinyin %]<span></li>
+            <li class="english"   >[% d.Definition.english    %]</li>
           </a>
     [% IF add %]
           <li class="button">
