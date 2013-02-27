@@ -1,4 +1,5 @@
 [% PROCESS header.tt %]
+[% delete = 0 %]
 
       <div class="margin">
         <div class="leftHalf">
@@ -17,17 +18,29 @@
         </div>
         <div class="rightHalf">
             <br>
+         [% IF user.username == author %]
             <form action="/set/[% setId %]/card/0/ask">
               <button class="practice" href="/set/[% setId %]/card/0/ask"><nobr>practice flashcards</nobr></button><br><br>
             </form>
+         [% ELSE %]
+            <form action="/set/[% setId %]/follow">
+              <button class="practice"><nobr>follow this set</nobr></button><br><br>
+            </form>
+            <form action="/set/[% setId %]/clone">
+              <button class="practice"><nobr>clone this set</nobr></button><br><br>
+            </form>
+         [% END %]
+         [% IF user.username == author %]
+            [% delete = 1 %]
             <a href="/set/[% setId %]/add"    ><nobr>add words</nobr></a>&nbsp;&nbsp;&nbsp;
             <a href="/set/[% setId %]/edit"   ><nobr>edit description</nobr></a>&nbsp;&nbsp;&nbsp;
+         [% END %]
             <a href="/set/[% setId %]/search" ><nobr>search this set</nobr></a>
         </div>
       </div>
 
       <div style="height: 3em" class="clear"></div>
-[% PROCESS thinRows.tt delete = 1 %]
+[% PROCESS thinRows.tt %]
 
 [% IF definitions.size == 0 %]
       <div style="height: 1em" class="clear"></div>
