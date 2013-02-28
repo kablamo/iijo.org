@@ -2,7 +2,7 @@ package FlashCards::Model::Card;
 
 use Fey::ORM::Table;
 use Fey::Object::Iterator::FromSelect;
-#use FlashCards::Model::Schema;
+use FlashCards::Model::Schema;
 use FlashCards::Model::UserSet;
 use MooseX::Params::Validate;
 with 'FlashCards::Model';
@@ -19,7 +19,7 @@ has_table $schema->table('Card');
 has_one 'user'       => (table => $schema->table('User'));
 has_one 'definition' => (table => $schema->table('Definition'));
 
-# selects 15 of the hardest cards for this user. 
+# select 15 of the hardest cards in a set
 sub difficultCards {
    my $class  = shift or die;
    my %params = validated_hash(\@_,
@@ -82,7 +82,7 @@ sub initialize {
       userSet      => {isa => 'FlashCards::Model::UserSet', optional => 0},
    );
 
-   my $dbh     = FlashCards::Model::Schema->DBIManager->default_source->dbh;
+   my $dbh     = $self->dbh;
    my $userSet = $params{userSet};
    my $userId  = $params{userSet}->userId;
 
@@ -109,7 +109,7 @@ sub initialize {
    return undef;
 }
 
-# always add card to every user who uses a set
+# add card to every user who uses a set
 sub add {
    my $self = shift or die;
    my %params = validated_hash(\@_,
@@ -117,7 +117,7 @@ sub add {
       definitionId => {isa => 'Int',                        optional => 0},
    );
 
-   my $dbh          = FlashCards::Model::Schema->DBIManager->default_source->dbh;
+   my $dbh          = $self->dbh;
    my $userId       = $params{userSet}->userId;
    my $authorId     = $params{userSet}->set->authorId;
    my $definitionId = $params{definitionId};
