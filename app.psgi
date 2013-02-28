@@ -1,8 +1,11 @@
 use strict;
 use warnings;
 
-use FlashCards;
+use Plack::Builder;
+use Plack::App::Directory;
+use FlashCards::Plack;
 
-my $app = FlashCards->apply_default_middlewares(FlashCards->psgi_app);
-$app;
+builder {
+    mount '/' => FlashCards::Plack->psgi_app;
+}
 
