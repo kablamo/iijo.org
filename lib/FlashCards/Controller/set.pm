@@ -204,12 +204,15 @@ sub clone : Chained('set') Args(0) {
     my $oldSet= SetOfCards->new(setId => $c->stash->{setId});
     die "unknown setId" unless defined $oldSet;
 
-    my $newSet = SetOfCards->insert(
-       name        => 'Clone of ' . $oldSet->name,
-       description => $oldSet->description,
-       authorId    => $c->user->userId,
-       slug        => $c->slugify('Clone of ' . $oldSet->name),
-    );
+    my $newSet = eval { 
+        SetOfCards->insert(
+            name        => 'Clone of ' . $oldSet->name,
+            description => $oldSet->description,
+            authorId    => $c->user->userId,
+            slug        => $c->slugify('Clone of ' . $oldSet->name),
+        );
+    };
+    $c->res->redirect("/mysets") if $@;
     
     my $oldSetDefinitions = $oldSet->setDefinitions;
 
@@ -221,10 +224,13 @@ sub clone : Chained('set') Args(0) {
         );
     }
 
-    my $userSet = UserSet->insert(
-       userId  => $c->user->userId,
-       setId   => $newSet->setId,
-    );
+    my $userSet = eval { 
+        UserSet->insert(
+            userId  => $c->user->userId,
+            setId   => $newSet->setId,
+        );
+    };
+    $c->res->redirect("/mysets") if $@;
 
     # Create any card records that don't yet exist
     Card->initialize(userSet => $userSet);
@@ -239,10 +245,13 @@ sub follow: Chained('set') Args(0) {
     my $set= SetOfCards->new(setId => $c->stash->{setId});
     die "unknown setId" unless defined $set;
     
-    my $userSet = UserSet->insert(
-       userId  => $c->user->userId,
-       setId   => $set->setId,
-    );
+    my $userSet = eval { 
+        UserSet->insert(
+            userId  => $c->user->userId,
+            setId   => $set->setId,
+        );
+    };
+    $c->res->redirect("/mysets") if $@;
 
     # Create any card records that don't yet exist
     Card->initialize(userSet => $userSet);
