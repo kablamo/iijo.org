@@ -468,15 +468,13 @@ div#message
  border-bottom: solid 1px white;
  border-top: solid 1px white;
 }
-div#header 
-{
+.header {
  margin: 0;
  margin-top: 0em;
  margin-bottom: 0em;
  padding: 0;
  background: #444;
  color: #fff;
- border-top: solid 2px #444;
 }
 div#darkHeader {background: #333; height: .5em}
 div#duskHeader {background: #999; height: .5em; margin-bottom: 2em}
