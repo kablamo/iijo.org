@@ -18,7 +18,7 @@
 [% END %]
               <a class="mine"       href="/mysets">My flashcards</a>
               <a class="shared"     href="/sharedsets">Shared flashcards</a>
-              <a class="create"     href="/set/create">Create a set</a>
+              <a class="create"     href="/set/create">Create flashcards</a>
               <a class="dictionary" href="/dictionary">Dictionary</a>
             </li>
           </ul>

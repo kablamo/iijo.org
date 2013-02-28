@@ -1,7 +1,7 @@
 [% PROCESS header.tt %]
 
     <div class="margin">
-      <h1>Shared sets</h1>
+      <h1>Shared flashcards</h1>
       <div class="clear"></div>
     </div>
 
