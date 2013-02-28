@@ -173,25 +173,14 @@ ul.nav li ul li a {
  background-position:0 50% !important;
 }
 /* nav */
-ul.nav li:hover a,
-ul.nav li a:hover,
-ul.nav li a:focus {color:#000; background:#ccc;}
 ul.nav li a:active {color:#666; background:#fff;}
-ul.nav li:hover ul {left:0;z-index:10}
 ul.nav li ul,
 ul.nav li {background:#ccc !important}
-ul.nav li:hover ul li a {color:#444;}
-ul.nav li:hover ul li a:hover {color:#000; background:#fff;}
-ul.nav li:hover ul li a:active {color:#666; background:#fff;}
 /* secondary list */
 ul.nav li.secondary {float:left; color:#cde; background:transparent !important}
 ul.nav li.secondary span.status {float:left; padding:0 1em; line-height:2.77em; height:2.77em; font-size:0.9em}
 ul.nav li.secondary span.status a {float:none; display:inline; padding:0; height:auto; color:#cde; background:transparent}
-ul.nav li.secondary span.status a:hover {color:#fff; background:transparent}
 ul.nav li.secondary span.status span    {text-transform:capitalize}
-ul.nav li.secondary:hover a             {color:#fff; background:#666}
-ul.nav li.secondary:hover a:hover       {background:#555}
-ul.nav li.secondary:hover a:active      {background:#444}
 ul.nav li.right {float: right}
 ul.nav li.left  {float: left}
 /* ======================================================================= 
@@ -211,8 +200,10 @@ a.notBold            {font-weight: normal}
 a.notBold:hover      {text-decoration: none}
 a.spaced             {margin-right: .5em; margin-left: .5em}
 /* headings */
+h1 {font-weight: bold}
 a:hover h1       {text-decoration: underline}
-h1#dictionary    {font-size: 3.3em; line-height: 1em; align: right}
+h1.dictionary    {font-size: 3.3em; line-height: 1em; align: right; text-align: top}
+h1.dictionary a  {text-decoration: none}
 h1#bigDictionary {font-size: 6em; line-height: 1em}
 h5.message a     {background: #555}
 h5.message       {font-weight: normal}
@@ -261,16 +252,17 @@ form#dictionarySearch input.searchBox {
  border-bottom: solid 1px #aaa;
  border-right:  solid 1px #aaa;
 }
-form#dictionarySearch .pinyin,
+form#dictionarySearch input.pinyin,
 form#dictionarySearch .simplified,
 form#dictionarySearch .english {
  margin: 0em;
  margin-top: .0em;
  margin-right: .3em;
  margin-left: .3em;
- height: 1.2em;
- line-height: .8em;
+ height: .8em;
  background: #fff;
+ font-size: 2em;
+ vertical-align: bottom;
 }
 form#dictionarySearch button {
  font-size: 1.2em;
@@ -313,51 +305,18 @@ button.huge {
 button.huge:active { color: #fff}
 button.medium {font-size: 1.2em}
 button.small  {font-size: .8em; padding: 0em; padding-left: 1em; padding-right: 1em}
-/* set menu */
-ul.set 
-{
- background: #ddd;
- margin: 0;
- padding: 0;
- padding-top: 0em;
- margin-top: 0;
- margin-right: 2em;
- height: 2.4em;
- line-height: 2.4em;
-}
-ul.set li.secondary a 
-{
- background: #ddd;
- float: left;
- vertical-align: top;
- margin: 0;
- margin-right: .5em;
- padding: 0em;
- padding-right: 1em;
- padding-left: 1em;
- font-size: 1.0em;
- font-weight: bold;
- height: 2.4em;
- line-height: 2.4em;
-}
-ul.set li.secondary:hover a            {background: #ddd; color: #333}
-ul.set li.secondary:hover a:hover      {background: #ddd; text-decoration: underline}
-ul.set li.secondary a.firstMenu        {background: #ddd; color: #333;}
-ul.set li.secondary a.firstMenu:hover  {background: #ddd}
-ul.set li.secondary a.secondMenu       {background: #ddd; color: #333;}
-ul.set li.secondary a.secondMenu:hover {background: #ddd}
 .rightBorder {border-right: solid 8px #444}
 /* site menu */
-ul.site                                  {background: #444; padding: 0; margin: 0}
-ul.site li.secondary a                   {background: #444; color: #fff; font-size: 1.0em; font-weight: bold}
-ul.site li.secondary:hover a             {background: #444; color: #fff}
-ul.site li.secondary:hover a:hover       {background: #444; text-decoration: underline}
-ul.site li.secondary a.zerothMenu        {background: #444; color: #fff}
-ul.site li.secondary a.zerothMenu:hover  {background: #444}
-ul.site li.secondary a.firstMenu         {background: #444; color: #fff}
-ul.site li.secondary a.firstMenu:hover   {background: #444}
-ul.site li.secondary a.secondMenu        {background: #333; color: #fff}
-ul.site li.secondary a.secondMenu:hover  {background: #333}
+ul.site                                 {background: #444; padding: 0; margin: 0}
+ul.site li.secondary a                  {background: #444; color: #fff; font-size: 1.0em; font-weight: bold}
+ul.site li.secondary a:hover            {text-decoration: underline}
+ul.site li.secondary .zerothMenu        {background: #444; color: #fff}
+ul.site li.secondary .firstMenu         {background: #444; color: #fff}
+ul.site li.secondary .secondMenu        {background: #333; color: #fff}
+ul.site li.secondary .dictionary        {background: #333; color: #fff}
+ul.site li.secondary .create            {background: #444; color: #fff}
+ul.site li.secondary .shared            {background: #555; color: #fff}
+ul.site li.secondary .mine              {background: #666; color: #fff}
 /* lists */
 ul.thinRow               {float: left; list-style: none; margin: 0; padding: 0; width: 100%; border-bottom: solid 1px #fff}
 ul.thinRow li            {float: left; margin: 0; padding: .5em; padding-top: 0; padding-left: 0}
@@ -453,8 +412,6 @@ table.card tr td
  vertical-align: middle;
  background: transparent;
  color: #333;
- border-top: solid 1px transparent;
- border-bottom: solid 1px transparent;
 }
 .margin
 {
