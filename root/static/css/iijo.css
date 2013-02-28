@@ -314,10 +314,10 @@ ul.site li.secondary .zerothMenu        {background: #444; color: #fff}
 ul.site li.secondary .firstMenu         {background: #444; color: #fff}
 ul.site li.secondary .secondMenu        {background: #333; color: #fff}
 ul.site li.secondary .brand             {background: #333; color: #fff}
-ul.site li.secondary .dictionary        {background: #333; color: #fff}
+ul.site li.secondary .dictionary        {background: #555; color: #fff}
 ul.site li.secondary .create            {background: #444; color: #fff}
-ul.site li.secondary .shared            {background: #555; color: #fff}
-ul.site li.secondary .mine              {background: #666; color: #fff}
+ul.site li.secondary .shared            {background: #444; color: #fff}
+ul.site li.secondary .mine              {background: #444; color: #fff}
 /* lists */
 ul.thinRow               {float: left; list-style: none; margin: 0; padding: 0; width: 100%; border-bottom: solid 1px #fff}
 ul.thinRow li            {float: left; margin: 0; padding: .5em; padding-top: 0; padding-left: 0}
