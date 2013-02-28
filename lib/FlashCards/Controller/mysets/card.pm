@@ -48,7 +48,6 @@ sub ask : Chained('card') Args {
       $c->detach;
    }
 
-
    $c->stash->{practiceMode} = 1;
    $c->stash->{baseURL}      = '/mysets/card/';
    $c->stash->{difficulty}   = $card->delayExponent;
