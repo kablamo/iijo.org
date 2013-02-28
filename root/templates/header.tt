@@ -11,8 +11,8 @@
 [% INSERT iijo.css %]
     </style>
 [% IF practiceMode %]
-  [% IF hostname == 'laptop' %]
-    <script type="text/javascript" src="/static/js/jquery-1.6.2.min.js"></script>
+  [% IF hostname == 'eric' %]
+    <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
   [% ELSE %]
     <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
   [% END %]
