@@ -35,9 +35,6 @@
   </head>
   <body>
 
-    <!-- ================================= start container ================================= -->
-    <div class="container_16">
-
 [% IF message %]
       <div id="message">[% message %]</div>
 [% END %]
