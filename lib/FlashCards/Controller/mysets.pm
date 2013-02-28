@@ -65,13 +65,11 @@ sub view : Path('/mysets') Args {
 sub delete : Local {
    my ($self, $c, $setId) = @_;
 
-   # who is allowed to do this?
-
    my $userSet = FlashCards::Model::UserSet->new(
       setId    => $setId,
       userId   => $c->user->userId,
    );
-   Catalyst::Exception->throw('You cannot delete a set unless you use it and it shows up on your "my sets" page.')
+   Catalyst::Exception->throw('You cannot delete a set unless you use it and it shows up on your "My sets" page.')
       if !defined $userSet;
 
    my $set = $userSet->set;
