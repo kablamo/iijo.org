@@ -20,7 +20,7 @@
           <button type="submit">search</button>
         </div>
         <div class="rightHalf right">
-          <a href="/about"><h1 id="dictionary" style="text-align: top">IIJO</h1></a>
+          <h1 class="dictionary"><a href="/about">IIJO</a></h1>
         </div>
         <div style="height:0em" class="clear"></div>
       </div>
