@@ -3,7 +3,6 @@ package FlashCards::Model::SetDefinition;
 use Fey::ORM::Table;
 use FlashCards::Model::Card;
 use FlashCards::Model::Schema;
-use FlashCards::Model::SetDefinition;
 use MooseX::Params::Validate;
 with 'FlashCards::Model';
 
