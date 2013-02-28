@@ -24,10 +24,7 @@
             </form>
          [% ELSE %]
             <form action="/set/[% setId %]/follow">
-              <button class="practice"><nobr>follow this set</nobr></button><br><br>
-            </form>
-            <form action="/set/[% setId %]/clone">
-              <button class="practice"><nobr>clone this set</nobr></button><br><br>
+              <button class="practice"><nobr>add to My sets</nobr></button><br><br>
             </form>
          [% END %]
          [% IF user.username == author %]
