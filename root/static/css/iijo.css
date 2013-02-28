@@ -313,7 +313,7 @@ ul.site li.secondary a:hover            {text-decoration: underline}
 ul.site li.secondary .zerothMenu        {background: #444; color: #fff}
 ul.site li.secondary .firstMenu         {background: #444; color: #fff}
 ul.site li.secondary .secondMenu        {background: #333; color: #fff}
-ul.site li.secondary .brand             {background: #333; color: #fff}
+ul.site li.secondary .brand             {background: #444; color: #fff; font-size: 2.3em; height: 1em; line-height: 1.2em; width: 1em}
 ul.site li.secondary .dictionary        {background: #555; color: #fff}
 ul.site li.secondary .create            {background: #444; color: #fff}
 ul.site li.secondary .shared            {background: #444; color: #fff}
