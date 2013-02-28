@@ -25,6 +25,7 @@ sub add {
       authorId     => $params{userSet}->userId,
    );
 
+   # add card to every user who uses this set
    FlashCards::Model::Card->add(
       userSet      => $params{userSet},
       definitionId => $params{definitionId},
