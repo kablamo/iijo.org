@@ -7,6 +7,7 @@ use base 'Catalyst::Controller';
 use Fey::DBIManager;
 use HTML::Scrubber;
 use URI::Escape;
+use DateTime;
 
 use aliased 'FlashCards::Model::Card';
 use aliased 'FlashCards::Model::Definition';
@@ -45,6 +46,7 @@ sub createSubmit : Local {
       name        => $c->req->params->{name},
       description => $c->req->params->{description},
       authorId    => $c->user->userId,
+      createDate  => DateTime->now,
       slug        => $c->slugify($c->req->params->{name}),
    );
    my $userSet = UserSet->insert(
@@ -209,6 +211,7 @@ sub clone : Chained('set') Args(0) {
             name        => 'Clone of ' . $oldSet->name,
             description => $oldSet->description,
             authorId    => $c->user->userId,
+            createDate  => DateTime->now,
             slug        => $c->slugify('Clone of ' . $oldSet->name),
         );
     };
