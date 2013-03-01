@@ -1,0 +1,67 @@
+#!/usr/bin/env perl
+
+use strict;
+use warnings;
+use feature qw/say/;
+
+use DBI;
+use Sys::Hostname qw/hostname/;
+
+
+
+my $dbname = hostname eq 'kablamo.xen.prgmr.com' 
+    ? 'flashcards.db' 
+    : 'flashcards.dev.db';
+my $dbh = DBI->connect("dbi:SQLite:dbname=${dbname}",'','');
+
+
+
+sub rmEmptySets {
+    my $select = "
+        select name, setId, authorId, createDate 
+          from SetOfCards
+         where createDate >= date('now','-0 days')
+    ";
+    my $result = $dbh->selectall_arrayref($select, {Slice => {}});
+
+    foreach my $row (@$result) {
+        say "examining $row->{name} ($row->{setId}) by $row->{authorId} created: $row->{createDate}";
+        my $setId = $row->{setId};
+
+        if (countCards($setId) == 0) {
+            say "removing $row->{name} ($row->{setId})";
+            rmUserSet($setId);
+            rmSetOfCards($setId);
+        }
+    }
+}
+
+# count how many users exist for set
+sub countUsers {
+    my $setId = shift;
+    my $select = "select count(*) from UserSet where setId = $setId";
+}
+
+# count how many cards exist for set
+sub countCards {
+    my $setId = shift;
+    my $select = "select count(*) from SetDefinition where setId = $setId";
+    return $dbh->selectall_arrayref($select)->[0]->[0];
+}
+
+sub rmSetOfCards {
+    my $setId = shift;
+    my $select = "delete from SetOfCards where setId = $setId";
+    return $dbh->do($select);
+}
+
+sub rmUserSet {
+    my $setId = shift;
+    my $select = "delete from UserSet where setId = $setId";
+    return $dbh->do($select);
+}
+
+
+
+rmEmptySets();
+#rmOldGuestUsers();
