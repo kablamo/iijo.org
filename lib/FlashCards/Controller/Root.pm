@@ -5,33 +5,9 @@ use namespace::autoclean;
 BEGIN { extends 'Catalyst::Controller' }
 
 use Captcha::reCAPTCHA;
-use Data::Dumper::Concise;
 use Sys::Hostname;
 
-
-#
-# Sets the actions in this controller to be registered with no prefix
-# so they function identically to actions created in MyApp.pm
-#
 __PACKAGE__->config(namespace => '');
-
-=head1 NAME
-
-FlashCards::Controller::Root - Root Controller for FlashCards
-
-=head1 DESCRIPTION
-
-[enter your description here]
-
-=head1 METHODS
-
-=cut
-
-=head2 index
-
-The root page (/)
-
-=cut
 
 sub index : Private {
    my ($self, $c, $page) = @_; 
@@ -50,29 +26,18 @@ sub index : Private {
       if $c->config->{pageSize} == scalar(@sets);
    $c->stash->{page} = $page;
    $c->stash->{sets} = \@sets;
+   $c->stash->{template} = 'index.tt';
 }
-
-=head2 default
-
-Standard 404 error page
-
-=cut
 
 sub default :Path {
     my ( $self, $c ) = @_;
-    $c->response->body( 'Page not found' );
+    $c->response->body('404: page not found.  Return to <a href="/">IIJO.org</a>.');
     $c->response->status(404);
 }
 
-sub about : Local { 
-   my ($self, $c) = @_;
-}
-
-sub tools : Local { 
-   my ($self, $c) = @_;
-}
-
-sub faq : Local { }
+sub about : Local {}
+sub tools : Local {}
+sub faq   : Local {}
 
 sub slugify : Private {
    my ($self, $c, $url) = @_; 
@@ -149,12 +114,6 @@ sub begin : Private {
    $c->stash->{hostname} = hostname;
 }
 
-=head2 end
-
-Attempt to render a view, if needed.
-
-=cut
-
 sub end : ActionClass('RenderView') {
     my $self = shift;
     my $c    = shift;
@@ -170,17 +129,6 @@ sub end : ActionClass('RenderView') {
        unless $c->response->content_type;
     $c->response->header('Cache-Control' => 'no-cache');
 }
-
-=head1 AUTHOR
-
-eric,,,
-
-=head1 LICENSE
-
-This library is free software. You can redistribute it and/or modify
-it under the same terms as Perl itself.
-
-=cut
 
 __PACKAGE__->meta->make_immutable;
 
