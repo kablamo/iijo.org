@@ -27,6 +27,7 @@ create table if not exists SetOfCards (
    name        varchar default null,
    description varchar default null,
    authorId    integer     not null,
+   createDate  date        not null,
    slug        varchar default null,
    foreign key (authorId) references User (userId)
 );
