@@ -16,7 +16,7 @@ my $dbh = DBI->connect("dbi:SQLite:dbname=${dbname}",'','');
 
 
 
-sub rmEmptySets {
+{
     my $select = "
         select name, setId, authorId, createDate 
           from SetOfCards
@@ -61,7 +61,3 @@ sub rmUserSet {
     return $dbh->do($select);
 }
 
-
-
-rmEmptySets();
-#rmOldGuestUsers();
