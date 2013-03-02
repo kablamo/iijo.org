@@ -10,7 +10,7 @@
     <style>
 [% INSERT iijo.css %]
     </style>
-[% IF practiceMode %]
+[% IF practiceMode || jquery %]
   [% IF hostname == 'eric' %]
     <script type="text/javascript" src="/js/jquery-1.7.2.min.js"></script>
   [% ELSE %]
