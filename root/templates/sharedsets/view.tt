@@ -1,8 +1,29 @@
 [% PROCESS header.tt %]
 
+[% IF index %]
+    <div id="firstTime">
+      <h1>CHINESE FLASHCARDS</h1>
+      <h4>
+        To get started choose one of the flashcard sets below&nbsp;&nbsp;
+        <img style="vertical-align: middle;" src="images/icojoy4/001_22.png">
+      </h4>
+      (or <a href="/set/create">create your own</a>)
+    </div>
+[% END %]
+
     <div class="margin">
       <h1>Shared flashcards</h1>
       <div class="clear"></div>
+    </div>
+
+    <div class="margin">
+    [% FOREACH letter IN alphabet %]
+        <a href="/sharedsets/byletter/[% letter %]">
+            [% IF letter == currentLetter %][% letter FILTER upper %][% ELSE %][% letter %][% END %]
+        </a>&nbsp;&nbsp;&nbsp;
+    [% END %]
+        -&nbsp;&nbsp;&nbsp;<a href="/sharedsets/byletter/numbers">0-9</a>&nbsp;&nbsp;&nbsp;
+        -&nbsp;&nbsp;&nbsp;<a href="/sharedsets/featured">featured</a>&nbsp;&nbsp;&nbsp;
     </div>
 
     <div class="margin">
@@ -18,8 +39,8 @@
          </li>
        </ul>
     [% END %]
-    </div>
 
 [% PROCESS more.tt hrefBase = "/sharedsets" topHeight = 1 bottomHeight = 2 %]
+    </div>
 
 [% PROCESS footer.tt %]

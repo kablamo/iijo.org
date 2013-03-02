@@ -65,22 +65,41 @@ sub selectAll {
    my %params = validated_hash(\@_,
       page    => {isa => 'Int', optional => 1, default => 0},
       orderBy => {              optional => 1, default => 'name'},
+      name    => {              optional => 1, default => undef},
+      number  => {isa => 'Int', optional => 1, default => 0},
    );
    my $page     = $params{page};
    my $pageSize = FlashCards->config->{pageSize};
    my $orderBy  = $params{orderBy};
 
-   my $select = $class->SchemaClass()->SQLFactoryClass()->new_select()
+   my $select = $class->SchemaClass()->SQLFactoryClass()->new_select
           ->select($s)
-            ->from($s)
-           ->limit($pageSize, $page * $pageSize)
-        ->order_by($s->column($orderBy));
+            ->from($s);
 
-   return Fey::Object::Iterator::FromSelect->new ( 
+   $select->where($s->column('name'), 'like', Fey::Placeholder->new)
+      if $params{name};
+
+   if ($params{number}) {
+      foreach my $i (0..9) {
+        $select->where($s->column('name'), 'like', Fey::Placeholder->new);
+        $select->where('or') if $i < 9;
+      }
+   }
+
+   $select->limit($pageSize, $page * $pageSize)
+       ->order_by($s->column($orderBy));
+
+   my %selectArgs = (
       classes     => [ $class->meta()->ClassForTable($s) ],
       dbh         => $class->dbh,
       select      => $select,
    );
+   $selectArgs{bind_params} = [$params{name}] if $params{name};
+   if ($params{number}) {
+      push @{ $selectArgs{bind_params} }, $_ . "%" for 0..9;
+   }
+
+   return Fey::Object::Iterator::FromSelect->new(%selectArgs);
 }
 
 sub search {
