@@ -11,8 +11,6 @@ __PACKAGE__->config(namespace => '');
 
 sub index : Private {
    my ($self, $c, $page) = @_; 
-   $page = 0 
-      if !defined $page;
 
    $c->user->userId;
    if ($c->user->guest eq 'n') {
@@ -20,13 +18,8 @@ sub index : Private {
       $c->detach();
    }
 
-   my @sets = FlashCards::Model::SetOfCards->selectAll(page => $page)->all;
-
-   $c->stash->{morePages} = 1
-      if $c->config->{pageSize} == scalar(@sets);
-   $c->stash->{page} = $page;
-   $c->stash->{sets} = \@sets;
-   $c->stash->{template} = 'index.tt';
+   $c->forward('FlashCards::Controller::sharedsets', 'common', [$page]);
+   $c->stash->{index} = 1;
 }
 
 sub default :Path {
