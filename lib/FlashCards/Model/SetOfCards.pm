@@ -13,6 +13,7 @@ my $sd     = $schema->table('SetDefinition');
 my $s      = $schema->table('SetOfCards');
 my $us     = $schema->table('UserSet');
 my $u      = $schema->table('User');
+my $p      = $schema->table('PopularSets');
 
 has_table $schema->table('SetOfCards');
 has_many 'setDefinitions' => (table => $sd);
