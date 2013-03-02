@@ -52,9 +52,13 @@ sub selectAllAsUserSets {
 
    my $select = $class->SchemaClass->SQLFactoryClass->new_select
           ->select($s)
-            ->from($p, $s)
-        ->order_by($p->column('users'), 'DESC', $s->column('name'), 'ASC' )
-           ->limit($pageSize, $page * $pageSize);
+            ->from($p, $s);
+
+   $select->where($s->column('authorId'), 'in', 1, 86570, 50433, 64090, 98836)
+      unless hostname eq 'eric';
+ 
+   $select->order_by($p->column('users'), 'DESC', $s->column('name'), 'ASC' )
+             ->limit($pageSize, $page * $pageSize);
 
    return Fey::Object::Iterator::FromSelect->new(
       classes     => [ $class->meta->ClassForTable($s) ],
