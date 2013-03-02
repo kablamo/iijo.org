@@ -63,9 +63,8 @@ my $completedCards = FlashCards::Model::Schema->SQLFactoryClass()->new_select()
          ->from($sd)
          ->from($us)
         ->where($c->column('definitionId'), '=', $sd->column('definitionId'))
-        ->where($sd->column('setId'),       '=', $us->column('setId'))
-        ->where($c->column('userId'),       '=', $sd->column('userId'))
-        ->where($us->column('userId'),      '=', $sd->column('userId'))
+        ->where($c->column('userId'),       '=', $us->column('userId'))
+        ->where($us->column('setId'),       '=', $sd->column('setId'))
         ->where($us->column('userId'),      '=', Fey::Placeholder->new()) # have to use us.userId here or else sqlite is really really really slow for some reason
         ->where($c->column('nextDate'),     '>', $completedNow);
 
@@ -81,7 +80,6 @@ has 'completedCards' => (
 
 sub cardsLeft {
    my $self = shift or die;
-
    return $self->totalCards - $self->completedCards;
 }
 
