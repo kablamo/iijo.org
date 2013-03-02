@@ -4,6 +4,7 @@ use Fey::Table;
 use Fey::ORM::Table;
 use FlashCards::Model::Schema;
 use MooseX::Params::Validate;
+use Sys::Hostname qw/hostname/;
 with 'FlashCards::Model';
 
 my $schema = FlashCards::Model::Schema->Schema;
