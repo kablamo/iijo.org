@@ -24,6 +24,7 @@
     [% END %]
         -&nbsp;&nbsp;<a href="/sharedsets/byletter/numbers">0-9</a>&nbsp;&nbsp;&nbsp;
         -&nbsp;&nbsp;<a href="/sharedsets">featured</a>&nbsp;&nbsp;&nbsp;
+      <div class="clear"></div>
     </div>
 
     <div class="margin">
@@ -41,6 +42,7 @@
     [% END %]
 
 [% PROCESS more.tt hrefBase = "/sharedsets" topHeight = 1 bottomHeight = 2 %]
+      <div class="clear"></div>
     </div>
 
 [% PROCESS footer.tt %]
