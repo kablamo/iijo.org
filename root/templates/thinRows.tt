@@ -22,6 +22,7 @@
     [% END %]
         </ul>
   [% END %]
+        <div class="clear"></div>
       </div>
   [% PROCESS more.tt hrefBase = "/set/$setId/$setSlug" topHeight = 1 bottomHeight = 2 %]
 [% END %]

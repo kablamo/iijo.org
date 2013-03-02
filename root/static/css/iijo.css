@@ -121,10 +121,10 @@ h6.center
  padding:10px 10px 1px 10px;
 }
 /* menus */
-ul.menu      {list-style:none; padding: .5em; border-top:1px solid #555; width: 10em; background: #444}
+ul.menu      {list-style:none; padding: .5em; width: 10em; background: #444}
 ul.menu li   {margin:0; padding-left: 1em; padding-right: 1em}
 ul.menu li   {margin:0; padding-left: 1em; padding-right: 1em}
-ul.menu li a {display:block; padding: .5em; border-bottom:1px solid #555}
+ul.menu li a {display:block; padding: .5em}
 ul.menu li a:active {background:#555}
 /* submenus */
 ul.menu ul      {list-style:none; margin:0}
@@ -319,10 +319,10 @@ ul.site li.secondary .create            {background: #444; color: #fff}
 ul.site li.secondary .shared            {background: #444; color: #fff}
 ul.site li.secondary .mine              {background: #444; color: #fff}
 /* lists */
-ul.thinRow               {float: left; list-style: none; margin: 0; padding: 0; width: 100%; border-bottom: solid 1px #fff}
+ul.thinRow               {float: left; list-style: none; margin: 0; padding: 0; padding-top: .5em; padding-bottom: .5em; width: 100%}
 ul.thinRow li            {float: left; margin: 0; padding: .5em; padding-top: 0; padding-left: 0}
 ul.thinRow li.simplified {width: 7em; font-size: 2em; line-height: .8em; padding-right: 1em; font-weight: bold}
-ul.thinRow li.english    {width: 30em; padding: 0; padding-bottom: 3em; padding-right: 1em}
+ul.thinRow li.english    {width: 30em; padding: 0; padding-right: 1em}
 ul.thinRow li.button     {width: 6em}
 .pinyin {font-size: .7em; font-weight: normal}
 .floater {
@@ -414,8 +414,7 @@ table.card tr td
  background: transparent;
  color: #333;
 }
-.margin
-{
+.margin {
  margin-top: 1em;
  margin-bottom: 1em;
  margin-left: 8em;
@@ -424,11 +423,10 @@ table.card tr td
  vertical-align: middle;
  background: transparent;
  color: #333;
- border-top: solid 1px transparent;
- border-bottom: solid 1px transparent;
 }
 .coloredBox {
- float: left;
+ padding-top: .1em;
+ padding-bottom: .1em;
  width: 100%;
  background: #eee;
 }
@@ -451,8 +449,6 @@ div#firstTime
  margin: 0;
  background: #fff;
  color: #333;
- border-bottom: solid 1px #fff;
- border-top: solid 1px #fff;
 }
 div#firstTime h1 {
  font-size: 4.0em;
@@ -465,8 +461,6 @@ div#message
  margin: 0;
  background: white;
  color: #333;
- border-bottom: solid 1px white;
- border-top: solid 1px white;
 }
 .header {
  margin: 0;
@@ -506,7 +500,6 @@ div#menuHeaderA
  padding: 0em;
  background: #444;
  color: #333;
- border-bottom: solid 1em #444;
 }
 div#menuHeaderB
 {
@@ -515,7 +508,6 @@ div#menuHeaderB
  padding: 0em;
  background: #555;
  color: #333;
- border-bottom: solid 1em #444;
 }
 div#bigHead
 {
@@ -541,8 +533,6 @@ div#controlPanel
  margin-right: 7.3em;
  color: #000;
  background: #fff;
- border-top: solid 1px #fff;
- border-bottom: solid 1px #fff;
 }
 #username, #password, #email {margin-right: 4em}
 /* alignment */

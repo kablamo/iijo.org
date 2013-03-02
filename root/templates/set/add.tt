@@ -25,19 +25,19 @@
         <input class="pinyin"     type="radio" name="language" value="pinyin"     [% IF l == 'pinyin'     %]checked[% END %]/>Pinyin &nbsp;or 
         <input class="simplified" type="radio" name="language" value="simplified" [% IF l == 'simplified' %]checked[% END %]/>Simplified characters
       </form>
+      <div style="height:0em" class="clear"></div>
     </div>
-    <div style="height:0em" class="clear"></div>
 
 [% IF best.size > 0 %]
     <div class="coloredBox">
   [% PROCESS thinRows.tt definitions = best selectEverything = 1 add = 1 %]
+      <div style="height:0em" class="clear"></div>
     </div>
 [% END %]
 
 [% IF exact.size > 0 %]
-      <div style="height:3em" class="clear"></div>
+      <div style="height:1em" class="clear"></div>
   [% PROCESS thinRows.tt definitions = exact selectEverything = 1 add = 1 %]
-      <div style="height:0em" class="clear"></div>
 [% END %]
 
 [% IF (best.size == 0 && exact.size == 0) %]
