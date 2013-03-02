@@ -10,18 +10,6 @@ use FlashCards::Model::SetOfCards;
 use Fey::DBIManager;
 use DateTime;
 
-=head1 NAME
-
-FlashCards::Controller::mysets::card - Catalyst Controller
-
-=head1 DESCRIPTION
-
-Catalyst Controller.
-
-=head1 METHODS
-
-=cut
-
 sub card : Chained('../mysets') CaptureArgs(1) {
    my ($self, $c, $cardId) = @_; 
    $c->stash->{cardId} = $cardId;
@@ -123,18 +111,5 @@ sub done : Local {
    $c->stash->{template}     = 'card/done.tt';
    $c->forward('/mysets/statbar');
 }
-
-
-
-=head1 AUTHOR
-
-eric,,,
-
-=head1 LICENSE
-
-This library is free software, you can redistribute it and/or modify
-it under the same terms as Perl itself.
-
-=cut
 
 1;
