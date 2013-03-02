@@ -10,16 +10,20 @@ use Sys::Hostname;
 __PACKAGE__->config(namespace => '');
 
 sub index : Private {
-   my ($self, $c, $page) = @_; 
+    my ($self, $c, $page) = @_; 
 
-   $c->user->userId;
-   if ($c->user->guest eq 'n') {
-      $c->response->redirect("/mysets");
-      $c->detach();
-   }
+    $c->user->userId;
+    if ($c->user->guest eq 'n') {
+        $c->response->redirect("/mysets");
+        $c->detach();
+    }
 
-   $c->forward('FlashCards::Controller::sharedsets', 'common', [$page]);
-   $c->stash->{index} = 1;
+    my @sets = FlashCards::Model::PopularSets
+        ->selectAllAsUserSets(page => $page || 0)->all;
+
+    FlashCards::Controller::sharedsets->finish($c, \@sets, $page);
+
+    $c->stash->{index} = 1;
 }
 
 sub default :Path {
