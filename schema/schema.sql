@@ -84,3 +84,10 @@ create table if not exists SelectedDefinition (
    foreign key (definitionId) references Definition (definitionId)
 );
 
+create view if not exists PopularSets as 
+select count(*) as users, setid 
+  from UserSet us, 
+       User u 
+ where us.userId = u.userId 
+   and u.guest = 'n' 
+group by setid;
