@@ -12,6 +12,7 @@ use URI::Escape qw/uri_escape/;
 
 sub login : Local {
    my ($self, $c) = @_; 
+   $c->stash->{jquery} = 1;
 }
 
 sub loginSubmit : Local {
@@ -36,6 +37,7 @@ sub loginSubmit : Local {
 
 sub register : Local {
    my ($self, $c) = @_; 
+   $c->stash->{jquery} = 1;
 }
 
 sub create : Local {
@@ -66,13 +68,8 @@ sub create : Local {
 
 sub logout : Local {
    my ($self, $c) = @_;
-   my $apiKey    = $c->config->{facebook}->{apiKey};
-   my $appSecret = $c->config->{facebook}->{appSecret};
-
    $c->unset_authen_cookie();
-
    $c->_user(undef);
-
    $c->res->redirect("/user/login");
 }  
 
