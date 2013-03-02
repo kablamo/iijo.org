@@ -14,7 +14,6 @@
     </div>
 
 [% IF userSets && userSets.size && userSets.size > 0 %]
-      <div class="clear"></div>
       <div class="margin">
   [% FOREACH us IN userSets %]
         <ul class="horizontal">
@@ -29,6 +28,7 @@
           </li>
         </ul>
   [% END %]
+        <div class="clear"></div>
       </div>
 
   [% PROCESS more.tt hrefBase = "/mysets" topHeight = 1 bottomHeight = 2 %]
@@ -39,7 +39,5 @@
         or <a href="/set/create">create your own set of flashcards</a>
       </div>
 [% END %]
-
-      <div style="height:3em" class="clear"></div>
 
 [% PROCESS footer.tt %]
