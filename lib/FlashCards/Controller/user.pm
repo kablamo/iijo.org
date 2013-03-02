@@ -9,30 +9,6 @@ use Data::TreeDumper;
 use Fey::DBIManager;
 use FlashCards::Model::User;
 use URI::Escape qw/uri_escape/;
-#use LWPx::ParanoidAgent;
-#use Net::OpenID::Consumer;
-#use WWW::Facebook::API;
-
-#our $API_KEY    = "650f21530149f58ea7314240cbb5f38b";
-#our $APP_SECRET = "d7d1a0bc9d6a8989d2c95b130823829c";
-
-=head1 NAME
-
-FlashCards::Controller::user - Catalyst Controller
-
-=head1 DESCRIPTION
-
-Catalyst Controller.
-
-=head1 METHODS
-
-=cut
-
-
-=head2 index 
-
-=cut
-
 
 sub login : Local {
    my ($self, $c) = @_; 
@@ -170,16 +146,5 @@ sub usernameSubmit : Local {
    $c->response->redirect("/user/$userId/$username");
 }
 
-
-=head1 AUTHOR
-
-eric,,,
-
-=head1 LICENSE
-
-This library is free software, you can redistribute it and/or modify
-it under the same terms as Perl itself.
-
-=cut
 
 1;
