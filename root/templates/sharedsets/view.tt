@@ -23,7 +23,7 @@
         </a>&nbsp;&nbsp;
     [% END %]
         -&nbsp;&nbsp;<a href="/sharedsets/byletter/numbers">0-9</a>&nbsp;&nbsp;&nbsp;
-        -&nbsp;&nbsp;<a href="/sharedsets/featured">featured</a>&nbsp;&nbsp;&nbsp;
+        -&nbsp;&nbsp;<a href="/sharedsets">featured</a>&nbsp;&nbsp;&nbsp;
     </div>
 
     <div class="margin">
