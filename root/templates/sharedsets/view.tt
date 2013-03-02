@@ -20,10 +20,10 @@
     [% FOREACH letter IN alphabet %]
         <a href="/sharedsets/byletter/[% letter %]">
             [% IF letter == currentLetter %][% letter FILTER upper %][% ELSE %][% letter %][% END %]
-        </a>&nbsp;&nbsp;&nbsp;
+        </a>&nbsp;&nbsp;
     [% END %]
-        -&nbsp;&nbsp;&nbsp;<a href="/sharedsets/byletter/numbers">0-9</a>&nbsp;&nbsp;&nbsp;
-        -&nbsp;&nbsp;&nbsp;<a href="/sharedsets/featured">featured</a>&nbsp;&nbsp;&nbsp;
+        -&nbsp;&nbsp;<a href="/sharedsets/byletter/numbers">0-9</a>&nbsp;&nbsp;&nbsp;
+        -&nbsp;&nbsp;<a href="/sharedsets/featured">featured</a>&nbsp;&nbsp;&nbsp;
     </div>
 
     <div class="margin">
