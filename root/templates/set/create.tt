@@ -7,23 +7,27 @@
  
     <div class="margin">
       <div class="leftHalf">
-        <script type="text/javascript">
-          var RecaptchaOptions = {
-             theme : 'clean'
-          };
-        </script>
         <form id="createSetForm" action="/set/createSubmit">
           set name
           <h4>
-            <input class="textInputFullWidth sround" name="name" type="text">
+            <input class="textInputFullWidth sround" name="name" type="text" value="[% setName %]">
           </h4>
           <br>
           set description
           <h4>
-            <textarea rows=4 name="description"></textarea>
+            <textarea rows=4 name="description">[% description %]</textarea>
           </h4>
+[% IF user.guest == 'y' %]
           <br>
-          [% recaptcha %]
+          <br>
+          Prove you are human.  [% questionText %]
+          <h4>
+            <input type="hidden" name="question" value="[% question %]">
+            <input class="textInputFullWidth sround" name="answer" type="text">
+          </h4>
+[% END %]
+          <br>
+          <br>
           <button type="submit"><h5>create set</h5></button>
         </form>
       </div>

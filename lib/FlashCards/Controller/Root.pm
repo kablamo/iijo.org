@@ -4,7 +4,6 @@ use namespace::autoclean;
 
 BEGIN { extends 'Catalyst::Controller' }
 
-use Captcha::reCAPTCHA;
 use Sys::Hostname;
 
 __PACKAGE__->config(namespace => '');
@@ -42,43 +41,6 @@ sub slugify : Private {
    $url = lc($url);
    $url =~ s/\s+/-/g;
    $c->stash->{slug} = $url;
-}
-
-sub getReCaptchaHtml : Private {
-   my ($self, $c) = @_;
-   my $publicKey = FlashCards->config->{recaptcha}->{publicKey};
-   my $rc = Captcha::reCAPTCHA->new;
-   $c->stash->{'recaptcha'} = $rc->get_html($publicKey);
-}
-
-sub checkReCaptchaResponse : Private {
-   my ($self, $c) = @_;
-
-   # validate
-   Catalyst::Exception->throw("the recaptcha_challenge_field is empty")
-      unless defined $c->req->params->{recaptcha_challenge_field};
-   Catalyst::Exception->throw("the recaptcha_response_field is empty")
-      unless defined $c->req->params->{recaptcha_response_field};
-
-   my $privateKey = FlashCards->config->{recaptcha}->{privateKey};
-   my $rc         = Captcha::reCAPTCHA->new;
-   my $result     = $rc->check_answer(
-         $privateKey, 
-         $c->req->address,
-         $c->req->params->{recaptcha_challenge_field},
-         $c->req->params->{recaptcha_response_field},
-   );
-
-   if ($result eq 'HASH' && exists $result->{is_valid}) {
-      $c->stash->{recaptchaOk} = 1;
-      $c->stash->{recaptchaError} = $result->{error} 
-         if ref $result eq 'HASH';
-      return 1;
-   }
-
-   $c->stash->{message} = "You might be a robot.  You didn't pass the reCAPTCHA test.  Try again.";
-   $c->stash->{recaptchaOk} = 0;
-   return 0;
 }
 
 sub updateCard : Private {

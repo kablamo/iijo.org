@@ -18,20 +18,56 @@ use aliased 'FlashCards::Model::UserSet';
 sub create : Local Args {
    my ($self, $c, $error) = @_;
 
-   $c->forward('/getReCaptchaHtml') 
+   $self->proveYouAreHuman($c)
       if $c->user->guest eq 'y';
+}
+
+my @humanTests = ({ 
+    question => "What planet are you from?",
+    answer   => "Earth",
+},{
+    question => "Do you have rocket boots or lazer beam eyes?",
+    answer   => "No",
+},{
+    question => "Spell underpants backwards.",
+    answer   => "stnaprednu",
+},{
+    question => "How many fingers and toes do you have?",
+    answer   => "20",
+},{
+    question => "What do you do when you get tired each night?  Hint: robots never do this.",
+    answer   => "sleep",
+});
+
+sub proveYouAreHuman : Private {
+    my ($self, $c) = @_;
+    my $random = int rand(scalar @humanTests);
+    $c->stash->{question}     = $random;
+    $c->stash->{questionText} = $humanTests[$random]->{question};
+}
+
+sub youAreNotHuman : Private {
+    my ($self, $c) = @_;
+    my $q = $c->req->params->{question};
+    my $a = $c->req->params->{answer};
+    my $answer = $humanTests[$q]->{answer};
+    return 1 unless $q < scalar @humanTests;
+    return 1 unless $q >= 0;
+    return 1 unless $q == int($q);
+    return 0 if $a =~ /^$answer$/i;
+    return 1;
 }
 
 sub createSubmit : Local {
    my ($self, $c) = @_;
 
-   if ($c->user->guest eq 'y') {
-      $c->forward('/checkReCaptchaResponse');
-      unless ($c->stash->{recaptchaOk}) {
-         $c->forward('/set/create');
-         $c->stash->{template} = 'set/create.tt';
-         $c->detach;
-      }
+   if ($c->user->guest eq 'y' && $self->youAreNotHuman($c)) {
+        $c->forward('/set/create');
+        $c->stash->{setName}     = $c->req->params->{name};
+        $c->stash->{description} = $c->req->params->{description};
+        $c->stash->{template}    = 'set/create.tt';
+        $c->stash->{message}     = "You failed to prove you are human.  You might be a robot.  Bad robot.";
+        $c->detach;
    }
 
    # validate
