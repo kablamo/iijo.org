@@ -60,11 +60,6 @@ __PACKAGE__->config(
     
     authen_cookie       => { mac_secret => '123456789' },
 
-    recaptcha           => {
-        publicKey  => '6Le31rwSAAAAAP_YNUSySH8-joJ7D8qfvYhyxvib',
-        privateKey => '123',
-    },
-
     encoding => 'UTF-8',
 );
 
