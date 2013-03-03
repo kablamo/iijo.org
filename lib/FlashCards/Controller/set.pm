@@ -66,7 +66,7 @@ sub createSubmit : Local {
         $c->stash->{setName}     = $c->req->params->{name};
         $c->stash->{description} = $c->req->params->{description};
         $c->stash->{template}    = 'set/create.tt';
-        $c->stash->{message}     = "You failed to prove you are human.  You might be a robot.  Bad robot.";
+        $c->stash->{error}       = "You failed to prove you are human.  You might be a robot.  Bad robot.";
         $c->detach;
    }
 

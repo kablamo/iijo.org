@@ -45,9 +45,6 @@ sub view : Path('/mysets') Args {
    $page = 0 
       if !defined $page;
 
-   $c->stash->{message} = '<h6>Thanks for creating an account.  If you need any helping getting started, check out the <a href="/faq">faq</a>.</h6>'
-      if scalar(@_) == 4;
-
    my @userSets = FlashCards::Model::UserSet->selectMany(
       userId => $c->user->userId,
       page   => $page,
