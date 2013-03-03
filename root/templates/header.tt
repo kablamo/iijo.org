@@ -35,6 +35,9 @@
   </head>
   <body>
 
+[% IF error %]
+      <div id="error">[% error %]</div>
+[% END %]
 [% IF message %]
       <div id="message">[% message %]</div>
 [% END %]
