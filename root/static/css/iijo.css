@@ -454,13 +454,23 @@ div#firstTime h1 {
  font-size: 4.0em;
  font-weight: bold;
 }
-div#message 
+#message 
 {
  padding: 1em;
  padding-left: 9em;
  padding-right: 9em;
- background: orangered;
- color: #333;
+ background: #009947;
+ border-bottom: solid 3px #5eea52;
+ color: #fff;
+}
+#error
+{
+ padding: 1em;
+ padding-left: 9em;
+ padding-right: 9em;
+ background: #f51400;
+ border-bottom: solid 3px #ff4400;
+ color: #fff;
 }
 .header {
  margin: 0;
