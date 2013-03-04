@@ -207,6 +207,7 @@ h1.dictionary a  {text-decoration: none}
 h1#bigDictionary {font-size: 6em; line-height: 1em}
 h5.message a     {background: #555}
 h5.message       {font-weight: normal}
+h2 {font-weight: bold}
 /* forms */
 form {margin: 0; padding: 0}
 input, select, textarea, label, button {font: 12px "Droid Sans", FreeSans, sans-serif}
