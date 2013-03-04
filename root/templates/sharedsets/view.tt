@@ -3,11 +3,16 @@
 [% IF index %]
     <div id="firstTime">
       <h1>CHINESE FLASHCARDS</h1>
+      <h2>Less typing and more accuracy</h2>  Select vocabulary from a dictionary
+      <h2>Spaced repetition</h2> Spaced repetition helps you memorize vocabulary faster
+      <h2>3 sided flashcards</h2> Quiz yourself on English, Chinese, and Pinyin
+      <br>
+      <br>
       <h4>
-        To get started choose one of the flashcard sets below&nbsp;&nbsp;
+        Get started now!  Choose one of the flashcard sets below
         <img style="vertical-align: middle;" src="images/icojoy4/001_22.png">
+        or <a href="/set/create">create your own flashcards</a>
       </h4>
-      (or <a href="/set/create">create your own</a>)
     </div>
 [% END %]
 
