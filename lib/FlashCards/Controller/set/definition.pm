@@ -9,7 +9,6 @@ use FlashCards::Model::Definition;
 use FlashCards::Model::SetOfCards;
 use Fey::DBIManager;
 use DateTime;
-use Data::TreeDumper;
 use URI::Escape;
 
 =head1 NAME

@@ -4,7 +4,6 @@ use strict;
 use warnings;
 use base 'Catalyst::Controller';
 
-use Data::TreeDumper;
 use FlashCards::Model::SetOfCards;
 use FlashCards::Model::Definition;
 use Fey::DBIManager;

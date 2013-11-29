@@ -2,7 +2,6 @@ package CatalystX::FlashCards::User;
 use Moose::Role;
 use feature qw/say/;
 
-use Data::Dumper::Concise;
 use FlashCards::Model::User;
 
 

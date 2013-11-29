@@ -5,7 +5,6 @@ use warnings;
 use base 'Catalyst::Controller';
 
 use Authen::Passphrase::BlowfishCrypt;
-use Data::TreeDumper;
 use Fey::DBIManager;
 use FlashCards::Model::User;
 use URI::Escape qw/uri_escape/;
