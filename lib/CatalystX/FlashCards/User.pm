@@ -79,11 +79,6 @@ sub _createNewUser {
         username => $username, 
         guest    => $guest,
     });
-    FlashCards::Schema->rs('Preference')->create({ 
-        userId       => $user->userId,
-        currencyCode => 'USD', 
-        lastChanged  => FlashCards::Utils->now->ymd,
-    });
     
     $self->_setAuthenCookie($user->userId);
 

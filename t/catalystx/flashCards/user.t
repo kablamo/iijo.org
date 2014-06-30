@@ -14,7 +14,6 @@ subtest '_createNewUser() with no username' => sub {
     my $user = $consumer->_createNewUser();
     isa_ok $user, 'FlashCards::Schema::Result::User';
     is $user->guest, 'y';
-    is $user->preferences->currencyCode, 'USD';
 };
 
 my $user;
@@ -29,7 +28,6 @@ subtest '_createNewUser() with a username' => sub {
     isa_ok $user, 'FlashCards::Schema::Result::User';
     is $user->guest, 'n';
     is $user->username, 'Batman';
-    is $user->preferences->currencyCode, 'USD';
 };
 
 subtest '_createNewUser() with a username that already exists' => sub {
@@ -52,7 +50,6 @@ subtest '_getUserFromAuthenCookie()' => sub {
     isa_ok $cookie_user, 'FlashCards::Schema::Result::User';
     is $cookie_user->guest, 'n';
     is $cookie_user->username, 'Batman';
-    is $cookie_user->preferences->currencyCode, 'USD';
 };
 
 subtest 'user()' => sub {
@@ -66,7 +63,6 @@ subtest 'user()' => sub {
     isa_ok $cookie_user, 'FlashCards::Schema::Result::User';
     is $cookie_user->guest, 'n';
     is $cookie_user->username, 'Batman';
-    is $cookie_user->preferences->currencyCode, 'USD';
 };
 
 
