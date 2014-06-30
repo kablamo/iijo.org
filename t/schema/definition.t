@@ -13,7 +13,6 @@ subtest 'pinyin inflation' => sub {
     my $definition = FlashCards::Schema->rs('Definition')
         ->limit(1)
         ->next;
-   #is ref $definition->pinyin, 'CEDict::Pinyin', 'test object type';
     unlike $definition->pinyin, qr/[1234]/, 'number converted to diacritics';
 };
 
