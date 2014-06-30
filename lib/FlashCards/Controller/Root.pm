@@ -2,11 +2,22 @@ package FlashCards::Controller::Root;
 use Moose;
 use namespace::autoclean;
 
+use FlashCards::Utils;
+
 BEGIN { extends 'Catalyst::Controller' }
 
-use Sys::Hostname;
 
 __PACKAGE__->config(namespace => '');
+
+my $dev = FlashCards::Utils->dev_mode;
+
+sub begin : Private {
+    my ($self, $c) = @_;
+    $c->stash->{dev} = $dev;
+    $c->stash->{psgixAssets} = $c->engine->env->{'psgix.assets'};
+    FlashCards::Model::Schema->ClearObjectCaches();
+    FlashCards::Utils->clearNow;
+}
 
 sub index : Private {
     my ($self, $c, $page) = @_; 
@@ -67,12 +78,6 @@ $c->log->info("====== updated difficulty.  cardId: " . $c->stash->{cardId} . ", 
    }
 }
 
-sub begin : Private {
-   my ($self, $c) = @_;
-   FlashCards::Model::Schema->ClearObjectCaches();
-   $c->stash->{hostname} = hostname;
-}
-
 sub end : ActionClass('RenderView') {
     my $self = shift;
     my $c    = shift;
@@ -88,6 +93,7 @@ sub end : ActionClass('RenderView') {
        unless $c->response->content_type;
     $c->response->header('Cache-Control' => 'no-cache');
 }
+sub rs { FlashCards::Schema->rs($_[1]) }
 
 __PACKAGE__->meta->make_immutable;
 

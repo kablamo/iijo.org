@@ -1,6 +1,8 @@
 flashcards.conf
 flashcards.yml
 flashcards.db
+flashcards.db.dev
+flashcards.db.test
 errors
 access
 local

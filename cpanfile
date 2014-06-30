@@ -2,12 +2,7 @@
 requires 'Moose';
 requires 'MooseX::Params::Validate';
 requires 'MooseX::ClassAttribute';
-
-# Plack stuff
-requires 'Plack';
-requires 'Plack::Middleware::Deflater';
-requires 'Plack::Middleware::AccessLog::Timed';
-requires 'Plack::Middleware::Assets';
+requires 'AnyEvent';
 
 # Catalyst stuff
 requires 'Catalyst';
@@ -20,13 +15,37 @@ requires 'Catalyst::Plugin::ConfigLoader';
 requires 'Catalyst::Plugin::Log::Dispatch';
 requires 'Catalyst::Plugin::StackTrace';
 requires 'CatalystX::AuthenCookie';
+requires 'CatalystX::Test::MockContext';
+
+# Catalyst Devel stuff
+requires 'Catalyst::Devel';
+requires 'Catalyst::Helper::Model::DBIC::Schema';
+requires 'MooseX::MarkAsMethods';
+requires 'MooseX::NonMoose';
+requires 'MooseX::Test::Role';
+
+# Plack stuff
+requires "Plack";
+requires 'Plack::Middleware::Deflater';
+requires 'Plack::Middleware::AccessLog::Timed';
+requires 'Plack::Middleware::Assets';
+requires 'Plack::Middleware::Rewrite';
+requires 'Server::Starter';
+requires 'Starman';
+requires 'Net::Server::SS::PreFork';
 
 # database stuff
 requires 'DBD::SQLite';
 requires 'DBI';
+requires 'DBIx::Class';
+requires "DBIx::Class::Schema::Loader";
+requires "DBIx::Class::FilterColumn";
+requires "DBIx::Class::InflateColumn::Authen::Passphrase";
+requires "DBIx::Class::Helpers";
+requires "SQL::Translator";
 requires 'Fey';
 requires 'Fey::Loader';
-requires 'Fey::ORM';
+requires 'Fey::ORM', '0.43';
 
 # random web stuff
 requires 'Authen::Passphrase';
@@ -45,6 +64,19 @@ requires 'List::MoreUtils';
 requires 'Log::Dispatch';
 requires 'Log::Dispatch::Config';
 requires 'Path::Class';
+requires 'Directory::Scratch';
+requires 'Number::Format';
+requires 'Math::Round';
+requires 'Data::Currency';
+requires 'Text::CSV';
+requires 'Text::Diff';
+requires 'Locale::Currency';
+requires 'File::Copy';
+requires 'DateTime::Format::SQLite';
+requires 'DateTime::Format::Natural';
+requires 'List::AllUtils';
+requires 'Clone';
+requires 'List::Util';
 
 # testing
 requires 'Data::Printer';

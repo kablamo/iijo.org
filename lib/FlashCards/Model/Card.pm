@@ -34,6 +34,7 @@ sub difficultCards {
    my $strfNext = Fey::Literal::Function->new('strftime', '%s', $c->column('nextDate'));
    my $coalesce = Fey::Literal::Function->new('coalesce', $strfNext, $future);
    my $orderBy  = Fey::Literal::Term->new($strfNow, '-', $coalesce);
+   # order by strftime('%s', datetime('now')) - coalesce(strftime('%s', nextDate), '2142081107');
    my $select   = FlashCards::Model::Schema->SQLFactoryClass()->new_select()
        ->select($c)
          ->from($c)
