@@ -20,12 +20,12 @@ subtest 'difficult' => sub {
         ->limit(3);
 
     is $difficult_cards->next->nextDate->ymd, 
-    DateTime->today->add(days => -1)->ymd, 
-    'difficulty 2';
+       DateTime->today->add(days => -1)->ymd, 
+       'difficulty 2';
 
     is $difficult_cards->next->nextDate->ymd, 
-    DateTime->today->add(days => -2)->ymd, 
-    'difficulty 1';
+       DateTime->today->add(days => -2)->ymd, 
+       'difficulty 1';
 };
 
 done_testing;
