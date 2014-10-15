@@ -9,7 +9,6 @@ use FlashCards::Model::Definition;
 use FlashCards::Model::SetOfCards;
 use Fey::DBIManager;
 use DateTime;
-use Data::TreeDumper;
 use URI::Escape;
 
 =head1 NAME
@@ -56,7 +55,7 @@ sub add : Chained('definition') Args(0) {
    $c->res->redirect("/set/$setId/" . uri_escape($userSet->set->name));
 }
 
-# only the set owner has permission to add definitions
+# only the set owner has permission to remove definitions
 sub remove : Chained('definition') Args(0) {
    my ($self, $c) = @_; 
    my $setId        = $c->stash->{setId};
@@ -72,7 +71,7 @@ sub remove : Chained('definition') Args(0) {
       setId        => $setId,
       definitionId => $definitionId,
    );
-   Catalyst::Exception->throw("you don't have permission to delete this word because you aren't the person who added the word to this set")
+   Catalyst::Exception->throw("you don't have permission to delete this word because you aren't the set owner")
       unless $c->user->userId == $setDefinition->authorId;
 
    $setDefinition->remove(

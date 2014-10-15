@@ -4,7 +4,6 @@ use strict;
 use warnings;
 use base 'Catalyst::Controller';
 
-use Data::TreeDumper;
 use Fey::DBIManager;
 use FlashCards::Model::User;
 use DateTime;

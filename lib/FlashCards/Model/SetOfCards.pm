@@ -4,7 +4,6 @@ use MooseX::Params::Validate;
 use Fey::ORM::Table;
 use FlashCards::Model::Schema;
 use HTML::Scrubber;
-use Data::Dumper::Concise;
 with 'FlashCards::Model';
 
 my $schema = FlashCards::Model::Schema->Schema;
